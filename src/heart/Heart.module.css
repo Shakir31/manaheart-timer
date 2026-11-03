@@ -1,8 +1,12 @@
-/* Ring and heart motion, ported from design/pages/.../source/mh.css. See Motion.md. */
+/* Ring and heart motion. Ported from design/pages/.../source/mh.css (see Motion.md), with
+   one deliberate change requested by the owner: the heart BEATS (a lub-dub pulse, with
+   halo and ripple in time) instead of slowly breathing, the forming ring has flowing
+   motes, and gathering sparks drift inward. The tempo comes from --beat on .root. */
 .root {
   aspect-ratio: 1 / 1;
   max-width: 100%;
   margin: 0 auto;
+  --beat: 1.3s;
 }
 .root svg {
   display: block;
@@ -11,25 +15,79 @@
   overflow: visible;
 }
 
+/* ---- Heartbeat ------------------------------------------------------------ */
+.beat {
+  transform-origin: 200px 200px;
+  animation: beat var(--beat) ease-out infinite;
+}
+.beatSoft {
+  transform-origin: 200px 200px;
+  animation: beat-soft var(--beat) ease-out infinite;
+}
+.haloBeat {
+  transform-origin: 200px 200px;
+  animation: halo-beat var(--beat) ease-out infinite;
+}
+.ripple {
+  transform-origin: 200px 200px;
+  animation: ripple var(--beat) ease-out infinite;
+}
+
+@keyframes beat {
+  0% { transform: scale(1); opacity: 0.85; }
+  10% { transform: scale(1.18); opacity: 1; }
+  18% { transform: scale(1.03); opacity: 0.92; }
+  28% { transform: scale(1.12); opacity: 1; }
+  45%, 100% { transform: scale(1); opacity: 0.85; }
+}
+@keyframes beat-soft {
+  0% { transform: scale(1); opacity: 0.85; }
+  12% { transform: scale(1.08); opacity: 1; }
+  20% { transform: scale(1.02); }
+  30% { transform: scale(1.06); opacity: 0.95; }
+  50%, 100% { transform: scale(1); opacity: 0.85; }
+}
+@keyframes halo-beat {
+  0% { transform: scale(1); opacity: 0.8; }
+  12% { transform: scale(1.07); opacity: 1; }
+  30% { transform: scale(1.04); opacity: 0.95; }
+  55%, 100% { transform: scale(1); opacity: 0.8; }
+}
+/* A thin ring pushed outward by each beat, fading as it goes. */
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0; }
+  8% { transform: scale(1.05); opacity: 0.7; }
+  70% { transform: scale(3.2); opacity: 0; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+
+/* ---- Rings ---------------------------------------------------------------- */
 .flow { animation: flow var(--dur-ring) linear infinite; }
 .flowReverse { animation: flow-reverse var(--dur-ring-alt) linear infinite; }
 .wobble { transform-origin: 200px 200px; animation: wobble var(--dur-wobble) ease-in-out infinite alternate; }
 .flicker { animation: flicker var(--dur-flicker) steps(1, end) infinite; }
+.sway { transform-origin: 200px 200px; animation: sway 7s ease-in-out infinite alternate; }
+
+/* Forming ring: shimmering arc, drifting ghost, motes flowing to a pulsing tip. */
 .forming { animation: forming 2.6s ease-in-out infinite alternate; }
 .arc { transition: stroke-dasharray var(--dur-arc) var(--ease-grow); }
-.sway { transform-origin: 200px 200px; animation: sway 7s ease-in-out infinite alternate; }
-.breathe { transform-origin: 200px 200px; animation: breathe var(--dur-pulse) ease-in-out infinite alternate; }
-.breatheSlow { transform-origin: 200px 200px; animation: breathe 6s ease-in-out infinite alternate; }
-.breatheQuick { transform-origin: 200px 200px; animation: breathe 3s ease-in-out infinite alternate; }
-.gather { transform-origin: 200px 200px; animation: gather 9s ease-in-out infinite alternate; }
-.spin { transform-origin: 200px 200px; animation: spin 90s linear infinite; }
-.collapse { transform-origin: 200px 200px; animation: collapse var(--dur-collapse) var(--ease-collapse) both; }
-.flare { transform-origin: 200px 200px; animation: flare var(--dur-collapse) ease-in both; }
-.twinkle { animation: twinkle 4s ease-in-out infinite alternate; }
-.stream { animation: stream 2.4s linear infinite; }
+.ghostDrift { animation: flow 24s linear infinite; }
+.arcFlow { animation: arc-flow 2.2s linear infinite; }
+.tip {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tip var(--beat) ease-out infinite;
+}
+.tipHalo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tip-halo var(--beat) ease-out infinite;
+}
 
 @keyframes flow { to { stroke-dashoffset: -400; } }
 @keyframes flow-reverse { to { stroke-dashoffset: 400; } }
+/* Positive offset moves the motes back along the path, toward the tip at its start. */
+@keyframes arc-flow { to { stroke-dashoffset: 70; } }
 @keyframes wobble {
   0% { transform: rotate(-2.2deg) translate(1px, -1px); }
   100% { transform: rotate(2.6deg) translate(-2px, 1px); }
@@ -38,19 +96,64 @@
   0% { opacity: 1; } 12% { opacity: 0.45; } 15% { opacity: 0.95; } 48% { opacity: 0.7; }
   51% { opacity: 0.3; } 54% { opacity: 0.85; } 80% { opacity: 0.6; }
 }
-@keyframes forming { from { opacity: 0.5; } to { opacity: 1; } }
+@keyframes forming { from { opacity: 0.6; } to { opacity: 1; } }
 @keyframes sway {
   0% { transform: translate(0, -4px) rotate(-1.5deg); }
   100% { transform: translate(0, 4px) rotate(1.5deg); }
 }
-@keyframes breathe {
-  from { transform: scale(1); opacity: 0.88; }
+@keyframes tip {
+  0%, 45%, 100% { transform: scale(1); opacity: 0.85; }
+  12% { transform: scale(1.9); opacity: 1; }
+}
+@keyframes tip-halo {
+  0%, 60%, 100% { transform: scale(0.6); opacity: 0; }
+  14% { transform: scale(1.4); opacity: 0.45; }
+}
+
+/* ---- Gathering ------------------------------------------------------------ */
+.nebula {
+  transform-origin: 200px 205px;
+  animation: nebula 6s ease-in-out infinite alternate;
+}
+.seed {
+  transform-origin: 200px 200px;
+  animation: seed 2.6s ease-out infinite;
+}
+/* The whole field turns slowly, so straight inward drifts read as a spiral. */
+.swirl {
+  transform-origin: 200px 200px;
+  animation: spin 50s linear infinite;
+}
+.converge {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: converge;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.75, 0.6);
+  animation-iteration-count: infinite;
+}
+
+@keyframes nebula {
+  from { transform: scale(0.94); opacity: 0.7; }
   to { transform: scale(1.06); opacity: 1; }
 }
-@keyframes gather {
-  from { transform: scale(1.12) rotate(-6deg); }
-  to { transform: scale(0.9) rotate(6deg); }
+@keyframes seed {
+  0%, 60%, 100% { transform: scale(0.85); opacity: 0.35; }
+  15% { transform: scale(1.25); opacity: 0.8; }
 }
+@keyframes converge {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  15% { opacity: 1; }
+  75% { opacity: 0.9; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.25); opacity: 0; }
+}
+
+/* ---- Other ---------------------------------------------------------------- */
+.spin { transform-origin: 200px 200px; animation: spin 90s linear infinite; }
+.collapse { transform-origin: 200px 200px; animation: collapse var(--dur-collapse) var(--ease-collapse) both; }
+.flare { transform-origin: 200px 200px; animation: flare var(--dur-collapse) ease-in both; }
+.twinkle { animation: twinkle 4s ease-in-out infinite alternate; }
+.stream { animation: stream 2.4s linear infinite; }
+
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes collapse {
   0% { transform: scale(1); opacity: 1; }
@@ -65,11 +168,20 @@
 @keyframes twinkle { from { opacity: 0.12; } to { opacity: 0.9; } }
 @keyframes stream { to { stroke-dashoffset: -120; } }
 
-/* Reduced motion: everything holds still; unstable rings stay broken at 60% (Motion.md). */
+/* Reduced motion: everything holds still. The ripple and moving motes are hidden, and
+   gathering sparks rest where they start; unstable rings stay broken at 60% (Motion.md). */
 @media (prefers-reduced-motion: reduce) {
   .root * {
     animation: none !important;
     transition: none !important;
+  }
+  .ripple,
+  .arcFlow,
+  .tipHalo {
+    display: none;
+  }
+  .converge {
+    opacity: 0.7;
   }
   .collapse { opacity: 0; transition: opacity 400ms !important; }
 }

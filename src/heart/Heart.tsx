@@ -1,6 +1,6 @@
 // The mana heart: core, halo and up to five tilted rings. Drawn from a HeartModel so
 // the drawing stays dumb; all decisions live in heartModel.ts.
-import { useId } from 'react'
+import { useId, type CSSProperties } from 'react'
 import { PALETTES, streamTarget, type HeartModel, type HeartVariant, type RingSpec } from './heartModel'
 import styles from './Heart.module.css'
 
@@ -23,12 +23,30 @@ export interface HeartProps {
   streams?: boolean
 }
 
-const SPARKS: [number, number, number, number][] = [
-  [120, 150, 1.6, 0], [270, 130, 1.2, -1], [230, 270, 1.8, -2], [150, 250, 1.1, -0.5],
-  [200, 195, 2.4, -1.7], [310, 210, 1, -2.4], [90, 215, 1.3, -0.9], [180, 110, 1, -2.9],
-  [250, 200, 1.4, -1.3], [175, 220, 1.2, -0.2], [220, 160, 0.9, -2.1], [290, 290, 0.9, -1.1],
-  [120, 300, 0.8, -2.6], [205, 230, 1.6, -3.3],
-]
+/** Seconds per heartbeat for each pulse mode. */
+const BEAT = { normal: 1.3, slow: 2, quick: 0.95 } as const
+
+/**
+ * Gathering sparks: scattered around the centre, each drifting most of the way in
+ * before fading and starting again. Deterministic so renders and tests are stable.
+ */
+const SPARKS = Array.from({ length: 26 }, (_, i) => {
+  const angle = i * 2.399963 // golden angle spreads them evenly
+  const radius = 70 + ((i * 37) % 95)
+  const x = 200 + radius * Math.cos(angle)
+  const y = 200 + radius * 0.78 * Math.sin(angle)
+  return {
+    x: Math.round(x),
+    y: Math.round(y),
+    r: 1.4 + ((i * 7) % 10) / 5,
+    bright: i % 3 === 0,
+    // Travel 85% of the way to the centre.
+    dx: Math.round((200 - x) * 0.85),
+    dy: Math.round((200 - y) * 0.85),
+    duration: 4.5 + ((i * 13) % 40) / 10,
+    delay: -((i * 0.73) % 8),
+  }
+})
 const STARS: [number, number, number, number][] = [
   [70, 120, 1.2, 0], [320, 96, 1, -1], [104, 318, 1.3, -2.2], [300, 334, 0.9, -3],
   [250, 60, 0.8, -0.6], [40, 236, 0.9, -2.8],
@@ -43,11 +61,11 @@ export function Heart({
   const dense = model.dense
   const formed = model.rings.filter((r) => r.status !== 'forming').length
   const haloR = dense && model.rings.length === 0 ? 150 : 110 + formed * 5 + (dense ? 10 : 0)
-  const coreClass = collapsing ? styles.flare : pulse === 'slow' ? styles.breatheSlow : pulse === 'quick' ? styles.breatheQuick : styles.breathe
+  const coreClass = collapsing ? styles.flare : pulse === 'slow' ? styles.beatSoft : styles.beat
   const ringFilter = variant === 'elemental' ? `flame-${id}` : `glow-${id}`
 
   return (
-    <div className={styles.root} style={{ width: size, opacity: dim }}>
+    <div className={styles.root} style={{ width: size, opacity: dim, '--beat': `${BEAT[pulse]}s` } as CSSProperties}>
       <svg
         viewBox="0 0 400 400"
         role={decorative ? undefined : 'img'}
@@ -83,20 +101,44 @@ export function Heart({
 
         {model.phase === 'gathering' ? (
           <g data-part="gathering">
-            <ellipse cx="200" cy="205" rx="150" ry="110" fill={`url(#nebula-${id})`} />
-            <g className={styles.gather} fill={c.facet}>
-              {SPARKS.map(([x, y, r, d]) => (
-                <circle key={`${x}-${y}`} className={styles.twinkle} cx={x} cy={y} r={r} style={{ animationDelay: `${d}s` }} />
+            <ellipse className={styles.nebula} cx="200" cy="205" rx="150" ry="110" fill={`url(#nebula-${id})`} />
+            {/* A faint seed of light at the centre, beating softly. */}
+            <circle className={styles.seed} cx="200" cy="200" r="34" fill={`url(#halo-${id})`} data-part="seed" />
+            <g className={styles.swirl} filter={`url(#glow-${id})`}>
+              {SPARKS.map((p) => (
+                <circle
+                  key={`${p.x}-${p.y}`}
+                  className={styles.converge}
+                  cx={p.x}
+                  cy={p.y}
+                  r={p.r}
+                  fill={p.bright ? c.core : c.h1}
+                  data-part="spark"
+                  style={{
+                    '--dx': `${p.dx}px`,
+                    '--dy': `${p.dy}px`,
+                    animationDuration: `${p.duration}s`,
+                    animationDelay: `${p.delay}s`,
+                  } as CSSProperties}
+                />
               ))}
             </g>
           </g>
         ) : (
           <>
-            <circle className={collapsing ? styles.flare : undefined} cx="200" cy="200" r={haloR} fill={`url(#halo-${id})`} />
+            <circle className={collapsing ? styles.flare : styles.haloBeat} cx="200" cy="200" r={haloR} fill={`url(#halo-${id})`} />
+            {!collapsing && (
+              <circle
+                className={styles.ripple}
+                cx="200" cy="200" r={dense ? 36 : 27}
+                fill="none" stroke={c.h1} strokeWidth="1"
+                data-part="ripple"
+              />
+            )}
             <g className={collapsing ? styles.collapse : undefined}>
               <g filter={`url(#${ringFilter})`} fill="none">
                 {[...model.rings].reverse().map((r) => (
-                  <Ring key={r.index} ring={r} variant={variant} softId={`soft-${id}`} />
+                  <Ring key={r.index} ring={r} variant={variant} softId={`soft-${id}`} maskId={`arc-${id}-${r.index}`} />
                 ))}
               </g>
             </g>
@@ -129,7 +171,7 @@ export function Heart({
   )
 }
 
-function Ring({ ring, variant, softId }: { ring: RingSpec; variant: HeartVariant; softId: string }) {
+function Ring({ ring, variant, softId, maskId }: { ring: RingSpec; variant: HeartVariant; softId: string; maskId: string }) {
   const c = PALETTES[variant]
   const { rx, ry, tilt, index } = ring
   const color = variant === 'arcane' && index % 2 ? c.alt : variant === 'elemental' && index === 0 ? c.alt : c.line
@@ -164,13 +206,28 @@ function Ring({ ring, variant, softId }: { ring: RingSpec; variant: HeartVariant
       )}
       {ring.status === 'forming' && (
         <>
-          <ellipse cx="200" cy="200" rx={rx} ry={ry} stroke={color} strokeWidth="0.8" strokeDasharray="1 6" opacity="0.2" />
+          {/* The ghost of the full ring, its dots slowly drifting round. */}
+          <ellipse className={styles.ghostDrift} cx="200" cy="200" rx={rx} ry={ry} stroke={color} strokeWidth="0.8" strokeDasharray="1 6" opacity="0.28" />
           <ellipse
             className={`${styles.forming} ${styles.arc}`}
             cx="200" cy="200" rx={rx} ry={ry}
-            stroke={color} strokeWidth="1.1" strokeDasharray={`${ring.arcLength} 2000`} strokeLinecap="round"
+            stroke={color} strokeWidth="1.3" strokeDasharray={`${ring.arcLength} 2000`} strokeLinecap="round"
           />
-          <circle className={styles.twinkle} cx={200 + rx} cy="200" r="2.2" fill={c.core} />
+          {/* Motes of mana flowing along the drawn arc toward the tip. */}
+          <mask id={maskId}>
+            <ellipse className={styles.arc} cx="200" cy="200" rx={rx} ry={ry} fill="none" stroke="#fff" strokeWidth="8" strokeDasharray={`${ring.arcLength} 2000`} />
+          </mask>
+          <ellipse
+            className={styles.arcFlow}
+            cx="200" cy="200" rx={rx} ry={ry}
+            stroke={c.core} strokeWidth="2" strokeDasharray="1.5 16" strokeLinecap="round"
+            mask={`url(#${maskId})`}
+            data-part="arc-flow"
+          />
+          <g data-part="tip">
+            <circle className={styles.tipHalo} cx={200 + rx} cy="200" r="7" fill={c.h1} />
+            <circle className={styles.tip} cx={200 + rx} cy="200" r="2.4" fill={c.core} />
+          </g>
         </>
       )}
     </g>

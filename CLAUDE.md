@@ -62,6 +62,10 @@ The design is final; build to it, don't redesign.
 - Copy follows the README voice rules. Use the helpers in `src/engine/format.ts` for
   durations ("45 min", "6h 40m / 10h"), gains and ranks. Never show percentages.
 - Every animation needs a `prefers-reduced-motion` alternative.
+- **Owner-approved change to Motion.md:** the heart *beats* (lub-dub, ~1.3s; slower on Focus,
+  quicker on Complete) with halo and ripple in time, instead of slowly breathing. The forming
+  ring has motes flowing to a pulsing tip, and gathering sparks drift inward to a beating
+  seed. Keep this; don't revert to the original breathing spec.
 - Mobile-first. Bottom sheet below 640px, centered modal above.
 
 ## Data layer
