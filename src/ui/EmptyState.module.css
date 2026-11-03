@@ -1,0 +1,34 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-5) 0;
+}
+
+.sparks {
+  width: min(240px, 70vw);
+  opacity: 0.8;
+}
+
+.title {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+
+.body {
+  max-width: 34ch;
+  margin: var(--space-2) 0 0;
+  color: var(--text-secondary);
+}
+
+.actions {
+  width: min(360px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-5);
+}

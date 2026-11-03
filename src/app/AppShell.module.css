@@ -5,6 +5,7 @@
 }
 
 .topbar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,6 +25,46 @@
 
 .desktopNav {
   display: none;
+}
+
+/* Mobile page title in the top bar (Sessions), or centred with a back button (Settings). */
+.mobileTitle {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 37px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-right: auto;
+}
+.centred {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
+.brandDesktopOnly {
+  display: none;
+}
+
+.back {
+  width: 44px;
+  height: 44px;
+  margin-left: -10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+.back:hover {
+  color: var(--text-body);
+}
+
+/* Sub-pages hide the settings icon on mobile (the back button replaces navigation). */
+.subPage .iconLink {
+  visibility: hidden;
+}
+.subPage .main {
+  padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
 }
 
 .iconLink {
@@ -104,8 +145,21 @@
     border-bottom: 1px solid var(--hairline-faint);
   }
 
-  .brand {
+  .brand,
+  .brandDesktopOnly {
+    display: block;
     font-size: 24px;
+  }
+  .mobileTitle,
+  .back {
+    display: none;
+  }
+  .subPage .iconLink {
+    visibility: visible;
+  }
+  .iconActive {
+    border-radius: 50%;
+    background: rgba(127, 212, 255, 0.1);
   }
 
   .desktopNav {

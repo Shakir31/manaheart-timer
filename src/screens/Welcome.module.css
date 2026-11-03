@@ -1,0 +1,106 @@
+.page {
+  min-height: 100dvh;
+  width: min(560px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-4) var(--space-5) calc(var(--space-6) + env(safe-area-inset-bottom));
+}
+
+.top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  align-items: center;
+  height: 48px;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.count {
+  justify-self: center;
+  color: var(--text-secondary);
+}
+
+.skip {
+  justify-self: end;
+  padding: 0 var(--space-2);
+}
+
+.heart {
+  flex: 1;
+  width: min(360px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+.heart > * {
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--control-edge);
+  transition: width 240ms var(--ease-enter), background-color 240ms;
+}
+
+.dotOn {
+  width: 20px;
+  background: var(--mana);
+  box-shadow: var(--glow-dot);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 9vw, 40px);
+  line-height: 1.1;
+  animation: rise 0.8s var(--ease-enter) both;
+}
+
+.body {
+  margin: 0;
+  max-width: 36ch;
+  color: var(--text-secondary);
+}
+
+.next {
+  margin-top: var(--space-6);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title { animation: none; }
+  .dot { transition: none; }
+}

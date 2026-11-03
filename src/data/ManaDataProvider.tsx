@@ -137,6 +137,17 @@ function ManaDataStore({ userId, children }: { userId: string | null; children: 
     }
   }, [requireUser])
 
+  const restoreSession = useCallback(async (record: SessionRecord) => {
+    requireUser()
+    setSessions((prev) => (prev.some((s) => s.id === record.id) ? prev : [...prev, record]))
+    try {
+      await api.insertSession(record)
+    } catch (e) {
+      setSessions((prev) => prev.filter((s) => s.id !== record.id))
+      throw e
+    }
+  }, [requireUser])
+
   const condense = useCallback(async () => {
     requireUser()
     const event: CondenseEvent = { id: crypto.randomUUID(), at: new Date().toISOString() }
@@ -174,10 +185,10 @@ function ManaDataStore({ userId, children }: { userId: string | null; children: 
   const value = useMemo<ManaDataValue>(
     () => ({
       status, error, sessions, condensations, profile, timeZone,
-      addSession, updateSession, deleteSession, condense, updateProfile, reload,
+      addSession, updateSession, deleteSession, restoreSession, condense, updateProfile, reload,
     }),
     [status, error, sessions, condensations, profile, timeZone,
-      addSession, updateSession, deleteSession, condense, updateProfile, reload],
+      addSession, updateSession, deleteSession, restoreSession, condense, updateProfile, reload],
   )
 
   return <ManaDataContext.Provider value={value}>{children}</ManaDataContext.Provider>

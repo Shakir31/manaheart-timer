@@ -14,6 +14,14 @@ const PATHS = {
   close: <path d="M6 6l12 12M18 6L6 18" />,
   back: <path d="M14 6l-6 6 6 6" />,
   alert: <><circle cx="12" cy="12" r="9" /><path d="M12 7.5v5.5M12 16.5v.1" /></>,
+  forward: <path d="M10 6l6 6-6 6" />,
+  check: <path d="M5 12.5l4.5 4.5L19 7.5" />,
+  delete: <path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12" />,
+  export: <><path d="M12 4v11M8 8l4-4 4 4" /><path d="M5 13v6h14v-6" /></>,
+  signOut: <><path d="M14 5H6v14h8" /><path d="M10 12h10M17 9l3 3-3 3" /></>,
+  locked: <><rect x="6" y="11" width="12" height="9" rx="2" /><path d="M9 11V8a3 3 0 0 1 6 0v3" /></>,
+  show: <><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" /><circle cx="12" cy="12" r="2.5" /></>,
+  hide: <><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" /><circle cx="12" cy="12" r="2.5" /><path d="M4 4l16 16" /></>,
 } satisfies Record<string, ReactNode>
 
 export type IconName = keyof typeof PATHS

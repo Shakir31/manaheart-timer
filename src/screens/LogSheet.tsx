@@ -1,4 +1,4 @@
-import { useId, useState, type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import type { Category } from '../engine'
 import { useRecordSessions } from '../app/useRecordSessions'
 import { useManaData } from '../data/context'
@@ -7,19 +7,15 @@ import { Button } from '../ui/Button'
 import { DurationStepper } from '../ui/DurationStepper'
 import { SegmentedControl } from '../ui/SegmentedControl'
 import { Sheet } from '../ui/Sheet'
+import { TextArea } from '../ui/TextInput'
+import { CATEGORY_OPTIONS, NOTE_MAX } from './sessionFields'
 import styles from './LogSheet.module.css'
-
-const CATEGORY_OPTIONS = [
-  { value: 'meditation' as const, label: 'Meditation' },
-  { value: 'study' as const, label: 'Study' },
-]
 
 /** Log manually: category, duration, optional note. Recorded as just completed. */
 export function LogSheet({ onClose }: { onClose(): void }) {
   const { profile } = useManaData()
   const { lastCategory } = useFocusTimer()
   const record = useRecordSessions()
-  const noteId = useId()
 
   const [category, setCategory] = useState<Category>(lastCategory)
   const [minutes, setMinutes] = useState(profile?.defaultDurationMinutes ?? 25)
@@ -45,20 +41,8 @@ export function LogSheet({ onClose }: { onClose(): void }) {
       <form className={styles.form} onSubmit={submit} aria-label="Log a session">
         <SegmentedControl label="Category" options={CATEGORY_OPTIONS} value={category} onChange={setCategory} />
         <DurationStepper value={minutes} onChange={setMinutes} />
-        <div className={styles.field}>
-          <label htmlFor={noteId} className="label">
-            Note <span className={styles.optional}>· optional</span>
-          </label>
-          <textarea
-            id={noteId}
-            rows={2}
-            maxLength={500}
-            placeholder="What did you practise?"
-            className={styles.textarea}
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-          />
-        </div>
+        <TextArea label="Note" optional maxLength={NOTE_MAX} placeholder="What did you practise?"
+          value={note} onChange={(e) => setNote(e.target.value)} />
         {error && <p role="alert" className={styles.error}>{error}</p>}
         <Button type="submit" block disabled={saving} aria-busy={saving}>
           {saving ? 'Adding' : 'Add to the heart'}

@@ -30,3 +30,10 @@ export function formatSessionWhen(endedAt: string, now: Date, timeZone: string):
   if (diff > 1 && diff < 7) return `${WEEKDAYS[date.getUTCDay()]}, ${time}`
   return `${date.getUTCDate()} ${MONTHS[date.getUTCMonth()]}, ${time}`
 }
+
+/** "8:00 pm" for a stored time of day ("20:00:00" or "20:00"). */
+export function formatTimeOfDay(value: string): string {
+  const [h, m] = value.split(':').map(Number)
+  const suffix = h < 12 ? 'am' : 'pm'
+  return `${h % 12 === 0 ? 12 : h % 12}:${String(m).padStart(2, '0')} ${suffix}`
+}

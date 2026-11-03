@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatSessionWhen, formatTime } from './dates'
+import { formatSessionWhen, formatTime, formatTimeOfDay } from './dates'
 
 const now = new Date('2026-11-03T12:00:00Z') // Tuesday
 
@@ -18,5 +18,14 @@ describe('dates', () => {
     expect(formatSessionWhen('2026-11-02T21:10:00Z', now, 'UTC')).toBe('Yesterday, 9:10 pm')
     expect(formatSessionWhen('2026-11-01T14:00:00Z', now, 'UTC')).toBe('Sun, 2:00 pm')
     expect(formatSessionWhen('2026-10-20T14:00:00Z', now, 'UTC')).toBe('20 Oct, 2:00 pm')
+  })
+})
+
+describe('formatTimeOfDay', () => {
+  it('formats stored reminder times', () => {
+    expect(formatTimeOfDay('20:00:00')).toBe('8:00 pm')
+    expect(formatTimeOfDay('00:05')).toBe('12:05 am')
+    expect(formatTimeOfDay('12:30:00')).toBe('12:30 pm')
+    expect(formatTimeOfDay('07:15')).toBe('7:15 am')
   })
 })

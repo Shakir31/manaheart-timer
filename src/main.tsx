@@ -6,6 +6,7 @@ import './styles/global.css'
 import { AuthProvider } from './auth/AuthProvider'
 import { ManaDataProvider } from './data/ManaDataProvider'
 import { FocusTimerProvider } from './focus/FocusTimerProvider'
+import { ToastProvider } from './ui/toast/ToastProvider'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
@@ -14,7 +15,9 @@ createRoot(document.getElementById('root')!).render(
       <AuthProvider>
         <ManaDataProvider>
           <FocusTimerProvider>
-            <App />
+            <ToastProvider>
+              <App />
+            </ToastProvider>
           </FocusTimerProvider>
         </ManaDataProvider>
       </AuthProvider>

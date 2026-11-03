@@ -13,6 +13,8 @@ export interface ManaDataValue {
   addSession(input: NewSession): Promise<SessionRecord>
   updateSession(id: string, patch: SessionPatch): Promise<void>
   deleteSession(id: string): Promise<void>
+  /** Put back a session exactly as it was (Undo after delete). */
+  restoreSession(record: SessionRecord): Promise<void>
   /** Record a condensation now. Only call when the heart state says canCondense. */
   condense(): Promise<void>
   updateProfile(patch: ProfilePatch): Promise<void>

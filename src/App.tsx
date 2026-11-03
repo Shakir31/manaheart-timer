@@ -3,18 +3,22 @@ import { AppShell } from './app/AppShell'
 import { useAuth } from './auth/context'
 import { useManaData } from './data/context'
 import { Button } from './ui/Button'
+import { NewPassword } from './screens/auth/NewPassword'
+import { SignIn } from './screens/auth/SignIn'
 import { Complete } from './screens/Complete'
 import { Focus } from './screens/Focus'
 import { Home } from './screens/Home'
-import { SessionsPlaceholder, SettingsPlaceholder } from './screens/Placeholders'
-import { TempSignIn } from './screens/TempSignIn'
+import { Sessions } from './screens/Sessions'
+import { Settings } from './screens/Settings'
+import { Welcome } from './screens/Welcome'
 
 export default function App() {
-  const { loading, user } = useAuth()
+  const { loading, user, recovering } = useAuth()
   const data = useManaData()
 
   if (loading) return null
-  if (!user) return <TempSignIn />
+  if (recovering && user) return <NewPassword />
+  if (!user) return <SignIn />
   if (data.status === 'error') {
     return (
       <div style={{ padding: 'var(--space-8) var(--space-5)', textAlign: 'center', display: 'grid', gap: 'var(--space-4)', justifyItems: 'center' }}>
@@ -24,13 +28,14 @@ export default function App() {
     )
   }
   if (data.status !== 'ready') return null
+  if (data.profile && !data.profile.welcomeSeenAt) return <Welcome />
 
   return (
     <Routes>
       <Route element={<AppShell />}>
         <Route index element={<Home />} />
-        <Route path="sessions" element={<SessionsPlaceholder />} />
-        <Route path="settings" element={<SettingsPlaceholder />} />
+        <Route path="sessions" element={<Sessions />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
       <Route path="focus" element={<Focus />} />
       <Route path="complete" element={<Complete />} />

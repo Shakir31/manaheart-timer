@@ -107,6 +107,21 @@ describe('ManaDataProvider', () => {
     expect(result.current.data.sessions).toHaveLength(0)
   })
 
+  it('restores a deleted session exactly (Undo), and rolls back if that fails', async () => {
+    const { result } = await renderReady()
+    await act(() => result.current.data.deleteSession('s1'))
+    await act(() => result.current.data.restoreSession(existing))
+    expect(result.current.data.sessions).toEqual([existing])
+    expect(mocked.insertSession).toHaveBeenCalledWith(existing)
+
+    await act(() => result.current.data.deleteSession('s1'))
+    mocked.insertSession.mockRejectedValueOnce(new Error('offline'))
+    await act(async () => {
+      await expect(result.current.data.restoreSession(existing)).rejects.toThrow()
+    })
+    expect(result.current.data.sessions).toEqual([])
+  })
+
   it('records a condensation', async () => {
     const { result } = await renderReady()
     await act(() => result.current.data.condense())

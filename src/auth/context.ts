@@ -10,6 +10,12 @@ export interface AuthValue {
   /** Resolves to true if the user must confirm their email before signing in. */
   signUp(email: string, password: string): Promise<{ needsConfirmation: boolean }>
   signOut(): Promise<void>
+  /** Email a link to set a new password. */
+  resetPassword(email: string): Promise<void>
+  /** Set a new password for the signed-in user. */
+  updatePassword(password: string): Promise<void>
+  /** True after arriving from a password-reset email, until a new password is set. */
+  recovering: boolean
 }
 
 export const AuthContext = createContext<AuthValue | null>(null)

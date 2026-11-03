@@ -194,6 +194,7 @@ describe('format', () => {
     expect(formatDuration(45)).toBe('45 min')
     expect(formatDuration(90)).toBe('1h 30m')
     expect(formatDuration(600)).toBe('10h')
+    expect(formatDuration(65)).toBe('1h 05m')
     expect(formatGain(45)).toBe('+45 min')
   })
 })

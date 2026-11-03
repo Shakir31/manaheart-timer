@@ -23,7 +23,7 @@ const tz = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 const profile: Profile = {
   id: 'user-1', mage: null, timeZone: tz, defaultDurationMinutes: 25, reminderEnabled: false,
-  reminderTime: null, welcomeSeenAt: null, milestonesSeenAt: null,
+  reminderTime: null, welcomeSeenAt: '2026-11-01T00:00:00Z', milestonesSeenAt: null,
 }
 const session = (id: string, minutes: number, endedAt: string): SessionRecord => ({
   id, category: 'study', durationMinutes: minutes, endedAt, note: null, source: 'manual',
@@ -98,7 +98,7 @@ describe('Home', () => {
     renderApp('/')
     await u.click(await screen.findByRole('button', { name: 'Log manually' }))
     await u.click(screen.getByRole('button', { name: 'Add to the heart' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent('could not be saved')
+    expect(await screen.findByText(/could not be saved/)).toHaveAttribute('role', 'alert')
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 })
@@ -154,7 +154,7 @@ describe('Focus session', () => {
     await u.click(await screen.findByRole('button', { name: 'Begin session' }))
     act(() => vi.setSystemTime(new Date(NOW.getTime() + 10 * 60_000)))
     await u.click(screen.getByRole('button', { name: 'End session' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent('Your time is kept')
+    expect(await screen.findByText(/Your time is kept/)).toHaveAttribute('role', 'alert')
     expect(screen.getByRole('timer')).toBeInTheDocument()
   })
 

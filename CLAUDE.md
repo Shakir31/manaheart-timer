@@ -93,9 +93,11 @@ src/
   heart/      heartModel (pure: state → rings + aria label) and the Heart SVG
   copy/       wording helpers (heart moments, rhythm lines, dates)
   ui/         design-system primitives: Button, Icon, SegmentedControl, DurationStepper,
-              ProgressLine, RhythmWeek, Sheet (CSS modules, tokens only)
-  app/        AppShell (navigation), useRecordSessions
-  screens/    Home, LogSheet, Focus, Complete (+ temporary placeholders)
+              ProgressLine, RhythmWeek, Sheet, TextInput/TextArea, Switch, ConfirmDialog,
+              SessionRow, EmptyState, toast/ (useToast), useMediaQuery (CSS modules, tokens only)
+  app/        AppShell (navigation, per-page mobile top bar), useRecordSessions
+  screens/    Home, LogSheet, Focus, Complete, Sessions, EditSessionSheet, Settings, Welcome,
+              auth/ (SignIn, NewPassword)
   lib/        Supabase client, safe localStorage
   test/       test helpers: fake Supabase, providers, renderApp
   styles/     tokens.css (from the design system), global.css
@@ -107,5 +109,12 @@ Styling: one CSS module per component, using token variables only. Pure logic li
 outside components so it can be unit-tested; screens are tested end-to-end through
 `renderApp()` with `../data/api` mocked.
 
-Temporary until Phase 4: `screens/TempSignIn.tsx` and `screens/Placeholders.tsx`
-(Sessions, Settings). Replace them with the designed screens.
+Layout differences between mobile and desktop that change markup (not just CSS) use
+`useMediaQuery(DESKTOP)`; tests default to mobile and switch with `setViewport('desktop')`.
+Toasts keep empty `status`/`alert` live regions on the page, so tests find alerts by text.
+
+Known gaps (planned):
+- Daily reminder: the setting is stored but nothing sends it yet. Needs Capacitor local
+  notifications (mobile) or web push (Phase 6).
+- Mage aesthetic: Settings shows locked/unlocked; the choice screen comes in Phase 5.
+- Durations are zero-padded ("1h 05m"), matching the designs.

@@ -1,0 +1,103 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 4, 12, 0.7);
+  animation: fade 180ms ease-out both;
+}
+
+.dialog {
+  position: relative;
+  width: min(380px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  border: 1px solid var(--edge-subtle);
+  border-radius: var(--radius-dialog);
+  background: var(--sheet);
+  box-shadow: var(--shadow-modal);
+  text-align: center;
+  animation: pop var(--dur-modal) var(--ease-enter) both;
+}
+
+.disc {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--error-edge);
+  background: var(--error-ground);
+  color: var(--error);
+}
+
+.title {
+  margin-top: var(--space-1);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+
+.body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--text-secondary);
+}
+
+.actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.safe,
+.danger {
+  height: 48px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.safe {
+  border: 1px solid var(--control-edge);
+  background: transparent;
+  color: var(--text-body);
+}
+.safe:hover {
+  border-color: var(--mana);
+}
+
+.danger {
+  border: 1px solid var(--error-edge);
+  background: var(--error-ground);
+  color: var(--error);
+  font-weight: 600;
+}
+.danger:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+@keyframes fade { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.97); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog { animation: fade 120ms ease-out both; }
+}

@@ -6,13 +6,18 @@ import { AuthContext, type AuthValue } from './context'
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
+  const [recovering, setRecovering] = useState(false)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
       setLoading(false)
     })
-    const { data } = supabase.auth.onAuthStateChange((_event, next) => setSession(next))
+    const { data } = supabase.auth.onAuthStateChange((event, next) => {
+      setSession(next)
+      if (event === 'PASSWORD_RECOVERY') setRecovering(true)
+      if (event === 'SIGNED_OUT') setRecovering(false)
+    })
     return () => data.subscription.unsubscribe()
   }, [])
 
@@ -22,13 +27,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       session,
       user: session?.user ?? null,
       async signIn(email, password) {
-        const { error } = await supabase.auth.signInWithPassword({ email, password })
+        const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
         if (error) throw error
       },
       async signUp(email, password) {
         const { data, error } = await supabase.auth.signUp({
-          email,
           password,
+          email: email.trim(),
           options: { emailRedirectTo: window.location.origin },
         })
         if (error) throw error
@@ -38,8 +43,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const { error } = await supabase.auth.signOut()
         if (error) throw error
       },
+      async resetPassword(email) {
+        const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+          redirectTo: window.location.origin,
+        })
+        if (error) throw error
+      },
+      async updatePassword(password) {
+        const { error } = await supabase.auth.updateUser({ password })
+        if (error) throw error
+        setRecovering(false)
+      },
+      recovering,
     }),
-    [loading, session],
+    [loading, session, recovering],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

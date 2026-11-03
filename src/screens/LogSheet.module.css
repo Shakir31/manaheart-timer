@@ -1,38 +1,8 @@
+/* Shared by Log manually and Edit session. */
 .form {
   display: flex;
   flex-direction: column;
   gap: 22px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-.field :global(.label) {
-  color: var(--text-secondary);
-}
-
-.optional {
-  letter-spacing: 0.04em;
-  text-transform: none;
-  color: var(--text-tertiary);
-}
-
-.textarea {
-  border: 1px solid var(--control-edge);
-  border-radius: var(--radius-input);
-  background: var(--page);
-  font-size: 14px;
-  line-height: 20px;
-  padding: var(--space-3) 14px;
-  resize: none;
-}
-.textarea::placeholder {
-  color: var(--text-tertiary);
-}
-.textarea:focus-visible {
-  box-shadow: var(--halo-input);
 }
 
 .error {
@@ -44,4 +14,24 @@
   color: var(--error);
   font-size: 13px;
   line-height: 19px;
+}
+
+/* Destructive text action (Button spec: destructive actions only as a secondary text action). */
+.delete {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  margin-top: -10px;
+  padding: 0 var(--space-3);
+  border: none;
+  background: transparent;
+  color: var(--error);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.delete:hover {
+  text-decoration: underline;
 }

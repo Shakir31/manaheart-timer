@@ -15,6 +15,9 @@ export function fakeAuth(userId: string | null = 'user-1'): AuthValue {
     signIn: vi.fn(async () => {}),
     signUp: vi.fn(async () => ({ needsConfirmation: false })),
     signOut: vi.fn(async () => {}),
+    resetPassword: vi.fn(async () => {}),
+    updatePassword: vi.fn(async () => {}),
+    recovering: false,
   }
 }
 

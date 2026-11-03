@@ -3,7 +3,7 @@ import { DAY_LETTERS, rhythmLabel } from '../copy/heartCopy'
 import styles from './RhythmWeek.module.css'
 
 /** The last seven days as dots, oldest left, today right (RhythmWeek spec). */
-export function RhythmWeek({ days }: { days: RhythmDay[] }) {
+export function RhythmWeek({ days, compact }: { days: RhythmDay[]; compact?: boolean }) {
   return (
     <div role="img" aria-label={rhythmLabel(days)} className={styles.row}>
       {days.map((d) => {
@@ -11,9 +11,11 @@ export function RhythmWeek({ days }: { days: RhythmDay[] }) {
         return (
           <div key={d.date} className={styles.day} data-state={d.practiced ? 'practiced' : d.isToday ? 'today' : 'missed'}>
             <span className={`${styles.dot} ${dot}`} />
-            <span className={d.isToday ? `${styles.letter} ${styles.letterToday}` : styles.letter}>
-              {DAY_LETTERS[d.weekday]}
-            </span>
+            {!compact && (
+              <span className={d.isToday ? `${styles.letter} ${styles.letterToday}` : styles.letter}>
+                {DAY_LETTERS[d.weekday]}
+              </span>
+            )}
           </div>
         )
       })}
