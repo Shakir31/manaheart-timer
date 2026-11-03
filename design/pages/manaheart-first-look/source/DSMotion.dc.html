@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart DS · Motion</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="width: 1440px; height: 1200px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 64px; display: flex; flex-direction: column; gap: 32px">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #9BA0C8">Manaheart design system · motion</div>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 56px; line-height: 1; color: #F1EFFA">Slow, continuous, never bouncy</h1>
+    </div>
+    <div style="font-size: 14px; color: #9BA0C8; max-width: 440px; line-height: 1.5">Ambient motion is slow enough to read as breathing, not activity. Nothing overshoots. Under prefers-reduced-motion every animation stops and meaning moves into shape, opacity and text.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 150px minmax(0, 1.15fr) minmax(0, 1fr); gap: 0 32px; align-items: center">
+    <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #7D83AF; padding-bottom: 10px">Live</div>
+    <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #7D83AF; padding-bottom: 10px">Spec</div>
+    <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #7D83AF; padding-bottom: 10px">Reduced motion</div>
+
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838"><dc-import name="Heart" circles="{{ 2 }}" unstable-ring="{{ 0 }}" forming="{{ 0 }}" size="116px" label="Two stable circles turning" hint-size="116px,116px"></dc-import></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Stable ring rotation</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">Rune layer travels along the ring, linear. Odd rings 40s per loop, even rings 55s reversed, so neighbours counter-turn. Ring tilt never changes.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">Runes hold still. Stable still reads as one continuous, even line.</div>
+
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838"><dc-import name="Heart" circles="{{ 1 }}" unstable-ring="{{ 1 }}" forming="{{ 0 }}" size="116px" label="One unstable circle flickering" hint-size="116px,116px"></dc-import></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Unstable flicker &amp; wobble</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">Flicker 3.4s stepped, opacity jumps between 1 and 0.3 at uneven points. Wobble ±2.5° with a 2px drift, 6.5s ease-in-out alternate. No rune travel.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">Fixed at 60% opacity, broken segments only. Never flashes faster than 3 times a second in any mode.</div>
+
+    <div style="height: 120px; display: flex; align-items: center; justify-content: center; border-top: 1px solid #141838"><svg viewBox="0 0 400 400" width="116" height="116" aria-hidden="true"><g transform="rotate(58 200 200)" fill="none"><ellipse cx="200" cy="200" rx="164" ry="64" stroke="#7FD4FF" stroke-width="1.6" stroke-dasharray="1 8" opacity="0.3"></ellipse><ellipse class="mh-grow" cx="200" cy="200" rx="164" ry="64" stroke="#7FD4FF" stroke-width="3" stroke-dasharray="260 2000" stroke-linecap="round"></ellipse></g><circle cx="200" cy="200" r="14" fill="#F4FBFF"></circle></svg></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Forming-arc growth</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">After a session the arc extends to its new length over 1.6s, cubic-bezier(.4,0,.2,1), led by the spark. At rest it shimmers 0.5 to 1 opacity, 2.6s alternate. Dotted ghost shows the full path.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">Arc appears at its new length at once. Progress text updates; no shimmer.</div>
+
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838"><dc-import name="Heart" circles="{{ 0 }}" forming="{{ 0 }}" size="116px" label="Heart breathing" hint-size="116px,116px"></dc-import></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Heart idle pulse</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">Core scale 1 to 1.06, opacity 0.88 to 1, 5s ease-in-out alternate. In a focus session the background heart slows to 6s and dims to 0.3. After a gain it quickens to 3s for one minute.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">Static at full brightness. The focus timer counts in place of the pulse.</div>
+
+    <div style="height: 120px; display: flex; align-items: center; justify-content: center; border-top: 1px solid #141838"><div style="width: 70px; height: 104px; border-radius: 12px; border: 1px solid #1C2150; position: relative; overflow: hidden; background: #070914"><div class="mh-sheet-demo" style="position: absolute; left: 0; right: 0; bottom: 0; height: 64px; background: #0E1230; border-top: 1px solid #262C5E; border-radius: 12px 12px 0 0"></div></div></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Bottom sheet</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">Enter: slide up from 100% over 360ms, cubic-bezier(.2,.8,.2,1); scrim fades in over 240ms. Exit: 240ms ease-in. Drag down past 30% to dismiss.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">120ms crossfade in place, no slide.</div>
+
+    <div style="height: 120px; display: flex; align-items: center; justify-content: center; border-top: 1px solid #141838"><div style="width: 120px; height: 84px; border-radius: 10px; border: 1px solid #1C2150; background: #070914; display: flex; align-items: center; justify-content: center"><div class="mh-modal-demo" style="width: 70px; height: 44px; border-radius: 10px; background: #0E1230; border: 1px solid #262C5E"></div></div></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Modal &amp; dialog</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">Fade plus scale 0.97 to 1 over 280ms, same curve. Exit 180ms. Toasts rise 12px and fade over 240ms, stay 4s.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">120ms fade only. Toasts appear without rising.</div>
+
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; border-bottom: 1px solid #141838"><dc-import name="Heart" circles="{{ 5 }}" unstable-ring="{{ 0 }}" phase="collapsing" size="116px" label="Circles collapsing into the heart" hint-size="116px,116px"></dc-import></div>
+    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border-top: 1px solid #141838; border-bottom: 1px solid #141838"><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F1EFFA">Moments: gain, milestone, condense</div><div style="font-size: 13px; color: #9BA0C8; line-height: 1.5">Mana stream dashes travel up 2.4s loop. Headlines rise 12px over 1.2s. Condense: rings shrink to the core over 2.7s ease-in, core flares 1.5× for 0.7s, then the level-up screen fades in over 600ms.</div></div>
+    <div style="height: 120px; display: flex; align-items: center; border-top: 1px solid #141838; border-bottom: 1px solid #141838; font-size: 13px; color: #9BA0C8; line-height: 1.5">Stream hidden. Rings fade out over 400ms, then the Level 2 heart appears static.</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

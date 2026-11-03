@@ -1,0 +1,46 @@
+/* Manaheart shared motion + focus. Tokens: see DS · Tokens / DS · Motion */
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid #CFEAFF;outline-offset:3px}
+input::placeholder,textarea::placeholder{color:#7D83AF}
+/* rings */
+.mh-flow{animation:mhflow 40s linear infinite}
+.mh-flow-r{animation:mhflowr 55s linear infinite}
+.mh-wob{transform-origin:200px 200px;animation:mhwob 6.5s ease-in-out infinite alternate}
+.mh-flick{animation:mhflick 3.4s steps(1,end) infinite}
+.mh-form{animation:mhform 2.6s ease-in-out infinite alternate}
+.mh-grow{animation:mhgrow 6s cubic-bezier(.4,0,.2,1) infinite}
+.mh-sway{transform-origin:200px 200px;animation:mhsway 7s ease-in-out infinite alternate}
+/* heart */
+.mh-breathe{transform-origin:200px 200px;animation:mhbreathe 5s ease-in-out infinite alternate}
+.mh-pulse{transform-origin:200px 200px;animation:mhpulse 6s ease-in-out infinite alternate}
+.mh-gather{transform-origin:200px 200px;animation:mhgather 9s ease-in-out infinite alternate}
+.mh-spin{transform-origin:200px 200px;animation:mhspin 90s linear infinite}
+.mh-collapse{transform-origin:200px 200px;animation:mhcollapse 3.6s cubic-bezier(.55,0,.85,.35) infinite}
+.mh-flare{transform-origin:200px 200px;animation:mhflare 3.6s ease-in infinite}
+.mh-tw{animation:mhtw 4s ease-in-out infinite alternate}
+.mh-stream{animation:mhstream 2.4s linear infinite}
+/* ui */
+.mh-rise{animation:mhrise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.mh-fade{animation:mhfade 1.2s ease-out both}
+.mh-spinner{transform-box:fill-box;transform-origin:center;animation:mhspin 1.1s linear infinite}
+.mh-sheet-demo{animation:mhsheetdemo 4s cubic-bezier(.2,.8,.2,1) infinite}
+.mh-modal-demo{animation:mhmodaldemo 4s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes mhflow{to{stroke-dashoffset:-400}}
+@keyframes mhflowr{to{stroke-dashoffset:400}}
+@keyframes mhwob{0%{transform:rotate(-2.2deg) translate(1px,-1px)}100%{transform:rotate(2.6deg) translate(-2px,1px)}}
+@keyframes mhflick{0%{opacity:1}12%{opacity:.45}15%{opacity:.95}48%{opacity:.7}51%{opacity:.3}54%{opacity:.85}80%{opacity:.6}}
+@keyframes mhform{from{opacity:.5}to{opacity:1}}
+@keyframes mhgrow{0%{stroke-dasharray:0 2000;opacity:.4}70%{stroke-dasharray:260 2000;opacity:1}100%{stroke-dasharray:260 2000;opacity:1}}
+@keyframes mhsway{0%{transform:translate(0,-4px) rotate(-1.5deg)}100%{transform:translate(0,4px) rotate(1.5deg)}}
+@keyframes mhbreathe{from{transform:scale(1);opacity:.88}to{transform:scale(1.06);opacity:1}}
+@keyframes mhpulse{from{transform:scale(.97);opacity:.55}to{transform:scale(1.03);opacity:1}}
+@keyframes mhgather{from{transform:scale(1.12) rotate(-6deg)}to{transform:scale(.9) rotate(6deg)}}
+@keyframes mhspin{to{transform:rotate(360deg)}}
+@keyframes mhcollapse{0%{transform:scale(1);opacity:1}75%{transform:scale(.12);opacity:.9}100%{transform:scale(.05);opacity:0}}
+@keyframes mhflare{0%,60%{transform:scale(1);opacity:.85}80%{transform:scale(1.5);opacity:1}100%{transform:scale(1);opacity:.85}}
+@keyframes mhtw{from{opacity:.12}to{opacity:.9}}
+@keyframes mhstream{to{stroke-dashoffset:-120}}
+@keyframes mhrise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes mhfade{from{opacity:0}to{opacity:1}}
+@keyframes mhsheetdemo{0%{transform:translateY(100%)}25%,75%{transform:translateY(0)}100%{transform:translateY(100%)}}
+@keyframes mhmodaldemo{0%{opacity:0;transform:scale(.97)}25%,75%{opacity:1;transform:none}100%{opacity:0;transform:scale(.97)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

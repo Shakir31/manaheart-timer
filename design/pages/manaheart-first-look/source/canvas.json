@@ -1,0 +1,551 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Complete.dc.html": {
+      "h": 844,
+      "title": "4 · Session complete",
+      "w": 390,
+      "x": 1410,
+      "y": 0
+    },
+    "CondenseMoment.dc.html": {
+      "h": 844,
+      "title": "Condense · moment",
+      "w": 390,
+      "x": 0,
+      "y": 15700
+    },
+    "DSComponents.dc.html": {
+      "h": 1900,
+      "title": "DS · Controls & states",
+      "w": 1440,
+      "x": 1520,
+      "y": 4500
+    },
+    "DSIcons.dc.html": {
+      "h": 700,
+      "title": "DS · Icons",
+      "w": 1000,
+      "x": 6080,
+      "y": 4500
+    },
+    "DSMotion.dc.html": {
+      "h": 1200,
+      "title": "DS · Motion",
+      "w": 1440,
+      "x": 4560,
+      "y": 4500
+    },
+    "DSPatterns.dc.html": {
+      "h": 2000,
+      "title": "DS · Surfaces, navigation & patterns",
+      "w": 1440,
+      "x": 3040,
+      "y": 4500
+    },
+    "DSTokens.dc.html": {
+      "h": 1640,
+      "title": "DS · Tokens",
+      "w": 1440,
+      "x": 0,
+      "y": 4500
+    },
+    "DesktopComplete.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Session complete",
+      "w": 1440,
+      "x": 4560,
+      "y": 3260
+    },
+    "DesktopCondense.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Condense",
+      "w": 1440,
+      "x": 940,
+      "y": 15700
+    },
+    "DesktopFocus.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Focus session",
+      "w": 1440,
+      "x": 1520,
+      "y": 3260
+    },
+    "DesktopHome.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Home / Heart",
+      "w": 1440,
+      "x": 0,
+      "y": 3260
+    },
+    "DesktopHomeEmpty.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Home before formation",
+      "w": 1440,
+      "x": 470,
+      "y": 9380
+    },
+    "DesktopLevelUp.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Level up",
+      "w": 1440,
+      "x": 2460,
+      "y": 15700
+    },
+    "DesktopLog.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Log manually",
+      "w": 1440,
+      "x": 3040,
+      "y": 3260
+    },
+    "DesktopMageChoose.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Mage choice",
+      "w": 1440,
+      "x": 940,
+      "y": 14460
+    },
+    "DesktopMageConfirm.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Mage confirm",
+      "w": 1440,
+      "x": 2460,
+      "y": 14460
+    },
+    "DesktopMilestoneCircle.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Circle formed",
+      "w": 1440,
+      "x": 2930,
+      "y": 13220
+    },
+    "DesktopMilestoneFormed.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Heart formed",
+      "w": 1440,
+      "x": 1410,
+      "y": 13220
+    },
+    "DesktopMilestoneStable.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Circle stable",
+      "w": 1440,
+      "x": 4450,
+      "y": 13220
+    },
+    "DesktopSessionDelete.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Delete confirmation",
+      "w": 1440,
+      "x": 4450,
+      "y": 10620
+    },
+    "DesktopSessionEdit.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Edit session",
+      "w": 1440,
+      "x": 2930,
+      "y": 10620
+    },
+    "DesktopSessions.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Sessions",
+      "w": 1440,
+      "x": 1410,
+      "y": 10620
+    },
+    "DesktopSettings.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "title": "Desktop · Settings",
+      "w": 1440,
+      "x": 470,
+      "y": 11860
+    },
+    "DesktopSignIn.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Sign in",
+      "w": 1440,
+      "x": 470,
+      "y": 6900
+    },
+    "DesktopWelcome1.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Welcome 1",
+      "w": 1440,
+      "x": 1410,
+      "y": 8140
+    },
+    "DesktopWelcome2.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Welcome 2",
+      "w": 1440,
+      "x": 2930,
+      "y": 8140
+    },
+    "DesktopWelcome3.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "title": "Desktop · Welcome 3",
+      "w": 1440,
+      "x": 4450,
+      "y": 8140
+    },
+    "Focus.dc.html": {
+      "h": 844,
+      "title": "2 · Focus session",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "Heart.dc.html": {
+      "h": 400,
+      "title": "Component · Heart",
+      "w": 400,
+      "x": 6080,
+      "y": 5320
+    },
+    "HeartStates.dc.html": {
+      "h": 640,
+      "title": "Heart state sheet",
+      "w": 1960,
+      "x": 0,
+      "y": 1270
+    },
+    "HomeEmpty.dc.html": {
+      "h": 844,
+      "title": "Home · before formation",
+      "w": 390,
+      "x": 0,
+      "y": 9380
+    },
+    "Identity.dc.html": {
+      "h": 844,
+      "title": "Palette & type",
+      "w": 1200,
+      "x": 1880,
+      "y": 0
+    },
+    "LevelUp.dc.html": {
+      "h": 844,
+      "title": "Condense · Level up",
+      "w": 390,
+      "x": 470,
+      "y": 15700
+    },
+    "LogSheet.dc.html": {
+      "h": 844,
+      "title": "3 · Log manually",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "MageChoose.dc.html": {
+      "h": 844,
+      "title": "Mage choice",
+      "w": 390,
+      "x": 0,
+      "y": 14460
+    },
+    "MageConfirm.dc.html": {
+      "h": 844,
+      "title": "Mage choice · Confirm",
+      "w": 390,
+      "x": 470,
+      "y": 14460
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "title": "1 · Home / Heart",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "MilestoneCircle.dc.html": {
+      "h": 844,
+      "title": "Milestone · Circle formed",
+      "w": 390,
+      "x": 470,
+      "y": 13220
+    },
+    "MilestoneFormed.dc.html": {
+      "h": 844,
+      "title": "Milestone · Heart formed",
+      "w": 390,
+      "x": 0,
+      "y": 13220
+    },
+    "MilestoneStable.dc.html": {
+      "h": 844,
+      "title": "Milestone · Circle stable",
+      "w": 390,
+      "x": 940,
+      "y": 13220
+    },
+    "SessionDelete.dc.html": {
+      "h": 844,
+      "title": "Sessions · Delete confirmation",
+      "w": 390,
+      "x": 940,
+      "y": 10620
+    },
+    "SessionEdit.dc.html": {
+      "h": 844,
+      "title": "Sessions · Edit sheet",
+      "w": 390,
+      "x": 470,
+      "y": 10620
+    },
+    "Sessions.dc.html": {
+      "h": 844,
+      "title": "Sessions",
+      "w": 390,
+      "x": 0,
+      "y": 10620
+    },
+    "Settings.dc.html": {
+      "h": 980,
+      "title": "Settings",
+      "w": 390,
+      "x": 0,
+      "y": 11860
+    },
+    "SignIn.dc.html": {
+      "h": 844,
+      "title": "Sign in",
+      "w": 390,
+      "x": 0,
+      "y": 6900
+    },
+    "Variants.dc.html": {
+      "h": 720,
+      "title": "Mage aesthetics",
+      "w": 1360,
+      "x": 0,
+      "y": 2240
+    },
+    "Welcome1.dc.html": {
+      "h": 844,
+      "title": "Welcome 1 · Time becomes mana",
+      "w": 390,
+      "x": 0,
+      "y": 8140
+    },
+    "Welcome2.dc.html": {
+      "h": 844,
+      "title": "Welcome 2 · Circles form",
+      "w": 390,
+      "x": 470,
+      "y": 8140
+    },
+    "Welcome3.dc.html": {
+      "h": 844,
+      "title": "Welcome 3 · Rhythm steadies",
+      "w": 390,
+      "x": 940,
+      "y": 8140
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-03T04:10:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "t5",
+    "t6",
+    "t7",
+    "t8",
+    "t9",
+    "t10",
+    "t11",
+    "t12",
+    "t13"
+  ],
+  "notes": {
+    "t1": {
+      "kind": "title1",
+      "maxW": 3080,
+      "text": "Manaheart · screens & identity",
+      "w": 240,
+      "x": 0,
+      "y": -280
+    },
+    "t10": {
+      "kind": "title1",
+      "maxW": 1910,
+      "text": "Settings",
+      "w": 240,
+      "x": 0,
+      "y": 11600
+    },
+    "t11": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "Milestone moments",
+      "w": 240,
+      "x": 0,
+      "y": 12960
+    },
+    "t12": {
+      "kind": "title1",
+      "maxW": 3900,
+      "text": "Mage choice",
+      "w": 240,
+      "x": 0,
+      "y": 14200
+    },
+    "t13": {
+      "kind": "title1",
+      "maxW": 3900,
+      "text": "Condense & level up",
+      "w": 240,
+      "x": 0,
+      "y": 15440
+    },
+    "t2": {
+      "kind": "title1",
+      "maxW": 1960,
+      "text": "The heart, from first spark to Level 2",
+      "w": 240,
+      "x": 0,
+      "y": 1000
+    },
+    "t3": {
+      "kind": "title1",
+      "maxW": 1360,
+      "text": "Mage aesthetics · three circles",
+      "w": 240,
+      "x": 0,
+      "y": 1970
+    },
+    "t4": {
+      "kind": "title1",
+      "maxW": 6000,
+      "text": "Desktop · the same ritual, wider",
+      "w": 240,
+      "x": 0,
+      "y": 3000
+    },
+    "t5": {
+      "kind": "title1",
+      "maxW": 7080,
+      "text": "Design system · Night & mana",
+      "w": 240,
+      "x": 0,
+      "y": 4240
+    },
+    "t6": {
+      "kind": "title1",
+      "maxW": 1910,
+      "text": "Sign in",
+      "w": 240,
+      "x": 0,
+      "y": 6640
+    },
+    "t7": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "First-run welcome",
+      "w": 240,
+      "x": 0,
+      "y": 7880
+    },
+    "t8": {
+      "kind": "title1",
+      "maxW": 1910,
+      "text": "Home · before formation",
+      "w": 240,
+      "x": 0,
+      "y": 9120
+    },
+    "t9": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "Sessions · history, edit, delete",
+      "w": 240,
+      "x": 0,
+      "y": 10360
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Focus.dc.html",
+    "LogSheet.dc.html",
+    "Complete.dc.html",
+    "Identity.dc.html",
+    "HeartStates.dc.html",
+    "Variants.dc.html",
+    "DesktopHome.dc.html",
+    "DesktopFocus.dc.html",
+    "DesktopLog.dc.html",
+    "DesktopComplete.dc.html",
+    "DSTokens.dc.html",
+    "DSComponents.dc.html",
+    "DSPatterns.dc.html",
+    "DSMotion.dc.html",
+    "DSIcons.dc.html",
+    "Heart.dc.html",
+    "SignIn.dc.html",
+    "DesktopSignIn.dc.html",
+    "Welcome1.dc.html",
+    "Welcome2.dc.html",
+    "Welcome3.dc.html",
+    "DesktopWelcome1.dc.html",
+    "DesktopWelcome2.dc.html",
+    "DesktopWelcome3.dc.html",
+    "HomeEmpty.dc.html",
+    "DesktopHomeEmpty.dc.html",
+    "Sessions.dc.html",
+    "SessionEdit.dc.html",
+    "SessionDelete.dc.html",
+    "DesktopSessions.dc.html",
+    "DesktopSessionEdit.dc.html",
+    "DesktopSessionDelete.dc.html",
+    "Settings.dc.html",
+    "DesktopSettings.dc.html",
+    "MilestoneFormed.dc.html",
+    "MilestoneCircle.dc.html",
+    "MilestoneStable.dc.html",
+    "DesktopMilestoneFormed.dc.html",
+    "DesktopMilestoneCircle.dc.html",
+    "DesktopMilestoneStable.dc.html",
+    "MageChoose.dc.html",
+    "MageConfirm.dc.html",
+    "DesktopMageChoose.dc.html",
+    "DesktopMageConfirm.dc.html",
+    "CondenseMoment.dc.html",
+    "LevelUp.dc.html",
+    "DesktopCondense.dc.html",
+    "DesktopLevelUp.dc.html"
+  ],
+  "pages": [],
+  "title": "Manaheart — first look"
+}

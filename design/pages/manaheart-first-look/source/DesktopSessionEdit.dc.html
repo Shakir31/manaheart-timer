@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Edit session (desktop)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9BA0C8}a:hover{color:#E8E6F4}</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 48px 16px">
+  <div aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.35; padding: 0 clamp(16px, 4vw, 48px)">
+    <div style="max-width: 1200px; margin: 0 auto; height: 80px; display: flex; align-items: center; border-bottom: 1px solid #141838; font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 0.1em">Manaheart</div>
+    <div style="max-width: 1200px; margin: 0 auto; padding-top: 40px; display: flex; flex-direction: column; gap: 32px">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 56px; color: #F1EFFA">Sessions</div>
+      <div style="display: flex; gap: 56px; flex-wrap: wrap">
+        <div style="flex: 1 1 280px; max-width: 340px; height: 300px; border: 1px solid #1C2150; border-radius: 20px; background: #0A0C1C"></div>
+        <div style="flex: 999 1 560px; display: flex; flex-direction: column; gap: 14px"><div style="height: 56px; border-radius: 16px; background: #0E1230"></div><div style="height: 56px; border-radius: 16px; background: #0E1230"></div><div style="height: 56px; border-radius: 16px; background: #0E1230"></div><div style="height: 56px; border-radius: 16px; background: #0E1230"></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="position: absolute; inset: 0; background: rgba(3, 4, 12, 0.62)"></div>
+
+  <form role="dialog" aria-modal="true" aria-labelledby="dseT" style="position: relative; width: 100%; max-width: 520px; box-sizing: border-box; background: #0E1230; border: 1px solid #262C5E; border-radius: 28px; padding: 28px 32px 28px; display: flex; flex-direction: column; gap: 24px; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6), 0 0 60px rgba(76, 107, 255, 0.08)">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <h2 id="dseT" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 34px; color: #F1EFFA">Edit session</h2>
+        <div style="font-size: 13px; color: #9BA0C8; font-variant-numeric: tabular-nums">Today · ended 6:30 pm</div>
+      </div>
+      <button type="button" aria-label="Close" style="width: 44px; height: 44px; margin-right: -10px; border: none; background: transparent; color: #9BA0C8; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+
+    <div role="radiogroup" aria-label="Category" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 24px; background: #070914; border: 1px solid #1C2150">
+      <button type="button" role="radio" aria-checked="false" style="height: 44px; border: 1px solid transparent; border-radius: 20px; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">Meditation</button>
+      <button type="button" role="radio" aria-checked="true" style="height: 44px; border: 1px solid #7FD4FF; border-radius: 20px; background: rgba(127, 212, 255, 0.12); color: #F1EFFA; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Study</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <label for="dseD" style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Duration</label>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <button type="button" aria-label="Five minutes less" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A4180; background: transparent; color: #CFEAFF; font-size: 20px; font-weight: 300; cursor: pointer; padding: 0">−</button>
+          <div style="display: flex; align-items: baseline; gap: 6px"><input id="dseD" value="45" inputmode="numeric" style="width: 80px; border: none; background: transparent; color: #F1EFFA; font-family: Manrope, sans-serif; font-weight: 200; font-size: 52px; text-align: right; font-variant-numeric: tabular-nums; padding: 0"><span style="font-size: 15px; color: #9BA0C8">min</span></div>
+          <button type="button" aria-label="Five minutes more" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A4180; background: transparent; color: #CFEAFF; font-size: 20px; font-weight: 300; cursor: pointer; padding: 0">+</button>
+        </div>
+        <div style="display: flex; gap: 6px">
+          <button type="button" style="height: 36px; width: 44px; border-radius: 18px; border: 1px solid #262C5E; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 13px; cursor: pointer">15</button>
+          <button type="button" style="height: 36px; width: 44px; border-radius: 18px; border: 1px solid #262C5E; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 13px; cursor: pointer">30</button>
+          <button type="button" aria-pressed="true" style="height: 36px; width: 44px; border-radius: 18px; border: 1px solid #7FD4FF; background: rgba(127, 212, 255, 0.12); color: #F1EFFA; font-family: Manrope, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">45</button>
+          <button type="button" style="height: 36px; width: 44px; border-radius: 18px; border: 1px solid #262C5E; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 13px; cursor: pointer">60</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="dseN" style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Note <span style="letter-spacing: 0.04em; text-transform: none; color: #7D83AF">· optional</span></label>
+      <textarea id="dseN" rows="3" style="box-sizing: border-box; border: 1px solid #3A4180; border-radius: 14px; background: #070914; color: #E8E6F4; font-family: Manrope, sans-serif; font-size: 14px; padding: 12px 14px; resize: vertical">Chapter 4, spaced recall</textarea>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px">
+      <a href="DesktopSessionDelete.dc.html" style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 14px; margin-left: -14px; border-radius: 24px; color: #F28CA0; font-size: 14px; font-weight: 500; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"></path></svg>Delete</a>
+      <div style="display: flex; gap: 8px">
+        <button type="button" style="height: 52px; padding: 0 22px; border: none; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 15px; font-weight: 500; cursor: pointer">Cancel</button>
+        <button type="submit" style="height: 52px; padding: 0 30px; border: none; border-radius: 26px; background: #CFEAFF; color: #070914; font-family: Manrope, sans-serif; font-size: 15px; font-weight: 600; box-shadow: 0 0 36px rgba(127, 212, 255, 0.3); cursor: pointer">Save changes</button>
+      </div>
+    </div>
+  </form>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

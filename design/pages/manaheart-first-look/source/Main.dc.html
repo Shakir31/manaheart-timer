@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#070914}
+a{color:#9FDCFF}a:hover{color:#CFEAFF}
+.mh-flow{animation:mhflow 40s linear infinite}
+.mh-flow-r{animation:mhflowr 55s linear infinite}
+.mh-wob{transform-origin:200px 200px;animation:mhwob 6.5s ease-in-out infinite alternate}
+.mh-flick{animation:mhflick 3.4s steps(1,end) infinite}
+.mh-breathe{transform-origin:200px 200px;animation:mhbreathe 5s ease-in-out infinite alternate}
+.mh-tw{animation:mhtw 4s ease-in-out infinite alternate}
+.mh-form{animation:mhform 2.6s ease-in-out infinite alternate}
+@keyframes mhflow{to{stroke-dashoffset:-400}}
+@keyframes mhflowr{to{stroke-dashoffset:400}}
+@keyframes mhwob{0%{transform:rotate(-2.2deg) translate(1px,-1px)}100%{transform:rotate(2.6deg) translate(-2px,1px)}}
+@keyframes mhflick{0%{opacity:1}12%{opacity:.45}15%{opacity:.95}48%{opacity:.7}51%{opacity:.3}54%{opacity:.85}80%{opacity:.6}}
+@keyframes mhbreathe{from{transform:scale(1);opacity:.88}to{transform:scale(1.06);opacity:1}}
+@keyframes mhtw{from{opacity:.12}to{opacity:.9}}
+@keyframes mhform{from{opacity:.5}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; display: flex; flex-direction: column; padding: 16px 24px 88px; overflow: hidden; position: relative">
+  <div style="display: flex; justify-content: space-between; align-items: center; height: 48px">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; letter-spacing: 0.1em">Manaheart</div>
+    <button aria-label="Settings" style="width: 44px; height: 44px; border: none; background: transparent; color: #9BA0C8; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>
+    </button>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 18px">
+    <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #9BA0C8">Level 1</div>
+    <h1 style="margin: 6px 0 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px; line-height: 1; letter-spacing: 0.02em; color: #F1EFFA">Apprentice</h1>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 6px">
+    <svg viewBox="0 0 400 400" width="316" height="316" role="img" aria-label="Mana heart with three circles: two stable, one unstable, and a fourth circle forming">
+      <defs>
+        <radialGradient id="hHalo"><stop offset="0" stop-color="#EAF8FF" stop-opacity="0.85"></stop><stop offset="0.22" stop-color="#9FDCFF" stop-opacity="0.4"></stop><stop offset="0.6" stop-color="#4C6BFF" stop-opacity="0.1"></stop><stop offset="1" stop-color="#4C6BFF" stop-opacity="0"></stop></radialGradient>
+        <filter id="hGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+      </defs>
+      <circle cx="200" cy="200" r="120" fill="url(#hHalo)"></circle>
+      <g filter="url(#hGlow)" fill="none">
+        <g transform="rotate(58 200 200)">
+          <ellipse cx="200" cy="200" rx="164" ry="64" stroke="{{mana}}" stroke-width="0.8" stroke-dasharray="1 6" opacity="0.18"></ellipse>
+          <ellipse class="mh-form" cx="200" cy="200" rx="164" ry="64" stroke="{{mana}}" stroke-width="1.1" stroke-dasharray="230 2000" stroke-linecap="round"></ellipse>
+          <circle class="mh-tw" cx="364" cy="200" r="2.2" fill="#F4FBFF"></circle>
+          <circle class="mh-tw" cx="358" cy="190" r="1.1" fill="#CFEAFF" style="animation-delay: -1.5s"></circle>
+          <circle class="mh-tw" cx="368" cy="186" r="0.9" fill="#CFEAFF" style="animation-delay: -2.7s"></circle>
+        </g>
+        <g transform="rotate(-38 200 200)">
+          <g class="mh-wob"><g class="mh-flick">
+            <ellipse cx="200" cy="200" rx="142" ry="54" stroke="{{mana}}" stroke-width="1" stroke-dasharray="34 10 8 16 52 7 14 22 40 12" opacity="0.6"></ellipse>
+            <ellipse cx="200" cy="200" rx="148" ry="58" stroke="{{mana}}" stroke-width="1.6" stroke-dasharray="1 13 3 23" opacity="0.35"></ellipse>
+          </g></g>
+        </g>
+        <g transform="rotate(24 200 200)">
+          <ellipse cx="200" cy="200" rx="118" ry="42" stroke="{{mana}}" stroke-width="1.1"></ellipse>
+          <ellipse class="mh-flow-r" cx="200" cy="200" rx="123" ry="45" stroke="{{mana}}" stroke-width="2" stroke-dasharray="2 6 2 10" opacity="0.55"></ellipse>
+        </g>
+        <g transform="rotate(-18 200 200)">
+          <ellipse cx="200" cy="200" rx="90" ry="30" stroke="{{mana}}" stroke-width="1.1"></ellipse>
+          <ellipse class="mh-flow" cx="200" cy="200" rx="95" ry="33" stroke="{{mana}}" stroke-width="2" stroke-dasharray="1 7 5 7" opacity="0.55"></ellipse>
+        </g>
+      </g>
+      <g class="mh-breathe" filter="url(#hGlow)" fill="none">
+        <circle cx="200" cy="200" r="27" stroke="#9FDCFF" stroke-width="0.8" opacity="0.7"></circle>
+        <path d="M200 168 L219 200 L200 232 L181 200 Z" stroke="#DFF4FF" stroke-width="1.2"></path>
+        <path d="M181 200 L219 200 M200 168 L200 232" stroke="#DFF4FF" stroke-width="0.6" opacity="0.6"></path>
+        <circle cx="200" cy="200" r="9" fill="#F4FBFF"></circle>
+      </g>
+      <g fill="#CFEAFF">
+        <circle class="mh-tw" cx="70" cy="120" r="1.2"></circle>
+        <circle class="mh-tw" cx="320" cy="96" r="1" style="animation-delay: -1s"></circle>
+        <circle class="mh-tw" cx="104" cy="318" r="1.3" style="animation-delay: -2.2s"></circle>
+        <circle class="mh-tw" cx="300" cy="334" r="0.9" style="animation-delay: -3s"></circle>
+        <circle class="mh-tw" cx="250" cy="60" r="0.8" style="animation-delay: -0.6s"></circle>
+        <circle class="mh-tw" cx="40" cy="236" r="0.9" style="animation-delay: -2.8s"></circle>
+      </g>
+    </svg>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline">
+      <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #E8E6F4">Fourth circle forming</div>
+      <div style="font-size: 13px; color: #9BA0C8; font-variant-numeric: tabular-nums">6h 40m <span style="color: #7D83AF">/ 10h</span></div>
+    </div>
+    <div style="height: 2px; background: #1D2350; border-radius: 2px; position: relative">
+      <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 66%; background: {{mana}}; border-radius: 2px; box-shadow: 0 0 10px {{mana}}"></div>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 26px; padding: 14px 16px; border: 1px solid #1C2150; border-radius: 16px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Rhythm</div>
+      <div style="font-size: 13px; color: #E8E6F4">5 of 7 days</div>
+    </div>
+    <div style="display: flex; gap: 10px" role="img" aria-label="Practised on 5 of the last 7 days; missed Wednesday and Saturday">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: {{mana}}; box-shadow: 0 0 6px {{mana}}"></div><div style="font-size: 11px; color: #7D83AF">M</div></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: {{mana}}; box-shadow: 0 0 6px {{mana}}"></div><div style="font-size: 11px; color: #7D83AF">T</div></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px solid #5A619A"></div><div style="font-size: 11px; color: #7D83AF">W</div></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: {{mana}}; box-shadow: 0 0 6px {{mana}}"></div><div style="font-size: 11px; color: #7D83AF">T</div></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: {{mana}}; box-shadow: 0 0 6px {{mana}}"></div><div style="font-size: 11px; color: #7D83AF">F</div></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px solid #5A619A"></div><div style="font-size: 11px; color: #7D83AF">S</div></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: {{mana}}; box-shadow: 0 0 6px {{mana}}"></div><div style="font-size: 11px; color: #E8E6F4">S</div></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+      <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #9BA0C8"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="{{mana}}" stroke-width="1.2"></circle></svg>2 stable</div>
+      <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #9BA0C8"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="{{mana}}" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"></circle></svg>1 unstable</div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <button style="height: 56px; border: none; border-radius: 28px; background: #CFEAFF; color: #070914; font-family: Manrope, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 0.02em; box-shadow: 0 0 36px rgba(127, 212, 255, 0.35); cursor: pointer">Begin session</button>
+    <button style="height: 44px; border: none; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">Log manually</button>
+  </div>
+
+  <nav aria-label="Main" style="position: absolute; left: 0; right: 0; bottom: 0; height: 72px; box-sizing: border-box; padding-bottom: 8px; border-top: 1px solid #141838; background: rgba(7, 9, 20, 0.94); display: flex; justify-content: center">
+    <a href="Main.dc.html" aria-current="page" style="width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #F1EFFA; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FD4FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-20 12 12)"></ellipse><path d="M12 7.5l2.6 4.5-2.6 4.5-2.6-4.5z"></path></svg>Heart<span style="width: 4px; height: 4px; border-radius: 50%; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></span></a>
+    <a href="Sessions.dc.html" style="width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #9BA0C8; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg>Sessions<span style="width: 4px; height: 4px"></span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mana":{"editor":"color","default":"#7FD4FF","options":["#7FD4FF","#A98BFF","#FFB070","#9FE6D6"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { mana: this.props.mana ?? '#7FD4FF' };
+  }
+}
+</script>
+</body>
+</html>

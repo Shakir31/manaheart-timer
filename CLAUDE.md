@@ -1,0 +1,94 @@
+# Manaheart
+
+A quiet meditation and study logger. Logged time forms a mana heart, then up to five circles
+around it; daily rhythm makes circles stable; five stable circles condense into the next level.
+Low interaction by design: log, see the heart, leave. Do not add game mechanics (points,
+streak flames, badges, currencies) that the design does not show.
+
+## Stack and commands
+
+React 19 + TypeScript (strict) + Vite. Supabase for auth and data (Phase 2). Vitest for tests.
+Web app first; later wrapped with Capacitor for Android/iOS.
+
+- `npm run dev`: dev server
+- `npm test`: engine tests (run after any change in `src/engine`)
+- `npm run build`: type-check + production build
+- `npm run lint`: oxlint
+
+## Working rules
+
+- **Tests ship with every feature.** Engine and pure helpers get unit tests; hooks and
+  components get React Testing Library tests (`*.test.ts(x)` next to the code). `npm test`
+  must pass before a phase is done.
+- **Commits carry no Claude attribution.** No `Co-Authored-By: Claude` trailer or similar.
+
+## Architecture rules
+
+- **Store raw facts only.** The database holds sessions, condense events and profile settings.
+  Heart level, circles, stability and rhythm are never stored; they are computed by
+  `computeHeartState()` in `src/engine/progression.ts` every time.
+- **The engine is pure TypeScript.** No React, DOM, Supabase or `Date.now()` inside
+  `src/engine` (pass `now` and `timeZone` in). It must run unchanged in a mobile wrapper.
+- **All tuning numbers live in `src/engine/config.ts`.** Never hardcode thresholds elsewhere.
+- **Days are the user's local days**, worked out with `dayKey(instant, timeZone)`. Never
+  compare UTC dates.
+- **Timer:** store the start timestamp and compute elapsed time from it. Never count seconds
+  with `setInterval` state (tabs and phones sleep).
+- **Auth:** email + password (no magic links, which complicate the Capacitor port).
+
+## Progression rules (summary; the doc comment in progression.ts has the full rules)
+
+- Heart forms at 5h. Level 1 circles are 2h each (10h per level), growing each level.
+- Practice day = a local day with 10+ minutes. Rhythm day = practice day within 2 days of
+  the previous one (1 grace day).
+- Each rhythm day adds a point to the oldest unstable circle, else to the forming circle.
+  Circles need 4 / 5 / 6 points (level 1 / 2 / 3+) to be stable.
+- Condense when all 5 are stable. Reserve minutes flow into the next level.
+- Ranks: Apprentice → Adept → Magus → Archmagus → Sage.
+
+## Design
+
+The design is final; build to it, don't redesign.
+
+- Design system: `design/manaheart-design-system/`. Read `README.md` (principles, colour,
+  type, voice, navigation) and `Motion.md` (ring language, timings) before UI work.
+  Each component has `components/<Name>/README.md` and a `preview.html`.
+- Screens: `design/pages/manaheart-first-look/screens/*.png` (mobile 390 wide and desktop
+  1440 wide for every page). Source markup per screen is in `.../source/*.dc.html`; the
+  heart is in `Heart.dc.html` and shared motion in `mh.css`.
+- Tokens: `src/styles/tokens.css` is a copy of the design system's file. Use the CSS
+  variables and type classes (`.display`, `.title`, `.label`, `.numeric-xl`…). Never
+  hardcode hex values or font sizes in components.
+- Copy follows the README voice rules. Use the helpers in `src/engine/format.ts` for
+  durations ("45 min", "6h 40m / 10h"), gains and ranks. Never show percentages.
+- Every animation needs a `prefers-reduced-motion` alternative.
+- Mobile-first. Bottom sheet below 640px, centered modal above.
+
+## Data layer
+
+- Schema: `supabase/migrations/`. Tables `profiles` (auto-created on sign-up), `sessions`,
+  `condensations` (insert-only). Row-level security on all: users see only their own rows.
+  Schema changes go in a new numbered migration file; run it in the Supabase SQL Editor.
+- `src/data/api.ts` is the only file that talks to Supabase tables (and does the
+  snake_case ↔ camelCase mapping).
+- Components use `useManaData()` for records and mutations (optimistic, rolled back on
+  error) and `useHeartState()` for derived progress. Never call `computeHeartState`
+  directly in components.
+- `useAuth()` for the session and sign in/up/out.
+- Keys live in `.env` (git-ignored); see `.env.example`. Only the anon key belongs in the
+  app. Never the service_role key.
+
+## Layout
+
+```
+src/
+  engine/     pure progression logic + tests (types, config, time, progression, format)
+  data/       Supabase API, ManaDataProvider, useHeartState
+  auth/       AuthProvider + useAuth
+  lib/        Supabase client
+  styles/     tokens.css (from the design system), global.css
+supabase/     SQL migrations
+design/       design system and exported screens (reference only, not shipped)
+```
+
+`src/App.tsx` is currently a temporary Phase 2 check page; replace it with the real screens.

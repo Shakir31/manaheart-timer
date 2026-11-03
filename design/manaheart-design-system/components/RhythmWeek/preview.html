@@ -1,0 +1,25 @@
+<!-- @dsCard group="Progress" height=200 subtitle="Practised, missed and today-pending days" -->
+<div style="background: var(--page); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: flex; flex-direction: column; gap: 16px; max-width: 420px">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    .c { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border: 1px solid var(--hairline); border-radius: 16px }
+    .lb { font-size: 11px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--text-secondary) }
+    .d { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 11px; color: var(--text-tertiary) }
+    .on { width: 8px; height: 8px; border-radius: 50%; background: var(--mana); box-shadow: var(--glow-dot) }
+    .off { width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px solid var(--rhythm-missed) }
+    .td { width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px dashed var(--mana-soft) }
+  </style>
+  <div class="c">
+    <span style="display: flex; flex-direction: column; gap: 4px"><span class="lb">Rhythm</span><span style="font-size: 13px">5 of 7 days</span></span>
+    <span style="display: flex; gap: 10px" role="img" aria-label="Wednesday to Tuesday: practised on all but Wednesday and Saturday">
+      <span class="d"><span class="off"></span>W</span><span class="d"><span class="on"></span>T</span><span class="d"><span class="on"></span>F</span><span class="d"><span class="off"></span>S</span><span class="d"><span class="on"></span>S</span><span class="d"><span class="on"></span>M</span><span class="d" style="color: var(--text-body); font-weight: 600"><span class="on"></span>T</span>
+    </span>
+  </div>
+  <div class="c">
+    <span style="display: flex; flex-direction: column; gap: 4px"><span class="lb">Rhythm</span><span style="font-size: 13px">4 of 7 days</span></span>
+    <span style="display: flex; gap: 10px" role="img" aria-label="Practised 4 of the last 7 days; today not yet">
+      <span class="d"><span class="on"></span>W</span><span class="d"><span class="off"></span>T</span><span class="d"><span class="on"></span>F</span><span class="d"><span class="on"></span>S</span><span class="d"><span class="off"></span>S</span><span class="d"><span class="on"></span>M</span><span class="d" style="color: var(--text-body); font-weight: 600"><span class="td"></span>T</span>
+    </span>
+  </div>
+</div>
+<script></script>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Settings (desktop)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9BA0C8}a:hover{color:#E8E6F4}</style>
+</helmet>
+<div style="min-height: 1000px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 0 clamp(16px, 4vw, 48px) 64px">
+  <header style="max-width: 1200px; margin: 0 auto; height: 80px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #141838">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; letter-spacing: 0.1em">Manaheart</div>
+    <nav aria-label="Main" style="display: flex; align-items: center; gap: 4px">
+      <a href="DesktopHome.dc.html" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 500; text-decoration: none">Heart</a>
+      <a href="DesktopSessions.dc.html" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 500; text-decoration: none">Sessions</a>
+      <a href="DesktopSettings.dc.html" aria-current="page" aria-label="Settings" style="width: 44px; height: 44px; margin-left: 8px; border-radius: 22px; color: #F1EFFA; background: rgba(127, 212, 255, 0.1); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7FD4FF" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg></a>
+    </nav>
+  </header>
+
+  <main style="max-width: 720px; margin: 0 auto; padding-top: 40px; display: flex; flex-direction: column; gap: 32px">
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 56px; line-height: 1; color: #F1EFFA">Settings</h1>
+
+    <section aria-labelledby="dsgA" style="display: flex; flex-direction: column; gap: 10px">
+      <h2 id="dsgA" style="margin: 0; padding-left: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Account</h2>
+      <div style="border: 1px solid #1C2150; border-radius: 18px; background: #0A0C1C; overflow: hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; min-height: 60px; padding: 0 20px; border-bottom: 1px solid #141838"><span style="font-size: 15px">Email</span><span style="font-size: 14px; color: #9BA0C8">you@example.com</span></div>
+        <a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 60px; padding: 0 16px 0 20px; color: #E8E6F4; text-decoration: none"><span style="font-size: 15px">Change password</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D83AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6l6 6-6 6"></path></svg></a>
+      </div>
+    </section>
+
+    <section aria-labelledby="dsgP" style="display: flex; flex-direction: column; gap: 10px">
+      <h2 id="dsgP" style="margin: 0; padding-left: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Practice</h2>
+      <div style="border: 1px solid #1C2150; border-radius: 18px; background: #0A0C1C; overflow: hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; min-height: 68px; padding: 0 20px; border-bottom: 1px solid #141838; gap: 16px">
+          <span style="display: flex; flex-direction: column; gap: 2px"><span id="drmL" style="font-size: 15px">Daily reminder</span><span style="font-size: 13px; color: #9BA0C8">A quiet nudge if you haven't practised that day</span></span>
+          <div style="display: flex; align-items: center; gap: 16px">
+            <label for="drmT" style="font-size: 13px; color: #9BA0C8">at</label>
+            <input id="drmT" value="8:00 pm" style="width: 104px; height: 44px; box-sizing: border-box; border: 1px solid #3A4180; border-radius: 14px; background: #070914; color: #E8E6F4; font-family: Manrope, sans-serif; font-size: 14px; padding: 0 12px; font-variant-numeric: tabular-nums">
+            <button role="switch" aria-checked="true" aria-labelledby="drmL" style="flex-shrink: 0; width: 52px; height: 32px; border-radius: 16px; border: 1px solid #7FD4FF; background: rgba(127, 212, 255, 0.22); position: relative; padding: 0; cursor: pointer"><span style="position: absolute; top: 4px; left: 24px; width: 22px; height: 22px; border-radius: 50%; background: #CFEAFF; box-shadow: 0 0 10px rgba(127, 212, 255, 0.6)"></span></button>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; min-height: 68px; padding: 0 20px; gap: 16px; flex-wrap: wrap">
+          <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Default session length</span><span style="font-size: 13px; color: #9BA0C8">Used when you begin a focus session</span></span>
+          <div role="radiogroup" aria-label="Default session length" style="display: flex; gap: 6px">
+            <button role="radio" aria-checked="false" style="height: 36px; width: 52px; border-radius: 18px; border: 1px solid #262C5E; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 13px; cursor: pointer">15</button>
+            <button role="radio" aria-checked="true" style="height: 36px; width: 52px; border-radius: 18px; border: 1px solid #7FD4FF; background: rgba(127, 212, 255, 0.12); color: #F1EFFA; font-family: Manrope, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer">25</button>
+            <button role="radio" aria-checked="false" style="height: 36px; width: 52px; border-radius: 18px; border: 1px solid #262C5E; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 13px; cursor: pointer">45</button>
+            <button role="radio" aria-checked="false" style="height: 36px; width: 52px; border-radius: 18px; border: 1px solid #262C5E; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 13px; cursor: pointer">60</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="dsgM" style="display: flex; flex-direction: column; gap: 10px">
+      <h2 id="dsgM" style="margin: 0; padding-left: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Mage aesthetic</h2>
+      <div aria-disabled="true" style="border: 1px dashed #262C5E; border-radius: 18px; padding: 18px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap">
+        <span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid #262C5E; display: flex; align-items: center; justify-content: center; color: #7D83AF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="11" width="12" height="9" rx="2"></rect><path d="M9 11V8a3 3 0 0 1 6 0v3"></path></svg></span>
+        <span style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; color: #9BA0C8">Locked until your first circle forms</span><span style="font-size: 13px; color: #7D83AF">Then choose Elemental, Arcane or Spirit. You can change it here any time after.</span></span>
+        <div aria-hidden="true" style="display: flex; gap: 8px; opacity: 0.45">
+          <span style="height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 6px; border: 1px solid #262C5E; border-radius: 16px; font-size: 12px; color: #9BA0C8"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FF9A4D"></span>Elemental</span>
+          <span style="height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 6px; border: 1px solid #262C5E; border-radius: 16px; font-size: 12px; color: #9BA0C8"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A98BFF"></span>Arcane</span>
+          <span style="height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 6px; border: 1px solid #262C5E; border-radius: 16px; font-size: 12px; color: #9BA0C8"><span style="width: 8px; height: 8px; border-radius: 50%; background: #9FE6D6"></span>Spirit</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="dsgD" style="display: flex; flex-direction: column; gap: 10px">
+      <h2 id="dsgD" style="margin: 0; padding-left: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Data</h2>
+      <div style="border: 1px solid #1C2150; border-radius: 18px; background: #0A0C1C; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 14px 14px 20px; flex-wrap: wrap">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Export data</span><span style="font-size: 13px; color: #9BA0C8">Every session as a CSV file</span></span>
+        <button style="height: 44px; padding: 0 18px; display: flex; align-items: center; gap: 8px; border: 1px solid #3A4180; border-radius: 22px; background: transparent; color: #E8E6F4; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M8 8l4-4 4 4"></path><path d="M5 13v6h14v-6"></path></svg>Export</button>
+      </div>
+    </section>
+
+    <div style="display: flex">
+      <button style="height: 48px; padding: 0 22px; display: flex; align-items: center; gap: 8px; border: 1px solid #3A4180; border-radius: 24px; background: transparent; color: #E8E6F4; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5H6v14h8"></path><path d="M10 12h10M17 9l3 3-3 3"></path></svg>Sign out</button>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

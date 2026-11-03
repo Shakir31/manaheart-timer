@@ -1,0 +1,16 @@
+<!-- @dsCard group="Progress" height=230 subtitle="Circle forming, just gained, heart forming" -->
+<div style="background: var(--page); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: flex; flex-direction: column; gap: 24px; max-width: 420px">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Manrope:wght@400&display=swap">
+  <style>
+    .p { display: flex; flex-direction: column; gap: 10px }
+    .h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px }
+    .n { font-family: var(--font-display); font-style: italic; font-size: 18px }
+    .v { font-size: 13px; color: var(--text-secondary); font-variant-numeric: tabular-nums } .v span { color: var(--text-tertiary) }
+    .tr { height: 2px; background: var(--track); border-radius: var(--radius-bar); position: relative }
+    .fl { position: absolute; left: 0; top: 0; bottom: 0; background: var(--mana); border-radius: var(--radius-bar); box-shadow: var(--glow-bar) }
+  </style>
+  <div class="p"><div class="h"><span class="n">Fourth circle forming</span><span class="v">6h 40m <span>/ 10h</span></span></div><div class="tr" role="progressbar" aria-label="Fourth circle" aria-valuemin="0" aria-valuemax="600" aria-valuenow="400"><div class="fl" style="width: 66%"></div></div></div>
+  <div class="p"><div class="h"><span class="n">Just gained</span><span class="v">7h 25m <span>/ 10h</span></span></div><div class="tr"><div class="fl" style="width: 66%; box-shadow: none"></div><div style="position: absolute; left: 66%; top: -1px; bottom: -1px; width: 8%; background: var(--core); border-radius: var(--radius-bar); box-shadow: 0 0 12px var(--mana-soft)"></div></div></div>
+  <div class="p"><div class="h"><span class="n">Heart forming</span><span class="v">4h 10m <span>/ 5h until your heart forms</span></span></div><div class="tr"><div class="fl" style="width: 83%; background: var(--mana-soft); opacity: .85"></div></div></div>
+</div>
+<script></script>

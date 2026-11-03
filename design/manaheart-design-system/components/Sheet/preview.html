@@ -1,0 +1,27 @@
+<!-- @dsCard group="Surfaces" height=440 subtitle="Bottom sheet on mobile, centered modal on desktop" -->
+<div style="background: var(--page); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    .x { width: 44px; height: 44px; border: none; background: transparent; color: var(--text-secondary); padding: 0; display: flex; align-items: center; justify-content: center }
+    .tt { font-family: var(--font-display); font-weight: 500; color: var(--text-primary) }
+    .ph { border: 1px dashed var(--edge-subtle); border-radius: var(--radius-input); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-tertiary) }
+  </style>
+  <div style="height: 390px; border-radius: 32px; border: 1px solid var(--hairline); position: relative; overflow: hidden; background: var(--page)">
+    <div style="position: absolute; inset: 0; background: var(--scrim)"></div>
+    <div role="dialog" aria-label="Bottom sheet example" style="position: absolute; left: 0; right: 0; bottom: 0; height: 260px; box-sizing: border-box; background: var(--sheet); border-top: 1px solid var(--edge-subtle); border-radius: var(--radius-sheet) var(--radius-sheet) 0 0; padding: 10px 20px 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: var(--shadow-sheet)">
+      <div style="display: flex; justify-content: center"><div style="width: 40px; height: 4px; border-radius: var(--radius-bar); background: var(--control-edge)"></div></div>
+      <div style="display: flex; justify-content: space-between; align-items: center"><div><div class="tt" style="font-size: 26px">Log a session</div><div style="font-size: 12px; color: var(--text-secondary)">Recorded as just completed</div></div><button class="x" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+      <div class="ph" style="flex-grow: 1">fields · gap 22</div>
+      <div style="height: 48px; border-radius: var(--radius-pill); background: var(--primary); color: var(--on-primary); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600">Add to the heart</div>
+    </div>
+  </div>
+  <div style="height: 390px; border-radius: 20px; border: 1px solid var(--hairline); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--page)">
+    <div style="position: absolute; inset: 0; background: var(--scrim)"></div>
+    <div role="dialog" aria-label="Modal example" style="position: relative; width: min(440px, 86%); box-sizing: border-box; background: var(--sheet); border: 1px solid var(--edge-subtle); border-radius: var(--radius-sheet); padding: 24px 28px 26px; display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-modal)">
+      <div style="display: flex; justify-content: space-between; align-items: center"><div><div class="tt" style="font-size: 30px">Edit session</div><div style="font-size: 12px; color: var(--text-secondary)">Today · ended 6:30 pm</div></div><button class="x" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+      <div class="ph" style="height: 120px">fields · gap 24</div>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; color: var(--error)">Delete</span><span style="display: flex; gap: 8px; align-items: center"><span style="font-size: 14px; color: var(--text-secondary); padding: 0 14px">Cancel</span><span style="height: 46px; padding: 0 24px; border-radius: var(--radius-pill); background: var(--primary); color: var(--on-primary); display: flex; align-items: center; font-size: 14px; font-weight: 600">Save changes</span></span></div>
+    </div>
+  </div>
+</div>
+<script></script>

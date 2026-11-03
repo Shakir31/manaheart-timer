@@ -1,0 +1,22 @@
+<!-- @dsCard group="Inputs" height=300 subtitle="Text input and textarea: default, hover, focus, filled, error, disabled" -->
+<div style="background: var(--sheet); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 18px">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    .f { display: flex; flex-direction: column; gap: 8px }
+    .l { font-size: 11px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--text-secondary) }
+    .i { height: 48px; box-sizing: border-box; width: 100%; border: 1px solid var(--control-edge); border-radius: var(--radius-input); background: var(--page); color: var(--text-body); font-family: var(--font-sans); font-size: 14px; padding: 0 14px }
+    .i::placeholder, .t::placeholder { color: var(--text-tertiary) }
+    .t { box-sizing: border-box; width: 100%; border: 1px solid var(--control-edge); border-radius: var(--radius-input); background: var(--page); color: var(--text-body); font-family: var(--font-sans); font-size: 14px; padding: 12px 14px; resize: none }
+    .c { font-size: 11px; color: var(--text-tertiary) }
+  </style>
+  <div class="f"><label class="l" for="a1">Email · default</label><input class="i" id="a1" placeholder="you@example.com"></div>
+  <div class="f"><label class="l" for="a2">Email · hover</label><input class="i" id="a2" placeholder="you@example.com" style="border-color: var(--rhythm-missed); background: var(--card)"></div>
+  <div class="f"><label class="l" for="a3" style="color: var(--text-body)">Email · focus</label><input class="i" id="a3" value="you@exa" style="border-color: var(--mana-soft); box-shadow: var(--halo-input); color: var(--text-primary)"></div>
+  <div class="f"><label class="l" for="a4">Email · filled</label><input class="i" id="a4" value="you@example.com"></div>
+  <div class="f"><label class="l" for="a5">Email · error</label><input class="i" id="a5" value="you@example" aria-invalid="true" aria-describedby="a5e" style="border-color: var(--error)"><div id="a5e" style="font-size: 12px; color: var(--error)">Enter a full email address</div></div>
+  <div class="f"><label class="l" for="a6" style="color: var(--text-tertiary)">Email · disabled</label><input class="i" id="a6" disabled value="you@example.com" style="border-color: var(--hairline); background: var(--card); color: var(--text-tertiary)"></div>
+  <div class="f"><label class="l" for="a7">Note · optional</label><textarea class="t" id="a7" rows="2" placeholder="What did you practise?"></textarea></div>
+  <div class="f"><label class="l" for="a8">Note · filled</label><textarea class="t" id="a8" rows="2">Breath count, then a body scan.</textarea><span class="c" style="text-align: right">31 / 280</span></div>
+  <div class="f"><label class="l" for="a9">Note · too long</label><textarea class="t" id="a9" rows="2" aria-invalid="true" style="border-color: var(--error)">A very long note…</textarea><span class="c" style="text-align: right; color: var(--error)">294 / 280</span></div>
+</div>
+<script></script>

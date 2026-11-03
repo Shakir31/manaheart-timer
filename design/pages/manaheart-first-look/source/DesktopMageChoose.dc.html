@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Choose your path (desktop)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 56px clamp(16px, 4vw, 48px) 48px; display: flex; flex-direction: column; align-items: center; gap: 40px">
+  <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center">
+    <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #9BA0C8">Your first circle has formed</div>
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 60px; line-height: 1; color: #F1EFFA">Choose your path</h1>
+    <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #9BA0C8">It shapes how your heart and circles look. You can change it later in Settings.</p>
+  </div>
+
+  <div role="radiogroup" aria-label="Mage aesthetic" style="width: 100%; max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+    <button role="radio" aria-checked="false" style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 24px 28px; border: 1px solid #1C2150; border-radius: 24px; background: #0A0C1C; color: #E8E6F4; font-family: Manrope, sans-serif; cursor: pointer">
+      <dc-import name="Heart" circles="{{ 1 }}" unstable-ring="{{ 0 }}" forming="{{ 0 }}" variant="elemental" size="260px" label="Elemental heart preview" hint-size="260px,260px"></dc-import>
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: #FFE8C8">Elemental</span>
+      <span style="font-size: 14px; line-height: 1.5; color: #9BA0C8; text-align: center">Ember rings with living edges. Motion flows and licks rather than turns.</span>
+      <span aria-hidden="true" style="width: 22px; height: 22px; box-sizing: border-box; border-radius: 50%; border: 1px solid #3A4180"></span>
+    </button>
+    <button role="radio" aria-checked="true" style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 24px 28px; border: 1px solid #A98BFF; border-radius: 24px; background: rgba(169, 139, 255, 0.07); color: #E8E6F4; font-family: Manrope, sans-serif; box-shadow: 0 0 40px rgba(169, 139, 255, 0.15); cursor: pointer">
+      <dc-import name="Heart" circles="{{ 1 }}" unstable-ring="{{ 0 }}" forming="{{ 0 }}" variant="arcane" size="260px" label="Arcane heart preview" hint-size="260px,260px"></dc-import>
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: #E6DDFF">Arcane</span>
+      <span style="font-size: 14px; line-height: 1.5; color: #9BA0C8; text-align: center">Precise glyph circles with ticks and nodes, in violet and cyan.</span>
+      <span aria-hidden="true" style="width: 22px; height: 22px; box-sizing: border-box; border-radius: 50%; border: 1px solid #A98BFF; display: flex; align-items: center; justify-content: center"><span style="width: 11px; height: 11px; border-radius: 50%; background: #C9B8FF; box-shadow: 0 0 8px #A98BFF"></span></span>
+    </button>
+    <button role="radio" aria-checked="false" style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 24px 28px; border: 1px solid #1C2150; border-radius: 24px; background: #0A0C1C; color: #E8E6F4; font-family: Manrope, sans-serif; cursor: pointer">
+      <dc-import name="Heart" circles="{{ 1 }}" unstable-ring="{{ 0 }}" forming="{{ 0 }}" variant="spirit" size="260px" label="Spirit heart preview" hint-size="260px,260px"></dc-import>
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: #E6F5F1">Spirit</span>
+      <span style="font-size: 14px; line-height: 1.5; color: #9BA0C8; text-align: center">Soft nebula bands in pale teal and silver that drift and sway.</span>
+      <span aria-hidden="true" style="width: 22px; height: 22px; box-sizing: border-box; border-radius: 50%; border: 1px solid #3A4180"></span>
+    </button>
+  </div>
+
+  <a href="DesktopMageConfirm.dc.html" style="height: 56px; padding: 0 44px; display: flex; align-items: center; justify-content: center; border-radius: 28px; background: #CFEAFF; color: #070914; font-size: 16px; font-weight: 600; text-decoration: none; box-shadow: 0 0 36px rgba(127, 212, 255, 0.35)">Continue with Arcane</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- @dsCard group="Inputs" height=260 subtitle="Stepper with quick picks; chip default, hover, selected, focus; minus disabled at 5 min" -->
+<div style="background: var(--sheet); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&display=swap">
+  <style>
+    .s { display: flex; flex-direction: column; gap: 12px }
+    .l { font-size: 11px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--text-secondary) }
+    .r { display: flex; align-items: center; justify-content: space-between }
+    .pm { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--control-edge); background: transparent; color: var(--primary); font-size: 22px; font-weight: 300; padding: 0; cursor: pointer }
+    .v { width: 86px; border: none; background: transparent; color: var(--text-primary); font-family: var(--font-sans); font-weight: 200; font-size: 52px; text-align: right; font-variant-numeric: tabular-nums; padding: 0 }
+    .u { font-size: 15px; color: var(--text-secondary) }
+    .cs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px }
+    .c { height: 36px; border-radius: var(--radius-pill); border: 1px solid var(--edge-subtle); background: transparent; color: var(--text-secondary); font-family: var(--font-sans); font-size: 13px; cursor: pointer }
+  </style>
+  <div class="s">
+    <label class="l" for="d1">Duration</label>
+    <div class="r"><button class="pm" aria-label="Five minutes less">−</button><span style="display: flex; align-items: baseline; gap: 6px"><input class="v" id="d1" value="45" inputmode="numeric"><span class="u">min</span></span><button class="pm" aria-label="Five minutes more" style="border-color: var(--mana); background: rgba(127,212,255,.06)">+</button></div>
+    <div class="cs"><button class="c">15</button><button class="c" style="border-color: var(--rhythm-missed); color: var(--text-body); background: rgba(232,230,244,.05)">30</button><button class="c" aria-pressed="true" style="border-color: var(--mana); background: rgba(127,212,255,.12); color: var(--text-primary); font-weight: 600">45</button><button class="c" style="outline: 2px solid var(--focus); outline-offset: 2px">60</button></div>
+    <div class="cs" style="font-size: 11px; color: var(--text-tertiary); text-align: center"><span>chip</span><span>hover</span><span>selected</span><span>focus</span></div>
+  </div>
+  <div class="s">
+    <label class="l" for="d2">Duration · at minimum</label>
+    <div class="r"><button class="pm" disabled aria-label="Five minutes less" style="border-color: var(--hairline); color: var(--control-edge)">−</button><span style="display: flex; align-items: baseline; gap: 6px"><input class="v" id="d2" value="5" inputmode="numeric"><span class="u">min</span></span><button class="pm" aria-label="Five minutes more">+</button></div>
+    <div class="cs"><button class="c">15</button><button class="c">30</button><button class="c">45</button><button class="c">60</button></div>
+    <div style="font-size: 12px; color: var(--text-tertiary)">No chip is selected when the value is custom.</div>
+  </div>
+</div>
+<script></script>

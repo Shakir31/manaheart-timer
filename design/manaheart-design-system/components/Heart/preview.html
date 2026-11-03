@@ -1,0 +1,35 @@
+<!-- @dsCard group="Heart" height=420 subtitle="The mana heart and the ring language: stable, unstable, forming" -->
+<div style="background: var(--page); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; align-items: center">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500&display=swap">
+  <style>
+    .fl { animation: fl 40s linear infinite } .fr { animation: fr 55s linear infinite }
+    @keyframes fl { to { stroke-dashoffset: -400 } } @keyframes fr { to { stroke-dashoffset: 400 } }
+    .wb { transform-origin: 200px 200px; animation: wb 6.5s ease-in-out infinite alternate } @keyframes wb { from { transform: rotate(-2.2deg) } to { transform: rotate(2.6deg) } }
+    .fk { animation: fk 3.4s steps(1, end) infinite } @keyframes fk { 0% { opacity: 1 } 12% { opacity: .45 } 15% { opacity: .95 } 48% { opacity: .7 } 51% { opacity: .3 } 54% { opacity: .85 } 80% { opacity: .6 } }
+    .br { transform-origin: 200px 200px; animation: br 5s ease-in-out infinite alternate } @keyframes br { from { transform: scale(1); opacity: .88 } to { transform: scale(1.06); opacity: 1 } }
+    .fm { animation: fm 2.6s ease-in-out infinite alternate } @keyframes fm { from { opacity: .5 } to { opacity: 1 } }
+    @media (prefers-reduced-motion: reduce) { .fl, .fr, .wb, .fk, .br, .fm { animation: none } .fk { opacity: .6 } }
+    .k { display: flex; align-items: center; gap: 14px } .k svg { flex-shrink: 0 }
+    .kt { font-family: var(--font-display); font-size: 20px; color: var(--text-primary) } .kd { font-size: 12px; color: var(--text-secondary); line-height: 1.45 }
+  </style>
+  <svg viewBox="0 0 400 400" style="width: 100%; max-width: 360px; justify-self: center" role="img" aria-label="Mana heart with three circles: two stable, one unstable, and a fourth forming">
+    <defs>
+      <radialGradient id="hh"><stop offset="0" stop-color="#eaf8ff" stop-opacity=".85"></stop><stop offset=".22" stop-color="#9fdcff" stop-opacity=".4"></stop><stop offset=".6" stop-color="#4c6bff" stop-opacity=".1"></stop><stop offset="1" stop-color="#4c6bff" stop-opacity="0"></stop></radialGradient>
+      <filter id="hg" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+    </defs>
+    <circle cx="200" cy="200" r="125" fill="url(#hh)"></circle>
+    <g filter="url(#hg)" fill="none" stroke="var(--mana)">
+      <g transform="rotate(58 200 200)"><ellipse cx="200" cy="200" rx="164" ry="64" stroke-width=".8" stroke-dasharray="1 6" opacity=".2"></ellipse><ellipse class="fm" cx="200" cy="200" rx="164" ry="64" stroke-width="1.1" stroke-dasharray="230 2000" stroke-linecap="round"></ellipse><circle cx="364" cy="200" r="2.2" fill="var(--core)" stroke="none"></circle></g>
+      <g transform="rotate(-38 200 200)"><g class="wb"><g class="fk"><ellipse cx="200" cy="200" rx="142" ry="54" stroke-width="1" stroke-dasharray="34 10 8 16 52 7 14 22 40 12" opacity=".6"></ellipse><ellipse cx="200" cy="200" rx="148" ry="58" stroke-width="1.6" stroke-dasharray="1 13 3 23" opacity=".35"></ellipse></g></g></g>
+      <g transform="rotate(24 200 200)"><ellipse cx="200" cy="200" rx="118" ry="42" stroke-width="1.1"></ellipse><ellipse class="fr" cx="200" cy="200" rx="123" ry="45" stroke-width="2" stroke-dasharray="2 6 2 10" opacity=".55"></ellipse></g>
+      <g transform="rotate(-18 200 200)"><ellipse cx="200" cy="200" rx="90" ry="30" stroke-width="1.1"></ellipse><ellipse class="fl" cx="200" cy="200" rx="95" ry="33" stroke-width="2" stroke-dasharray="1 7 5 7" opacity=".55"></ellipse></g>
+    </g>
+    <g class="br" filter="url(#hg)" fill="none"><circle cx="200" cy="200" r="27" stroke="var(--mana-soft)" stroke-width=".8" opacity=".7"></circle><path d="M200 168 L219 200 L200 232 L181 200 Z" stroke="#dff4ff" stroke-width="1.2"></path><circle cx="200" cy="200" r="9" fill="var(--core)"></circle></g>
+  </svg>
+  <div style="display: flex; flex-direction: column; gap: 18px">
+    <div class="k"><svg width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><ellipse cx="48" cy="20" rx="44" ry="14" fill="none" stroke="var(--mana)" stroke-width="1.2"></ellipse><ellipse cx="48" cy="20" rx="46" ry="16" fill="none" stroke="var(--mana)" stroke-width="1.6" stroke-dasharray="1 5 4 5" opacity=".6"></ellipse></svg><div><div class="kt">Stable</div><div class="kd">Continuous and even; runes travel along it.</div></div></div>
+    <div class="k"><svg width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><ellipse transform="rotate(-4 48 20)" cx="48" cy="20" rx="44" ry="14" fill="none" stroke="var(--mana)" stroke-width="1" stroke-dasharray="18 6 4 9 26 5" opacity=".6"></ellipse></svg><div><div class="kt">Unstable</div><div class="kd">Broken, dimmer, flickers and wobbles.</div></div></div>
+    <div class="k"><svg width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><ellipse cx="48" cy="20" rx="44" ry="14" fill="none" stroke="var(--mana)" stroke-width=".8" stroke-dasharray="1 4" opacity=".3"></ellipse><ellipse cx="48" cy="20" rx="44" ry="14" fill="none" stroke="var(--mana)" stroke-width="1.2" stroke-dasharray="70 400" stroke-linecap="round"></ellipse><circle cx="92" cy="20" r="2" fill="var(--core)"></circle></svg><div><div class="kt">Forming</div><div class="kd">A partial arc over a dotted ghost.</div></div></div>
+  </div>
+</div>
+<script></script>

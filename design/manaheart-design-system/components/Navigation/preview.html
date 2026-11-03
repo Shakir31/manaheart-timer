@@ -1,0 +1,33 @@
+<!-- @dsCard group="Navigation" height=340 subtitle="Mobile top bar and bottom nav, desktop top nav, with the reserved Constellation slot" -->
+<div style="background: var(--page); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 28px; align-items: start">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    .lb { font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--text-tertiary) }
+    .ib { width: 44px; height: 44px; border: none; background: transparent; color: var(--text-secondary); padding: 0; display: flex; align-items: center; justify-content: center }
+    .tab { width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; letter-spacing: .08em; text-decoration: none }
+    .dl { height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; text-decoration: none }
+  </style>
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lb">Mobile top bar</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 48px; padding: 0 8px 0 20px; border: 1px solid var(--hairline-faint); border-radius: 16px"><span style="font-family: var(--font-display); font-size: 21px; font-weight: 500; letter-spacing: .1em">Manaheart</span><button class="ib" aria-label="Settings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg></button></div>
+    <span class="lb" style="margin-top: 6px">Mobile bottom nav · 72 tall</span>
+    <nav aria-label="Main (example)" style="height: 72px; box-sizing: border-box; padding-bottom: 8px; border: 1px solid var(--hairline-faint); border-radius: 16px; display: flex; justify-content: center">
+      <a href="#" aria-current="page" class="tab" style="color: var(--text-primary); font-weight: 600"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--mana)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-20 12 12)"></ellipse><path d="M12 7.5l2.6 4.5-2.6 4.5-2.6-4.5z"></path></svg>Heart<span style="width: 4px; height: 4px; border-radius: 50%; background: var(--mana); box-shadow: var(--glow-dot)"></span></a>
+      <a href="#" class="tab" style="color: var(--text-secondary); font-weight: 500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg>Sessions<span style="width: 4px; height: 4px"></span></a>
+      <span aria-hidden="true" class="tab" style="color: var(--rhythm-missed); border: 1px dashed var(--edge-subtle); border-radius: 12px; margin-top: 8px">Constellation<span style="font-size: 10px">reserved</span></span>
+    </nav>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lb">Desktop top nav · 80 tall</span>
+    <header style="height: 80px; padding: 0 16px 0 24px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--hairline-faint); border-radius: 16px">
+      <span style="font-family: var(--font-display); font-size: 24px; font-weight: 500; letter-spacing: .1em">Manaheart</span>
+      <nav aria-label="Main (example)" style="display: flex; align-items: center; gap: 4px">
+        <a href="#" aria-current="page" class="dl" style="color: var(--text-primary); font-weight: 600; box-shadow: inset 0 -1px 0 var(--mana)">Heart</a>
+        <a href="#" class="dl" style="color: var(--text-secondary); font-weight: 500">Sessions</a>
+        <span aria-hidden="true" style="height: 30px; display: flex; align-items: center; padding: 0 10px; font-size: 12px; color: var(--rhythm-missed); border: 1px dashed var(--edge-subtle); border-radius: 10px">Constellation · reserved</span>
+        <button class="ib" aria-label="Settings" style="margin-left: 6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg></button>
+      </nav>
+    </header>
+  </div>
+</div>
+<script></script>

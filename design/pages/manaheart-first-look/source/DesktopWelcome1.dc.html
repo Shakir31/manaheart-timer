@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Welcome 1 of 3 (desktop)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 0 clamp(16px, 4vw, 48px) 48px; display: flex; flex-direction: column; overflow: hidden">
+  <header style="max-width: 1200px; width: 100%; margin: 0 auto; height: 80px; display: flex; justify-content: space-between; align-items: center">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; letter-spacing: 0.1em">Manaheart</div>
+    <button style="height: 44px; padding: 0 16px; border: none; border-radius: 22px; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">Skip</button>
+  </header>
+  <main style="flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px 80px">
+    <div style="flex: 999 1 460px; min-width: 0; display: flex; justify-content: center">
+      <dc-import name="Heart" circles="{{ 0 }}" forming="{{ 0 }}" size="560px" label="A single heart of light, newly formed" hint-size="560px,560px"></dc-import>
+    </div>
+    <div class="mh-rise" style="flex: 1 1 340px; max-width: 440px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; align-items: center; gap: 16px">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: #9BA0C8">1 of 3</div>
+        <div role="img" aria-label="Step 1 of 3" style="display: flex; gap: 8px"><span style="width: 20px; height: 4px; border-radius: 2px; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></span><span style="width: 4px; height: 4px; border-radius: 2px; background: #3A4180"></span><span style="width: 4px; height: 4px; border-radius: 2px; background: #3A4180"></span></div>
+      </div>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 60px; line-height: 1; color: #F1EFFA">Time becomes mana</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9BA0C8">Every minute you meditate or study gathers as mana. After five hours of practice, it forms your heart.</p>
+      <div style="display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap">
+        <button style="height: 56px; padding: 0 40px; border: none; border-radius: 28px; background: #CFEAFF; color: #070914; font-family: Manrope, sans-serif; font-size: 16px; font-weight: 600; box-shadow: 0 0 36px rgba(127, 212, 255, 0.35); cursor: pointer">Continue</button>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

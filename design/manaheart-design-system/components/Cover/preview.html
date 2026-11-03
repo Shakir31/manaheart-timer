@@ -1,0 +1,31 @@
+<!-- @dsCard height=288 -->
+<div style="position: relative; width: 960px; height: 288px; overflow: hidden; background: var(--page)">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400&display=swap">
+  <style>
+    .mana { fill: var(--mana) } .prim { fill: var(--primary) } .deep { fill: var(--deep-mana) } .edge { fill: var(--control-edge) } .core { fill: var(--core) }
+    .tile { rx: var(--radius-card) } .pill { rx: 32px }
+    .ring { fill: none; stroke: var(--text-primary); stroke-width: 1.2px }
+    .cut { fill: none; stroke: var(--page); stroke-width: 2px }
+  </style>
+  <!--
+    blocks: mana 240×184 (radius-card), primary 144×232 (radius-card), deep-mana 160×96 (radius-card), control-edge pill 128×64, core disc r16
+    arrangement: one tall primary slab bleeding off the right edge, a mana slab bleeding off the top, deep-mana and the pill stepping down beneath, all right of x 480
+    pattern: literal motif → three tilted ellipse rings (the circles orbiting the heart), drawn as hairlines in text-primary and cut out of the blocks in page; "the heart is the only spectacle" chose it
+    scales: gaps space-4 (16) and space-5 (24), radii radius-card (18) and pill = half of 64; ring tilts −18°, 24°, −38° from the heart geometry
+  -->
+  <svg viewBox="0 0 960 288" width="960" height="288" aria-hidden="true" style="position: absolute; inset: 0">
+    <rect class="mana tile" x="560" y="-18" width="240" height="184"></rect>
+    <rect class="prim tile" x="816" y="40" width="160" height="266"></rect>
+    <rect class="deep tile" x="496" y="182" width="160" height="124"></rect>
+    <rect class="edge pill" x="672" y="182" width="128" height="64"></rect>
+    <g transform="rotate(-18 720 140)"><ellipse class="cut" cx="720" cy="140" rx="214" ry="62"></ellipse></g>
+    <g transform="rotate(24 720 140)"><ellipse class="ring" cx="720" cy="140" rx="196" ry="54"></ellipse></g>
+    <g transform="rotate(-38 720 140)"><ellipse class="ring" cx="720" cy="140" rx="172" ry="46" stroke-dasharray="34 10 8 16 52 7"></ellipse></g>
+    <circle class="core" cx="720" cy="140" r="16"></circle>
+  </svg>
+  <div style="position: absolute; left: 48px; bottom: 44px; max-width: 420px; display: flex; flex-direction: column; gap: 10px">
+    <div style="font-family: var(--font-display); font-weight: 500; font-size: 80px; line-height: .92; letter-spacing: .02em; color: var(--text-primary)">Manaheart</div>
+    <div style="font-family: var(--font-sans); font-size: 14px; color: var(--text-secondary)">A quiet ritual: time gathers into a mana heart.</div>
+  </div>
+</div>
+<script></script>

@@ -1,0 +1,20 @@
+<!-- @dsCard group="Feedback" height=380 subtitle="No sessions yet" -->
+<div style="background: var(--page); color: var(--text-body); font-family: var(--font-sans); padding: 24px; display: flex; justify-content: center">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    .tw { animation: tw 4s ease-in-out infinite alternate } @keyframes tw { from { opacity: .15 } to { opacity: .9 } }
+    @media (prefers-reduced-motion: reduce) { .tw { animation: none; opacity: .6 } }
+  </style>
+  <div style="width: 100%; max-width: 420px; border: 1px solid var(--hairline); border-radius: var(--radius-dialog); padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+    <svg viewBox="0 0 400 400" width="140" height="140" role="img" aria-label="Faint sparks gathering">
+      <ellipse cx="200" cy="205" rx="150" ry="110" fill="var(--deep-mana)" opacity="0.08"></ellipse>
+      <g fill="var(--primary)">
+        <circle class="tw" cx="120" cy="150" r="3"></circle><circle class="tw" cx="270" cy="130" r="2.4" style="animation-delay: -1s"></circle><circle class="tw" cx="230" cy="270" r="3.4" style="animation-delay: -2s"></circle><circle class="tw" cx="150" cy="250" r="2.2" style="animation-delay: -.5s"></circle><circle class="tw" cx="200" cy="195" r="4.4" style="animation-delay: -1.7s"></circle><circle class="tw" cx="310" cy="210" r="2" style="animation-delay: -2.4s"></circle><circle class="tw" cx="90" cy="215" r="2.6" style="animation-delay: -.9s"></circle><circle class="tw" cx="250" cy="200" r="2.8" style="animation-delay: -1.3s"></circle>
+      </g>
+    </svg>
+    <div style="font-family: var(--font-display); font-weight: 500; font-size: 28px; color: var(--text-primary)">No sessions yet</div>
+    <div style="font-size: 14px; line-height: 1.5; color: var(--text-secondary); max-width: 300px">Your first minutes will gather here, one quiet line at a time.</div>
+    <div style="display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; justify-content: center"><button style="height: 48px; padding: 0 24px; border: none; border-radius: var(--radius-pill); background: var(--primary); color: var(--on-primary); font-family: var(--font-sans); font-size: 14px; font-weight: 600; box-shadow: var(--glow-primary)">Begin a session</button><button style="height: 48px; padding: 0 18px; border: none; border-radius: var(--radius-pill); background: transparent; color: var(--text-secondary); font-family: var(--font-sans); font-size: 14px; font-weight: 500">Log manually</button></div>
+  </div>
+</div>
+<script></script>

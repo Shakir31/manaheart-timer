@@ -1,0 +1,17 @@
+<!-- @dsCard group="Inputs" height=120 subtitle="On, off, hover, focus, disabled" -->
+<div style="background: var(--card); color: var(--text-secondary); font-family: var(--font-sans); font-size: 12px; padding: 24px; display: flex; gap: 32px; align-items: center; flex-wrap: wrap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap">
+  <style>
+    .w { display: flex; flex-direction: column; align-items: center; gap: 8px }
+    .sw { width: 52px; height: 32px; border-radius: var(--radius-pill); position: relative; padding: 0; cursor: pointer; border: 1px solid var(--control-edge); background: var(--card) }
+    .k { position: absolute; top: 4px; left: 4px; width: 22px; height: 22px; border-radius: 50%; background: var(--text-tertiary) }
+    .on { border-color: var(--mana); background: rgba(127,212,255,.22) }
+    .on .k { left: 24px; background: var(--primary); box-shadow: 0 0 10px rgba(127,212,255,.6) }
+  </style>
+  <span class="w"><button role="switch" aria-checked="true" aria-label="Daily reminder, on" class="sw on"><span class="k"></span></button>On</span>
+  <span class="w"><button role="switch" aria-checked="false" aria-label="Daily reminder, off" class="sw"><span class="k"></span></button>Off</span>
+  <span class="w"><button role="switch" aria-checked="false" aria-label="Daily reminder, hover" class="sw" style="border-color: var(--rhythm-missed); background: #10142e"><span class="k" style="background: var(--text-secondary)"></span></button>Hover</span>
+  <span class="w"><button role="switch" aria-checked="true" aria-label="Daily reminder, focus" class="sw on" style="outline: 2px solid var(--focus); outline-offset: 3px"><span class="k"></span></button>Focus</span>
+  <span class="w"><button role="switch" aria-checked="false" aria-label="Daily reminder, disabled" class="sw" disabled style="border-color: var(--hairline)"><span class="k" style="background: var(--control-edge)"></span></button>Disabled</span>
+</div>
+<script></script>

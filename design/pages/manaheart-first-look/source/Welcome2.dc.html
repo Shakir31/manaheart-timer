@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Welcome 2 of 3</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; display: flex; flex-direction: column; padding: 16px 24px 32px; overflow: hidden">
+  <div style="display: flex; justify-content: space-between; align-items: center; height: 48px">
+    <button aria-label="Back" style="width: 44px; height: 44px; margin-left: -12px; border: none; background: transparent; color: #9BA0C8; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg></button>
+    <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: #9BA0C8">2 of 3</div>
+    <button style="height: 44px; padding: 0 12px; margin-right: -12px; border: none; border-radius: 22px; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">Skip</button>
+  </div>
+
+  <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center">
+    <dc-import name="Heart" circles="{{ 2 }}" unstable-ring="{{ 0 }}" forming="{{ 0.55 }}" size="320px" label="Two circles orbit the heart while a third forms" hint-size="320px,320px"></dc-import>
+  </div>
+
+  <div class="mh-rise" style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+    <div role="img" aria-label="Step 2 of 3" style="display: flex; gap: 8px"><span style="width: 4px; height: 4px; border-radius: 2px; background: #3A4180"></span><span style="width: 20px; height: 4px; border-radius: 2px; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></span><span style="width: 4px; height: 4px; border-radius: 2px; background: #3A4180"></span></div>
+    <h1 style="margin: 4px 0 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 38px; line-height: 1.05; color: #F1EFFA">Circles form around it</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #9BA0C8; max-width: 320px">As your hours grow, up to five circles take shape and orbit the heart, each one a deeper reach of practice.</p>
+  </div>
+
+  <button style="height: 56px; margin-top: 32px; border: none; border-radius: 28px; background: #CFEAFF; color: #070914; font-family: Manrope, sans-serif; font-size: 16px; font-weight: 600; box-shadow: 0 0 36px rgba(127, 212, 255, 0.35); cursor: pointer">Continue</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

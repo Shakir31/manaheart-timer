@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Confirm your path (desktop)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9BA0C8}a:hover{color:#E8E6F4}</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 0 clamp(16px, 4vw, 48px) 48px; display: flex; flex-direction: column">
+  <header style="max-width: 1200px; width: 100%; margin: 0 auto; height: 80px; display: flex; align-items: center">
+    <a href="DesktopMageChoose.dc.html" style="height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 14px 0 6px; margin-left: -6px; border-radius: 22px; color: #9BA0C8; font-size: 14px; font-weight: 500; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg>All paths</a>
+  </header>
+  <main style="flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px 80px">
+    <div style="flex: 999 1 460px; min-width: 0; display: flex; justify-content: center">
+      <dc-import name="Heart" circles="{{ 1 }}" unstable-ring="{{ 0 }}" forming="{{ 0 }}" variant="arcane" size="560px" label="Your heart with one circle, in the Arcane style" hint-size="560px,560px"></dc-import>
+    </div>
+    <div class="mh-rise" style="flex: 1 1 340px; max-width: 440px; display: flex; flex-direction: column; gap: 18px">
+      <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #C9B8FF">The Arcane path</div>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 60px; line-height: 1; color: #F1EFFA">Walk the Arcane path?</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9BA0C8">Your heart and every circle will take on crisp violet and cyan glyphs. Your progress stays exactly as it is.</p>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #9BA0C8"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>You can change this later in Settings.</div>
+      <div style="display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap">
+        <a href="DesktopMageChoose.dc.html" style="height: 56px; display: flex; align-items: center; padding: 0 28px; border: 1px solid #3A4180; border-radius: 28px; color: #E8E6F4; font-size: 15px; font-weight: 500; text-decoration: none">Choose again</a>
+        <button style="height: 56px; padding: 0 44px; border: none; border-radius: 28px; background: #E4DBFF; color: #070914; font-family: Manrope, sans-serif; font-size: 16px; font-weight: 600; box-shadow: 0 0 36px rgba(169, 139, 255, 0.35); cursor: pointer">Confirm</button>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

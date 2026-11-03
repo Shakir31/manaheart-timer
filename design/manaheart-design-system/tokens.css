@@ -1,0 +1,95 @@
+/* Manaheart — generated from tokens.json */
+:root {
+  --page: #070914;
+  --page-deep: #05060f;
+  --card: #0a0c1c;
+  --sheet: #0e1230;
+  --scrim: rgba(3, 4, 12, 0.6);
+  --hairline-faint: #141838;
+  --hairline: #1c2150;
+  --edge-subtle: #262c5e;
+  --control-edge: #3a4180;
+  --track: #1d2350;
+  --rhythm-missed: #5a619a;
+  --text-primary: #f1effa;
+  --text-body: #e8e6f4;
+  --text-secondary: #9ba0c8;
+  --text-tertiary: #7d83af;
+  --core: #f4fbff;
+  --primary: #cfeaff;
+  --on-primary: #070914;
+  --primary-hover: #e4f4ff;
+  --primary-pressed: #b2dbf6;
+  --mana-soft: #9fdcff;
+  --mana: #7fd4ff;
+  --deep-mana: #4c6bff;
+  --focus: var(--primary);
+  --success: #7fe0c4;
+  --success-ground: #0f2a2c;
+  --success-edge: #2e6b66;
+  --error: #f28ca0;
+  --error-ground: #2a1230;
+  --error-edge: #6b2d49;
+  --elemental-ring: #ff9a4d;
+  --elemental-alt: #ffd27a;
+  --elemental-rune: #ffc56b;
+  --elemental-weak: #ff7a3d;
+  --elemental-core: #fff4e0;
+  --arcane-ring: #a98bff;
+  --arcane-alt: #6fe7f5;
+  --arcane-rune: #c9b8ff;
+  --arcane-primary: #e4dbff;
+  --arcane-core: #f5f0ff;
+  --spirit-ring: #d5dee8;
+  --spirit-alt: #e6eef5;
+  --spirit-rune: #9fe6d6;
+  --spirit-core: #f4fbf9;
+  --glow-dot: 0 0 6px #7fd4ff;
+  --glow-bar: 0 0 10px #7fd4ff;
+  --glow-primary: 0 0 36px rgba(127, 212, 255, 0.35);
+  --glow-text: 0 0 28px rgba(127, 212, 255, 0.45);
+  --halo-input: 0 0 0 3px rgba(127, 212, 255, 0.18);
+  --shadow-sheet: 0 -20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-modal: 0 30px 90px rgba(0, 0, 0, 0.6);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-bar: 2px;
+  --radius-input: 14px;
+  --radius-card: 18px;
+  --radius-dialog: 24px;
+  --radius-sheet: 28px;
+  --radius-pill: 999px;
+  --dur-ring: 40s;
+  --dur-ring-alt: 55s;
+  --dur-flicker: 3.4s;
+  --dur-wobble: 6.5s;
+  --dur-pulse: 5s;
+  --dur-arc: 1.6s;
+  --dur-sheet: 360ms;
+  --dur-modal: 280ms;
+  --dur-collapse: 2.7s;
+  --ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-grow: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-collapse: cubic-bezier(0.55, 0, 0.85, 0.35);
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --font-sans: Manrope, "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+.display { font-family: var(--font-display); font-size: 64px; line-height: 64px; font-weight: 500 }
+.title { font-family: var(--font-display); font-size: 34px; line-height: 37px; font-weight: 500 }
+.heading { font-family: var(--font-display); font-size: 26px; line-height: 31px; font-weight: 500 }
+.moment { font-family: var(--font-display); font-size: 20px; line-height: 26px; font-weight: 400; font-style: italic }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 23px; font-weight: 400 }
+.body-sm { font-family: var(--font-sans); font-size: 13px; line-height: 19px; font-weight: 400 }
+.label { font-family: var(--font-sans); font-size: 11px; line-height: 14px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase }
+.button { font-family: var(--font-sans); font-size: 16px; line-height: 20px; font-weight: 600 }
+.numeric-xl { font-family: var(--font-sans); font-size: 84px; line-height: 84px; font-weight: 200; letter-spacing: -0.02em; font-variant-numeric: tabular-nums }
+.numeric-l { font-family: var(--font-sans); font-size: 52px; line-height: 52px; font-weight: 200; font-variant-numeric: tabular-nums }
+.numeric-s { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; font-variant-numeric: tabular-nums }

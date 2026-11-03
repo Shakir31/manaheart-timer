@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Heart states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#070914}
+a{color:#9FDCFF}a:hover{color:#CFEAFF}
+.mh-flow{animation:mhflow 40s linear infinite}
+.mh-flow-r{animation:mhflowr 55s linear infinite}
+.mh-wob{transform-origin:200px 200px;animation:mhwob 6.5s ease-in-out infinite alternate}
+.mh-flick{animation:mhflick 3.4s steps(1,end) infinite}
+.mh-breathe{transform-origin:200px 200px;animation:mhbreathe 5s ease-in-out infinite alternate}
+.mh-gather{transform-origin:200px 200px;animation:mhgather 9s ease-in-out infinite alternate}
+.mh-tw{animation:mhtw 3s ease-in-out infinite alternate}
+.mh-spin{transform-origin:200px 200px;animation:mhspin 90s linear infinite}
+@keyframes mhflow{to{stroke-dashoffset:-400}}
+@keyframes mhflowr{to{stroke-dashoffset:400}}
+@keyframes mhwob{0%{transform:rotate(-2.2deg) translate(1px,-1px)}100%{transform:rotate(2.6deg) translate(-2px,1px)}}
+@keyframes mhflick{0%{opacity:1}12%{opacity:.45}15%{opacity:.95}48%{opacity:.7}51%{opacity:.3}54%{opacity:.85}80%{opacity:.6}}
+@keyframes mhbreathe{from{transform:scale(1);opacity:.88}to{transform:scale(1.06);opacity:1}}
+@keyframes mhgather{from{transform:scale(1.12) rotate(-6deg)}to{transform:scale(.9) rotate(6deg)}}
+@keyframes mhtw{from{opacity:.15}to{opacity:1}}
+@keyframes mhspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 1960px; height: 640px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 56px 64px; display: flex; flex-direction: column; gap: 32px">
+  <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+    <defs>
+      <radialGradient id="sHalo"><stop offset="0" stop-color="#EAF8FF" stop-opacity="0.85"></stop><stop offset="0.22" stop-color="#9FDCFF" stop-opacity="0.4"></stop><stop offset="0.6" stop-color="#4C6BFF" stop-opacity="0.1"></stop><stop offset="1" stop-color="#4C6BFF" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="sHalo2"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"></stop><stop offset="0.3" stop-color="#CFEAFF" stop-opacity="0.6"></stop><stop offset="0.65" stop-color="#6F8CFF" stop-opacity="0.18"></stop><stop offset="1" stop-color="#4C6BFF" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="sNebula"><stop offset="0" stop-color="#7FD4FF" stop-opacity="0.18"></stop><stop offset="0.5" stop-color="#4C6BFF" stop-opacity="0.08"></stop><stop offset="1" stop-color="#4C6BFF" stop-opacity="0"></stop></radialGradient>
+      <filter id="sGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+    </defs>
+  </svg>
+
+  <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; align-items: start">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <svg viewBox="0 0 400 400" width="270" height="270" role="img" aria-label="Before formation: faint scattered sparks gathering into a nebula">
+        <ellipse cx="200" cy="205" rx="150" ry="110" fill="url(#sNebula)"></ellipse>
+        <g class="mh-gather" fill="#CFEAFF">
+          <circle class="mh-tw" cx="120" cy="150" r="1.6"></circle>
+          <circle class="mh-tw" cx="270" cy="130" r="1.2" style="animation-delay: -1s"></circle>
+          <circle class="mh-tw" cx="230" cy="270" r="1.8" style="animation-delay: -2s"></circle>
+          <circle class="mh-tw" cx="150" cy="250" r="1.1" style="animation-delay: -0.5s"></circle>
+          <circle class="mh-tw" cx="200" cy="190" r="2.2" style="animation-delay: -1.7s"></circle>
+          <circle class="mh-tw" cx="310" cy="210" r="1" style="animation-delay: -2.4s"></circle>
+          <circle class="mh-tw" cx="90" cy="215" r="1.3" style="animation-delay: -0.9s"></circle>
+          <circle class="mh-tw" cx="180" cy="110" r="1" style="animation-delay: -2.9s"></circle>
+          <circle class="mh-tw" cx="250" cy="200" r="1.4" style="animation-delay: -1.3s"></circle>
+          <circle class="mh-tw" cx="175" cy="215" r="1.2" style="animation-delay: -0.2s"></circle>
+          <circle class="mh-tw" cx="220" cy="160" r="0.9" style="animation-delay: -2.1s"></circle>
+          <circle class="mh-tw" cx="290" cy="290" r="0.9" style="animation-delay: -1.1s"></circle>
+          <circle class="mh-tw" cx="120" cy="300" r="0.8" style="animation-delay: -2.6s"></circle>
+        </g>
+      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; color: #9BA0C8">I</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #F1EFFA">Gathering</div>
+        <div style="font-size: 13px; color: #9BA0C8">First minutes logged. No heart yet.</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <svg viewBox="0 0 400 400" width="270" height="270" role="img" aria-label="Heart just formed, no circles">
+        <circle cx="200" cy="200" r="110" fill="url(#sHalo)"></circle>
+        <g class="mh-breathe" filter="url(#sGlow)" fill="none">
+          <circle cx="200" cy="200" r="27" stroke="#9FDCFF" stroke-width="0.8" opacity="0.7"></circle>
+          <path d="M200 168 L219 200 L200 232 L181 200 Z" stroke="#DFF4FF" stroke-width="1.2"></path>
+          <path d="M181 200 L219 200 M200 168 L200 232" stroke="#DFF4FF" stroke-width="0.6" opacity="0.6"></path>
+          <circle cx="200" cy="200" r="9" fill="#F4FBFF"></circle>
+        </g>
+      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; color: #9BA0C8">II</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #F1EFFA">Heart formed</div>
+        <div style="font-size: 13px; color: #9BA0C8">0 of 5 circles</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <svg viewBox="0 0 400 400" width="270" height="270" role="img" aria-label="One stable circle">
+        <circle cx="200" cy="200" r="112" fill="url(#sHalo)"></circle>
+        <g filter="url(#sGlow)" fill="none" stroke="#7FD4FF">
+          <g transform="rotate(-18 200 200)">
+            <ellipse cx="200" cy="200" rx="90" ry="30" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow" cx="200" cy="200" rx="95" ry="33" stroke-width="2" stroke-dasharray="1 7 5 7" opacity="0.55"></ellipse>
+          </g>
+        </g>
+        <g class="mh-breathe" filter="url(#sGlow)" fill="none">
+          <circle cx="200" cy="200" r="27" stroke="#9FDCFF" stroke-width="0.8" opacity="0.7"></circle>
+          <path d="M200 168 L219 200 L200 232 L181 200 Z" stroke="#DFF4FF" stroke-width="1.2"></path>
+          <circle cx="200" cy="200" r="9" fill="#F4FBFF"></circle>
+        </g>
+      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; color: #9BA0C8">III</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #F1EFFA">First circle</div>
+        <div style="font-size: 13px; color: #9BA0C8">1 stable · mage style chosen here</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <svg viewBox="0 0 400 400" width="270" height="270" role="img" aria-label="Three circles: two stable, one unstable">
+        <circle cx="200" cy="200" r="118" fill="url(#sHalo)"></circle>
+        <g filter="url(#sGlow)" fill="none" stroke="#7FD4FF">
+          <g transform="rotate(-38 200 200)"><g class="mh-wob"><g class="mh-flick">
+            <ellipse cx="200" cy="200" rx="142" ry="54" stroke-width="1" stroke-dasharray="34 10 8 16 52 7 14 22 40 12" opacity="0.6"></ellipse>
+            <ellipse cx="200" cy="200" rx="148" ry="58" stroke-width="1.6" stroke-dasharray="1 13 3 23" opacity="0.35"></ellipse>
+          </g></g></g>
+          <g transform="rotate(24 200 200)">
+            <ellipse cx="200" cy="200" rx="118" ry="42" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow-r" cx="200" cy="200" rx="123" ry="45" stroke-width="2" stroke-dasharray="2 6 2 10" opacity="0.55"></ellipse>
+          </g>
+          <g transform="rotate(-18 200 200)">
+            <ellipse cx="200" cy="200" rx="90" ry="30" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow" cx="200" cy="200" rx="95" ry="33" stroke-width="2" stroke-dasharray="1 7 5 7" opacity="0.55"></ellipse>
+          </g>
+        </g>
+        <g class="mh-breathe" filter="url(#sGlow)" fill="none">
+          <circle cx="200" cy="200" r="27" stroke="#9FDCFF" stroke-width="0.8" opacity="0.7"></circle>
+          <path d="M200 168 L219 200 L200 232 L181 200 Z" stroke="#DFF4FF" stroke-width="1.2"></path>
+          <circle cx="200" cy="200" r="9" fill="#F4FBFF"></circle>
+        </g>
+      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; color: #9BA0C8">IV</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #F1EFFA">Three circles</div>
+        <div style="font-size: 13px; color: #9BA0C8">2 stable · 1 unstable</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <svg viewBox="0 0 400 400" width="270" height="270" role="img" aria-label="Five stable circles, ready to condense">
+        <circle cx="200" cy="200" r="135" fill="url(#sHalo)"></circle>
+        <g filter="url(#sGlow)" fill="none" stroke="#7FD4FF">
+          <g transform="rotate(-66 200 200)">
+            <ellipse cx="200" cy="200" rx="182" ry="74" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow-r" cx="200" cy="200" rx="187" ry="77" stroke-width="2" stroke-dasharray="1 5 1 13" opacity="0.5"></ellipse>
+          </g>
+          <g transform="rotate(58 200 200)">
+            <ellipse cx="200" cy="200" rx="164" ry="64" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow" cx="200" cy="200" rx="169" ry="67" stroke-width="2" stroke-dasharray="4 4 1 11" opacity="0.5"></ellipse>
+          </g>
+          <g transform="rotate(-38 200 200)">
+            <ellipse cx="200" cy="200" rx="142" ry="54" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow-r" cx="200" cy="200" rx="147" ry="57" stroke-width="2" stroke-dasharray="1 9 6 4" opacity="0.5"></ellipse>
+          </g>
+          <g transform="rotate(24 200 200)">
+            <ellipse cx="200" cy="200" rx="118" ry="42" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow" cx="200" cy="200" rx="123" ry="45" stroke-width="2" stroke-dasharray="2 6 2 10" opacity="0.55"></ellipse>
+          </g>
+          <g transform="rotate(-18 200 200)">
+            <ellipse cx="200" cy="200" rx="90" ry="30" stroke-width="1.1"></ellipse>
+            <ellipse class="mh-flow-r" cx="200" cy="200" rx="95" ry="33" stroke-width="2" stroke-dasharray="1 7 5 7" opacity="0.55"></ellipse>
+          </g>
+        </g>
+        <g class="mh-breathe" filter="url(#sGlow)" fill="none">
+          <circle cx="200" cy="200" r="27" stroke="#9FDCFF" stroke-width="0.8" opacity="0.8"></circle>
+          <path d="M200 166 L220 200 L200 234 L180 200 Z" stroke="#EAF8FF" stroke-width="1.3"></path>
+          <circle cx="200" cy="200" r="10" fill="#FFFFFF"></circle>
+        </g>
+      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; color: #9BA0C8">V</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #F1EFFA">Five, all stable</div>
+        <button style="margin-top: 10px; height: 44px; padding: 0 28px; border: none; border-radius: 22px; background: #CFEAFF; color: #070914; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; box-shadow: 0 0 30px rgba(127, 212, 255, 0.45); cursor: pointer">Condense</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <svg viewBox="0 0 400 400" width="270" height="270" role="img" aria-label="Level 2 heart after condensing: denser, brighter, no circles">
+        <circle cx="200" cy="200" r="140" fill="url(#sHalo2)"></circle>
+        <g class="mh-spin" fill="none">
+          <circle cx="200" cy="200" r="52" stroke="#CFEAFF" stroke-width="1" stroke-dasharray="1 5 3 5" opacity="0.7"></circle>
+        </g>
+        <g class="mh-breathe" filter="url(#sGlow)" fill="none">
+          <circle cx="200" cy="200" r="36" stroke="#CFEAFF" stroke-width="1" opacity="0.85"></circle>
+          <path d="M200 156 L224 200 L200 244 L176 200 Z" stroke="#FFFFFF" stroke-width="1.4"></path>
+          <path d="M156 200 L200 178 L244 200 L200 222 Z" stroke="#EAF8FF" stroke-width="1.1" opacity="0.85"></path>
+          <path d="M176 200 L224 200 M200 156 L200 244" stroke="#FFFFFF" stroke-width="0.7" opacity="0.7"></path>
+          <circle cx="200" cy="200" r="13" fill="#FFFFFF"></circle>
+        </g>
+      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; color: #9BA0C8">VI</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #F1EFFA">Level 2 · Adept</div>
+        <div style="font-size: 13px; color: #9BA0C8">Condensed. The cycle begins again.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1960,"height":640}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

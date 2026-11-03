@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart DS · Surfaces, navigation and patterns</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#070914}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="width: 1440px; height: 2000px; box-sizing: border-box; background: #070914; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 64px; display: flex; flex-direction: column; gap: 44px">
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #9BA0C8">Manaheart design system · components</div>
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 56px; line-height: 1; color: #F1EFFA">Surfaces, navigation &amp; patterns</h1>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 340px minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Bottom sheet · mobile</div>
+      <div style="width: 320px; height: 480px; border-radius: 32px; border: 1px solid #1C2150; background: #070914; position: relative; overflow: hidden">
+        <div style="position: absolute; inset: 0; background: rgba(3, 4, 12, 0.6)"></div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 300px; box-sizing: border-box; background: #0E1230; border-top: 1px solid #262C5E; border-radius: 28px 28px 0 0; padding: 10px 20px 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5)">
+          <div style="display: flex; justify-content: center"><div style="width: 40px; height: 4px; border-radius: 2px; background: #3A4180"></div></div>
+          <div style="display: flex; justify-content: space-between; align-items: center"><div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #F1EFFA">Sheet title</div><button aria-label="Close" style="width: 44px; height: 44px; border: none; background: transparent; color: #9BA0C8; padding: 0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+          <div style="flex-grow: 1; border: 1px dashed #262C5E; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #7D83AF">content · gap 22</div>
+          <div style="height: 52px; border-radius: 26px; background: #CFEAFF; color: #070914; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Primary action</div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">sheet ground · rim edge-subtle · radius 28 top · grabber 40×4 · scrim rgba(3,4,12,.6) · height hugs content, max 90%</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Centered modal · desktop</div>
+      <div style="height: 480px; border-radius: 20px; border: 1px solid #1C2150; background: #070914; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
+        <div style="position: absolute; inset: 0; background: rgba(3, 4, 12, 0.62)"></div>
+        <div role="dialog" aria-label="Modal example" style="position: relative; width: 78%; box-sizing: border-box; background: #0E1230; border: 1px solid #262C5E; border-radius: 28px; padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6), 0 0 60px rgba(76, 107, 255, 0.08)">
+          <div style="display: flex; justify-content: space-between; align-items: center"><div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #F1EFFA">Modal title</div><button aria-label="Close" style="width: 44px; height: 44px; border: none; background: transparent; color: #9BA0C8; padding: 0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+          <div style="height: 120px; border: 1px dashed #262C5E; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #7D83AF">content · gap 24</div>
+          <div style="display: flex; justify-content: flex-end; gap: 10px"><div style="height: 48px; padding: 0 20px; display: flex; align-items: center; font-size: 14px; color: #9BA0C8">Cancel</div><div style="height: 48px; padding: 0 26px; border-radius: 24px; background: #CFEAFF; color: #070914; display: flex; align-items: center; font-size: 14px; font-weight: 600">Primary</div></div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">max-width 520 · padding 28/32 · radius 28 · shadow-modal · actions bottom-right, primary last · Esc closes, focus trapped and returned</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Confirmation dialog</div>
+      <div role="alertdialog" aria-labelledby="cdT" aria-describedby="cdB" style="box-sizing: border-box; background: #0E1230; border: 1px solid #262C5E; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6)">
+        <div style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #6B2D49; background: #2A1230; color: #F28CA0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"></path></svg></div>
+        <div id="cdT" style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #F1EFFA">Delete this session?</div>
+        <div id="cdB" style="font-size: 14px; line-height: 1.5; color: #9BA0C8">45 min of Study will be removed and the heart will lose that mana. This can't be undone.</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+          <button style="height: 48px; border: 1px solid #3A4180; border-radius: 24px; background: transparent; color: #E8E6F4; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500">Keep it</button>
+          <button style="height: 48px; border: 1px solid #6B2D49; border-radius: 24px; background: #2A1230; color: #F28CA0; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600">Delete</button>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">alertdialog · initial focus on the safe action · destructive button on the right · width 360 max</div>
+
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8; margin-top: 18px">Toasts · bottom center, 4s</div>
+      <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 16px; background: #0E1230; border: 1px solid #2E6B66; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FE0C4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span style="font-size: 14px; flex-grow: 1">Session saved · +45 min</span></div>
+      <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 6px 6px 6px 16px; border-radius: 16px; background: #0E1230; border: 1px solid #262C5E; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9BA0C8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"></path></svg><span style="font-size: 14px; flex-grow: 1">Session deleted</span><button style="height: 40px; padding: 0 14px; border: none; border-radius: 20px; background: transparent; color: #9FDCFF; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600">Undo</button></div>
+      <div role="alert" style="display: flex; align-items: center; gap: 12px; padding: 6px 6px 6px 16px; border-radius: 16px; background: #0E1230; border: 1px solid #6B2D49; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F28CA0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5.5M12 16.5v.1"></path></svg><span style="font-size: 14px; flex-grow: 1">Couldn't save. Check your connection.</span><button style="height: 40px; padding: 0 14px; border: none; border-radius: 20px; background: transparent; color: #F28CA0; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600">Retry</button></div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #141838"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: start">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">List row · session</div>
+      <div style="display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 8px 16px; align-items: center">
+        <div style="font-size: 12px; color: #7D83AF">Default</div>
+        <button style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: none; border-radius: 16px; background: transparent; color: #E8E6F4; text-align: left; font-family: Manrope, sans-serif"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid #262C5E; display: flex; align-items: center; justify-content: center; color: #9FDCFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg></span><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 15px; font-weight: 500">Meditation</span><span style="font-size: 13px; color: #9BA0C8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Breath count, then a body scan</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 15px; font-variant-numeric: tabular-nums">20 min</span><span style="font-size: 12px; color: #7D83AF; font-variant-numeric: tabular-nums">9:10 pm</span></span></button>
+        <div style="font-size: 12px; color: #7D83AF">Hover</div>
+        <button style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: none; border-radius: 16px; background: rgba(232, 230, 244, 0.04); color: #E8E6F4; text-align: left; font-family: Manrope, sans-serif"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid #3A4180; display: flex; align-items: center; justify-content: center; color: #CFEAFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5v13c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"></path><path d="M12 6v13.5"></path></svg></span><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Study</span><span style="font-size: 13px; color: #9BA0C8">Chapter 4, spaced recall</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 15px; font-variant-numeric: tabular-nums">45 min</span><span style="font-size: 12px; color: #7D83AF; font-variant-numeric: tabular-nums">6:30 am</span></span></button>
+        <div style="font-size: 12px; color: #7D83AF">Pressed</div>
+        <button style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: none; border-radius: 16px; background: rgba(127, 212, 255, 0.08); color: #E8E6F4; text-align: left; font-family: Manrope, sans-serif"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid #3A4180; display: flex; align-items: center; justify-content: center; color: #CFEAFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5v13c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"></path><path d="M12 6v13.5"></path></svg></span><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Study</span><span style="font-size: 13px; color: #7D83AF">No note</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 15px; font-variant-numeric: tabular-nums">1h 30m</span><span style="font-size: 12px; color: #7D83AF; font-variant-numeric: tabular-nums">2:00 pm</span></span></button>
+        <div style="font-size: 12px; color: #7D83AF">Focus-visible</div>
+        <button style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: none; border-radius: 16px; background: transparent; color: #E8E6F4; text-align: left; font-family: Manrope, sans-serif; outline: 2px solid #CFEAFF; outline-offset: 0"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid #262C5E; display: flex; align-items: center; justify-content: center; color: #9FDCFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg></span><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Meditation</span><span style="font-size: 13px; color: #9BA0C8">Evening sit</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 15px; font-variant-numeric: tabular-nums">15 min</span><span style="font-size: 12px; color: #7D83AF; font-variant-numeric: tabular-nums">10:05 pm</span></span></button>
+      </div>
+      <div style="font-size: 12px; color: #7D83AF">Whole row is the button; opens the edit sheet. Day headers: label style + day total on the right.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Empty state pattern</div>
+      <div style="border: 1px solid #1C2150; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+        <dc-import name="Heart" phase="gathering" size="150px" label="Faint sparks gathering" hint-size="150px,150px"></dc-import>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #F1EFFA">No sessions yet</div>
+        <div style="font-size: 14px; color: #9BA0C8; max-width: 300px; line-height: 1.5">Your first minutes will gather here, one quiet line at a time.</div>
+        <div style="display: flex; gap: 8px; margin-top: 6px"><button style="height: 48px; padding: 0 24px; border: none; border-radius: 24px; background: #CFEAFF; color: #070914; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600">Begin a session</button><button style="height: 48px; padding: 0 18px; border: none; border-radius: 24px; background: transparent; color: #9BA0C8; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 500">Log manually</button></div>
+      </div>
+      <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">Faint gathering heart · one serif line · one sentence · one primary. Used for empty Sessions and before the heart forms.</div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #141838"></div>
+
+  <div style="display: grid; grid-template-columns: 390px minmax(0, 1fr); gap: 48px; align-items: start">
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Mobile top bar</div>
+      <div style="display: flex; justify-content: space-between; align-items: center; height: 48px; padding: 0 12px 0 24px; border: 1px solid #141838; border-radius: 16px"><div style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; letter-spacing: 0.1em">Manaheart</div><button aria-label="Settings" style="width: 44px; height: 44px; border: none; background: transparent; color: #9BA0C8; padding: 0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg></button></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; height: 48px; padding: 0 12px; border: 1px solid #141838; border-radius: 16px"><button aria-label="Back" style="width: 44px; height: 44px; border: none; background: transparent; color: #9BA0C8; padding: 0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg></button><div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500">Settings</div><div style="width: 44px"></div></div>
+
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8; margin-top: 8px">Mobile bottom nav · 72 tall</div>
+      <nav aria-label="Main (example)" style="height: 72px; box-sizing: border-box; padding-bottom: 8px; border: 1px solid #141838; border-radius: 16px; background: rgba(7, 9, 20, 0.92); display: flex; justify-content: center">
+        <a href="#" aria-current="page" style="width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #F1EFFA; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FD4FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-20 12 12)"></ellipse><path d="M12 7.5l2.6 4.5-2.6 4.5-2.6-4.5z"></path></svg>Heart<span style="width: 4px; height: 4px; border-radius: 50%; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></span></a>
+        <a href="#" style="width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #9BA0C8; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg>Sessions<span style="width: 4px; height: 4px"></span></a>
+        <div aria-hidden="true" style="width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; color: #5A619A; border: 1px dashed #262C5E; border-radius: 12px; margin: 8px 0 0">Constellation<span style="font-size: 10px">reserved</span></div>
+      </nav>
+      <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">Tabs are 104 wide and centred, so a third fits without re-layout. Active: primary label, mana icon, glow dot. Settings lives in the top bar.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Desktop top nav · 80 tall · container 1200</div>
+      <header style="height: 80px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #141838; border-radius: 16px">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; letter-spacing: 0.1em">Manaheart</div>
+        <nav aria-label="Main (example)" style="display: flex; align-items: center; gap: 4px">
+          <a href="#" aria-current="page" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 600; color: #F1EFFA; text-decoration: none; box-shadow: inset 0 -1px 0 #7FD4FF">Heart</a>
+          <a href="#" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 500; color: #9BA0C8; text-decoration: none">Sessions</a>
+          <span aria-hidden="true" style="height: 32px; display: flex; align-items: center; padding: 0 12px; font-size: 13px; color: #5A619A; border: 1px dashed #262C5E; border-radius: 10px">Constellation · reserved</span>
+          <button aria-label="Settings" style="width: 44px; height: 44px; margin-left: 8px; border: none; background: transparent; color: #9BA0C8; padding: 0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg></button>
+        </nav>
+      </header>
+      <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">Active link: primary text + 1px mana underline. Focus and Session-complete screens hide the nav. Below 640px the desktop layout swaps to the mobile top bar and bottom nav.</div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 16px">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Rhythm week</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border: 1px solid #1C2150; border-radius: 16px">
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Rhythm</div><div style="font-size: 13px">5 of 7 days</div></div>
+            <div style="display: flex; gap: 10px" role="img" aria-label="Practised 5 of the last 7 days; missed Wednesday and Saturday">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></div><div style="font-size: 11px; color: #7D83AF">M</div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></div><div style="font-size: 11px; color: #7D83AF">T</div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px solid #5A619A"></div><div style="font-size: 11px; color: #7D83AF">W</div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></div><div style="font-size: 11px; color: #7D83AF">T</div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; border-radius: 50%; background: #7FD4FF; box-shadow: 0 0 6px #7FD4FF"></div><div style="font-size: 11px; color: #7D83AF">F</div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px solid #5A619A"></div><div style="font-size: 11px; color: #7D83AF">S</div></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px dashed #9FDCFF"></div><div style="font-size: 11px; color: #E8E6F4; font-weight: 600">S</div></div>
+            </div>
+          </div>
+          <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">Practised: filled mana dot + glow. Missed: hollow missed ring. Today, not yet: dashed mana ring, bold letter. Always paired with "N of 7 days" text.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Progress indicator</div>
+          <div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between; align-items: baseline"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px">Fourth circle forming</div><div style="font-size: 13px; color: #9BA0C8; font-variant-numeric: tabular-nums">6h 40m <span style="color: #7D83AF">/ 10h</span></div></div><div role="progressbar" aria-valuenow="400" aria-valuemin="0" aria-valuemax="600" aria-label="Fourth circle" style="height: 2px; background: #1D2350; border-radius: 2px; position: relative"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 66%; background: #7FD4FF; border-radius: 2px; box-shadow: 0 0 10px #7FD4FF"></div></div></div>
+          <div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between; align-items: baseline"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px">Just gained</div><div style="font-size: 13px; color: #9BA0C8; font-variant-numeric: tabular-nums">7h 25m <span style="color: #7D83AF">/ 10h</span></div></div><div style="height: 2px; background: #1D2350; border-radius: 2px; position: relative"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 66%; background: #7FD4FF"></div><div style="position: absolute; left: 66%; top: -1px; bottom: -1px; width: 8%; background: #F4FBFF; border-radius: 2px; box-shadow: 0 0 12px #9FDCFF"></div></div></div>
+          <div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between; align-items: baseline"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px">Heart forming</div><div style="font-size: 13px; color: #9BA0C8; font-variant-numeric: tabular-nums">4h 10m <span style="color: #7D83AF">/ 5h</span></div></div><div style="height: 2px; background: #1D2350; border-radius: 2px; position: relative"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 83%; background: #9FDCFF; border-radius: 2px; box-shadow: 0 0 10px #7FD4FF; opacity: 0.8"></div></div></div>
+          <div style="font-size: 12px; color: #7D83AF; line-height: 1.5">2px track, mana fill with glow-bar. New gain shows as a core-white segment for one visit. Never a percentage.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

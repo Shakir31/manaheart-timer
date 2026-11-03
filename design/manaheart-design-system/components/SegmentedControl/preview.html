@@ -1,0 +1,14 @@
+<!-- @dsCard group="Inputs" height=150 subtitle="Category toggle: default, hover, focus, disabled" -->
+<div style="background: var(--sheet); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    .g { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: var(--radius-pill); background: var(--page); border: 1px solid var(--hairline) }
+    .o { height: 44px; border-radius: var(--radius-pill); font-family: var(--font-sans); font-size: 14px; cursor: pointer; border: 1px solid transparent; background: transparent; color: var(--text-secondary); font-weight: 500 }
+    .on { border-color: var(--mana); background: rgba(127,212,255,.12); color: var(--text-primary); font-weight: 600 }
+  </style>
+  <div role="radiogroup" aria-label="Category, default" class="g"><button role="radio" aria-checked="true" class="o on">Meditation</button><button role="radio" aria-checked="false" class="o">Study</button></div>
+  <div role="radiogroup" aria-label="Category, hover" class="g"><button role="radio" aria-checked="true" class="o on">Meditation</button><button role="radio" aria-checked="false" class="o" style="background: rgba(232,230,244,.05); color: var(--text-body)">Study</button></div>
+  <div role="radiogroup" aria-label="Category, focus" class="g"><button role="radio" aria-checked="true" class="o on" style="outline: 2px solid var(--focus); outline-offset: 2px">Meditation</button><button role="radio" aria-checked="false" class="o">Study</button></div>
+  <div role="radiogroup" aria-label="Category, disabled" class="g" style="background: var(--card); border-color: var(--hairline-faint)"><button disabled role="radio" aria-checked="true" class="o" style="border-color: var(--edge-subtle); color: var(--text-tertiary)">Meditation</button><button disabled role="radio" aria-checked="false" class="o" style="color: var(--rhythm-missed)">Study</button></div>
+</div>
+<script></script>
