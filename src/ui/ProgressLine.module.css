@@ -1,0 +1,68 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-body);
+}
+
+.value {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.target {
+  color: var(--text-tertiary);
+}
+
+.track {
+  position: relative;
+  height: 2px;
+  border-radius: var(--radius-bar);
+  background: var(--track);
+}
+
+.fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: var(--radius-bar);
+  background: var(--mana);
+  box-shadow: var(--glow-bar);
+  transition: width var(--dur-arc) var(--ease-grow);
+}
+
+.gathering {
+  background: var(--mana-soft);
+  opacity: 0.85;
+}
+
+.gain {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  border-radius: var(--radius-bar);
+  background: var(--core);
+  box-shadow: 0 0 12px var(--mana-soft);
+}
+
+@media (min-width: 640px) {
+  .label {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 15px;
+  }
+}

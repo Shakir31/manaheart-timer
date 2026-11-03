@@ -1,0 +1,75 @@
+/* Ring and heart motion, ported from design/pages/.../source/mh.css. See Motion.md. */
+.root {
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.root svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.flow { animation: flow var(--dur-ring) linear infinite; }
+.flowReverse { animation: flow-reverse var(--dur-ring-alt) linear infinite; }
+.wobble { transform-origin: 200px 200px; animation: wobble var(--dur-wobble) ease-in-out infinite alternate; }
+.flicker { animation: flicker var(--dur-flicker) steps(1, end) infinite; }
+.forming { animation: forming 2.6s ease-in-out infinite alternate; }
+.arc { transition: stroke-dasharray var(--dur-arc) var(--ease-grow); }
+.sway { transform-origin: 200px 200px; animation: sway 7s ease-in-out infinite alternate; }
+.breathe { transform-origin: 200px 200px; animation: breathe var(--dur-pulse) ease-in-out infinite alternate; }
+.breatheSlow { transform-origin: 200px 200px; animation: breathe 6s ease-in-out infinite alternate; }
+.breatheQuick { transform-origin: 200px 200px; animation: breathe 3s ease-in-out infinite alternate; }
+.gather { transform-origin: 200px 200px; animation: gather 9s ease-in-out infinite alternate; }
+.spin { transform-origin: 200px 200px; animation: spin 90s linear infinite; }
+.collapse { transform-origin: 200px 200px; animation: collapse var(--dur-collapse) var(--ease-collapse) both; }
+.flare { transform-origin: 200px 200px; animation: flare var(--dur-collapse) ease-in both; }
+.twinkle { animation: twinkle 4s ease-in-out infinite alternate; }
+.stream { animation: stream 2.4s linear infinite; }
+
+@keyframes flow { to { stroke-dashoffset: -400; } }
+@keyframes flow-reverse { to { stroke-dashoffset: 400; } }
+@keyframes wobble {
+  0% { transform: rotate(-2.2deg) translate(1px, -1px); }
+  100% { transform: rotate(2.6deg) translate(-2px, 1px); }
+}
+@keyframes flicker {
+  0% { opacity: 1; } 12% { opacity: 0.45; } 15% { opacity: 0.95; } 48% { opacity: 0.7; }
+  51% { opacity: 0.3; } 54% { opacity: 0.85; } 80% { opacity: 0.6; }
+}
+@keyframes forming { from { opacity: 0.5; } to { opacity: 1; } }
+@keyframes sway {
+  0% { transform: translate(0, -4px) rotate(-1.5deg); }
+  100% { transform: translate(0, 4px) rotate(1.5deg); }
+}
+@keyframes breathe {
+  from { transform: scale(1); opacity: 0.88; }
+  to { transform: scale(1.06); opacity: 1; }
+}
+@keyframes gather {
+  from { transform: scale(1.12) rotate(-6deg); }
+  to { transform: scale(0.9) rotate(6deg); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes collapse {
+  0% { transform: scale(1); opacity: 1; }
+  75% { transform: scale(0.12); opacity: 0.9; }
+  100% { transform: scale(0.05); opacity: 0; }
+}
+@keyframes flare {
+  0%, 60% { transform: scale(1); opacity: 0.85; }
+  80% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
+@keyframes twinkle { from { opacity: 0.12; } to { opacity: 0.9; } }
+@keyframes stream { to { stroke-dashoffset: -120; } }
+
+/* Reduced motion: everything holds still; unstable rings stay broken at 60% (Motion.md). */
+@media (prefers-reduced-motion: reduce) {
+  .root * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .collapse { opacity: 0; transition: opacity 400ms !important; }
+}

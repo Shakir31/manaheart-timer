@@ -83,12 +83,25 @@ The design is final; build to it, don't redesign.
 ```
 src/
   engine/     pure progression logic + tests (types, config, time, progression, format)
-  data/       Supabase API, ManaDataProvider, useHeartState
+  data/       Supabase API, ManaDataProvider, useHeartState, useNow
   auth/       AuthProvider + useAuth
-  lib/        Supabase client
+  focus/      timer (pure) + FocusTimerProvider (persists the running session per user)
+  heart/      heartModel (pure: state → rings + aria label) and the Heart SVG
+  copy/       wording helpers (heart moments, rhythm lines, dates)
+  ui/         design-system primitives: Button, Icon, SegmentedControl, DurationStepper,
+              ProgressLine, RhythmWeek, Sheet (CSS modules, tokens only)
+  app/        AppShell (navigation), useRecordSessions
+  screens/    Home, LogSheet, Focus, Complete (+ temporary placeholders)
+  lib/        Supabase client, safe localStorage
+  test/       test helpers: fake Supabase, providers, renderApp
   styles/     tokens.css (from the design system), global.css
 supabase/     SQL migrations
 design/       design system and exported screens (reference only, not shipped)
 ```
 
-`src/App.tsx` is currently a temporary Phase 2 check page; replace it with the real screens.
+Styling: one CSS module per component, using token variables only. Pure logic lives
+outside components so it can be unit-tested; screens are tested end-to-end through
+`renderApp()` with `../data/api` mocked.
+
+Temporary until Phase 4: `screens/TempSignIn.tsx` and `screens/Placeholders.tsx`
+(Sessions, Settings). Replace them with the designed screens.

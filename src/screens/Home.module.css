@@ -1,0 +1,216 @@
+/* Mobile first: rank, heart, progress, rhythm, actions. The moment line and Recent
+   list are desktop-only, as in the designs. */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.heart {
+  order: 1;
+  width: min(316px, 100%);
+  margin: 6px auto 4px;
+}
+
+.panel {
+  display: contents;
+}
+
+.rank {
+  order: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.title {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.moment {
+  display: none;
+  margin: var(--space-2) 0 0;
+  color: var(--text-secondary);
+}
+
+.progress {
+  order: 2;
+}
+
+.rhythm {
+  order: 3;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: 26px;
+  padding: 14px var(--space-4);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+}
+.rhythm > :global(div[role='img']) {
+  justify-self: center;
+}
+
+.rhythmCount {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.rhythmCount .eyebrow {
+  letter-spacing: 0.24em;
+}
+
+.count {
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actions {
+  order: 4;
+  margin-top: auto;
+  padding-top: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.logButton {
+  align-self: stretch;
+}
+
+.recent {
+  display: none;
+}
+
+/* Narrow phones: let the rhythm card wrap so nothing scrolls sideways. */
+@media (max-width: 359px) {
+  .rhythm {
+    grid-template-columns: 1fr auto;
+  }
+  .rhythm > :global(div[role='img']) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media (min-width: 960px) {
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 472px;
+    gap: var(--space-8);
+    align-items: center;
+    padding-top: var(--space-7);
+  }
+
+  /* Desktop uses source order: heart left; rank, progress, rhythm, actions, recent right. */
+  .heart,
+  .rank,
+  .progress,
+  .rhythm,
+  .actions {
+    order: 0;
+  }
+
+  .heart {
+    width: min(560px, 100%);
+    margin: 0 auto;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .rank {
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .title {
+    font-size: 64px;
+  }
+
+  .moment {
+    display: block;
+  }
+
+  .rhythm {
+    margin: 0;
+    grid-template-columns: 1fr auto;
+    padding: var(--space-5);
+  }
+  .rhythm > :global(div[role='img']) {
+    justify-self: end;
+  }
+
+  .legend {
+    grid-column: 1 / -1;
+    align-items: flex-start;
+  }
+
+  .actions {
+    margin: 0;
+    padding: 0;
+    gap: var(--space-4);
+  }
+
+  .logButton {
+    align-self: flex-start;
+    height: 52px;
+    padding: 0 var(--space-6);
+    border: 1px solid var(--control-edge);
+    color: var(--text-body);
+    font-size: 16px;
+  }
+
+  .recent {
+    display: block;
+  }
+  .recent ul {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    border-top: 1px solid var(--hairline-faint);
+  }
+  .recent li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline-faint);
+  }
+  .recentMeta {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+}

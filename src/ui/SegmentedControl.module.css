@@ -1,0 +1,34 @@
+.track {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--page);
+  border: 1px solid var(--hairline);
+}
+
+.option {
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 160ms, background-color 160ms, border-color 160ms;
+}
+.option:hover {
+  color: var(--text-body);
+  background: rgba(127, 212, 255, 0.04);
+}
+
+.selected,
+.selected:hover {
+  border-color: var(--mana);
+  background: rgba(127, 212, 255, 0.12);
+  color: var(--text-primary);
+  font-weight: 600;
+}
