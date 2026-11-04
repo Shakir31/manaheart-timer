@@ -22,7 +22,7 @@ const NOW = new Date('2026-11-03T10:00:00Z')
 const tz = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 const profile: Profile = {
-  id: 'user-1', mage: null, timeZone: tz, defaultDurationMinutes: 25, reminderEnabled: false,
+  id: 'user-1', mage: 'arcane', timeZone: tz, defaultDurationMinutes: 25, reminderEnabled: false,
   reminderTime: null, welcomeSeenAt: '2026-11-01T00:00:00Z', milestonesSeenAt: null,
 }
 const session = (id: string, minutes: number, endedAt: string): SessionRecord => ({

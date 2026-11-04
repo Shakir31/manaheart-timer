@@ -5,6 +5,8 @@ describe('demoHeart', () => {
   it('builds the three welcome hearts', () => {
     expect(demoHeart('gathering').phase).toBe('gathering')
 
+    expect(demoHeart('oneCircle').rings.map((r) => r.status)).toEqual(['stable'])
+
     const forming = demoHeart('forming')
     expect(forming.rings.map((r) => r.status)).toEqual(['stable', 'stable', 'forming'])
 

@@ -8,7 +8,7 @@ import { useHeartState } from '../data/useHeartState'
 import { useNow } from '../data/useNow'
 import { useFocusTimer } from '../focus/context'
 import { Heart } from '../heart/Heart'
-import { heartModel } from '../heart/heartModel'
+import { heartModel, variantFor } from '../heart/heartModel'
 import { Button } from '../ui/Button'
 import { ProgressLine } from '../ui/ProgressLine'
 import { RhythmWeek } from '../ui/RhythmWeek'
@@ -25,7 +25,7 @@ export function Home() {
 
   const progress = progressInfo(heart)
   const recent = sessions.slice(-3).reverse()
-  const variant = heart.level >= 1 && profile?.mage ? profile.mage : 'mana'
+  const variant = variantFor(heart.level, profile?.mage)
 
   const begin = () => {
     if (!focus.timer) focus.start()
@@ -34,7 +34,7 @@ export function Home() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.heart}>
+      <div className={heart.canCondense ? `${styles.heart} ${styles.heartCompact}` : styles.heart}>
         <Heart model={heartModel(heart)} variant={variant} stars />
       </div>
 
@@ -57,10 +57,12 @@ export function Home() {
           <RhythmWeek days={heart.rhythm.last7} />
           {heart.formedCount > 0 && (
             <ul className={styles.legend}>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--mana)" strokeWidth="1.2" /></svg>
-                {heart.stableCount} stable
-              </li>
+              {heart.stableCount > 0 && (
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--mana)" strokeWidth="1.2" /></svg>
+                  {heart.stableCount} stable
+                </li>
+              )}
               {heart.unstableCount > 0 && (
                 <li>
                   <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--mana)" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.6" /></svg>
@@ -72,7 +74,10 @@ export function Home() {
         </section>
 
         <div className={styles.actions}>
-          <Button block onClick={begin}>{focus.timer ? 'Return to session' : 'Begin session'}</Button>
+          {heart.canCondense && <Button block onClick={() => navigate('/condense')}>Condense</Button>}
+          <Button block variant={heart.canCondense ? 'outline' : 'primary'} onClick={begin}>
+            {focus.timer ? 'Return to session' : 'Begin session'}
+          </Button>
           <Button variant="ghost" className={styles.logButton} onClick={() => setLogging(true)}>Log manually</Button>
         </div>
 

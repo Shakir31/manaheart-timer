@@ -116,3 +116,8 @@ export function streamTarget(model: HeartModel): [number, number] {
   const t = (forming.tilt * Math.PI) / 180
   return [Math.round(200 + forming.rx * Math.cos(t)), Math.round(200 + forming.rx * Math.sin(t))]
 }
+
+/** Mage palettes apply once the heart exists; before that it is plain mana. */
+export function variantFor(level: number, mage: Exclude<HeartVariant, 'mana'> | null | undefined): HeartVariant {
+  return level >= 1 && mage ? mage : 'mana'
+}

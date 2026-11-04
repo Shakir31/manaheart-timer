@@ -8,7 +8,7 @@ import { useHeartState } from '../data/useHeartState'
 import { useFocusTimer } from '../focus/context'
 import { elapsedMs, formatClock, isPaused } from '../focus/timer'
 import { Heart } from '../heart/Heart'
-import { heartModel } from '../heart/heartModel'
+import { heartModel, variantFor } from '../heart/heartModel'
 import { Button } from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import styles from './Focus.module.css'
@@ -49,7 +49,7 @@ export function Focus() {
   const paused = isPaused(timer)
   const category = timer.category === 'meditation' ? 'Meditation' : 'Study'
   const other = timer.category === 'meditation' ? 'Study' : 'Meditation'
-  const variant = heart.level >= 1 && profile?.mage ? profile.mage : 'mana'
+  const variant = variantFor(heart.level, profile?.mage)
 
   const end = async () => {
     if (saving) return

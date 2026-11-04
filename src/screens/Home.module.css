@@ -12,6 +12,11 @@
   margin: 6px auto 4px;
 }
 
+/* Ready to condense: one more button on the screen, so the heart gives up a little room. */
+.heartCompact {
+  width: min(250px, 100%);
+}
+
 .panel {
   display: contents;
 }
@@ -140,7 +145,8 @@
     order: 0;
   }
 
-  .heart {
+  .heart,
+  .heartCompact {
     width: min(560px, 100%);
     margin: 0 auto;
   }

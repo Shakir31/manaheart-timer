@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Star detail</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#05060F}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #05060F; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; position: relative; overflow: hidden">
+  <div style="padding: 16px 0 0; display: flex; flex-direction: column">
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 48px; padding: 0 14px 0 24px">
+      <div style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px; color: #F1EFFA">Constellation</div>
+      <div style="width: 44px; height: 44px"></div>
+    </div>
+    <div style="margin-top: 34px; padding: 0 6px">
+      <dc-import name="Sky" stage="mid" selected="m100" size="330px" label-scale="{{ 1.15 }}" hint-size="330px,330px"></dc-import>
+    </div>
+  </div>
+  <div style="position: absolute; inset: 0; background: rgba(3, 4, 12, 0.35)"></div>
+
+  <section role="dialog" aria-modal="true" aria-labelledby="csT" style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; background: #0E1230; border-top: 1px solid #262C5E; border-radius: 28px 28px 0 0; padding: 10px 24px 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5)">
+    <div style="display: flex; justify-content: center; padding-top: 2px"><div style="width: 40px; height: 4px; border-radius: 2px; background: #3A4180"></div></div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: -4px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: #9BA0C8">Mind · next to light</div>
+        <h2 id="csT" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 32px; line-height: 1.05; color: #F1EFFA">A hundred hours</h2>
+      </div>
+      <button aria-label="Close" style="width: 44px; height: 44px; margin: -4px -10px 0 0; border: none; background: transparent; color: #9BA0C8; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+    <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; line-height: 1.4; color: #9BA0C8">One hundred hours of stillness, gathered sit by sit.</p>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #1C2150; border-radius: 16px; background: #0A0C1C">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="5" fill="#070914" stroke="#7FD4FF" stroke-width="1.4" opacity="0.8"></circle></svg>
+      <span style="font-size: 14px; line-height: 1.45">Lights at 100h of meditation <span style="color: #9BA0C8">· 38h to go</span></span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: #9BA0C8">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8" fill="#7FD4FF" opacity="0.25"></circle><circle cx="11" cy="11" r="3.5" fill="#F4FBFF"></circle></svg>
+      Before it on this branch: Fifty hours, lit 2 Oct
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

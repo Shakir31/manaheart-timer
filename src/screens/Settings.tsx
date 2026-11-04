@@ -1,8 +1,10 @@
 import { useState, type FormEvent } from 'react'
+import { Link } from 'react-router'
 import { dayKey } from '../engine'
 import { useAuth } from '../auth/context'
 import { authErrorMessage, passwordError } from '../auth/messages'
 import { formatTimeOfDay } from '../copy/dates'
+import { mageName } from '../copy/mages'
 import { useManaData } from '../data/context'
 import type { ProfilePatch } from '../data/types'
 import { useHeartState } from '../data/useHeartState'
@@ -20,7 +22,6 @@ import styles from './Settings.module.css'
 
 const DEFAULT_REMINDER = '20:00:00'
 const LENGTH_PICKS = [15, 25, 45, 60]
-const MAGE_NAMES = { elemental: 'Elemental', arcane: 'Arcane', spirit: 'Spirit' } as const
 
 type SheetKind = 'password' | 'reminder' | 'length' | null
 
@@ -136,14 +137,18 @@ export function Settings() {
         <h2 id="set-mage" className={`label ${styles.eyebrow}`}>Mage aesthetic</h2>
         {mageUnlocked ? (
           <div className={styles.card}>
-            <div className={styles.row}>
+            <Link to="/mage" className={`${styles.row} ${styles.link} ${styles.plainLink}`}>
               <span className={styles.stack}>
-                <span>{profile.mage ? MAGE_NAMES[profile.mage] : 'Not chosen yet'}</span>
+                <span>{profile.mage ? mageName(profile.mage) : 'Not chosen yet'}</span>
                 <span className={styles.hint}>
-                  {profile.mage ? 'Colours your heart and its circles.' : 'Your first circle has formed. The choice will open soon.'}
+                  {profile.mage ? 'Colours your heart and its circles.' : 'Your first circle has formed. Choose your path.'}
                 </span>
               </span>
-            </div>
+              <span className={styles.value}>
+                {profile.mage ? 'Change' : 'Choose'}
+                <Icon name="forward" size={20} className={styles.chevron} />
+              </span>
+            </Link>
           </div>
         ) : (
           <div className={`${styles.card} ${styles.locked}`} aria-disabled="true">

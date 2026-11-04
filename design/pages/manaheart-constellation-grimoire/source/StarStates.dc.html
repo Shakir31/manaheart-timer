@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Star states</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#05060F}a{color:#9FDCFF}a:hover{color:#CFEAFF}</style>
+</helmet>
+<div style="width: 1440px; height: 700px; box-sizing: border-box; background: #05060F; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 48px 64px; display: flex; flex-direction: column; gap: 28px">
+  <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+    <defs>
+      <radialGradient id="ssHalo"><stop offset="0" stop-color="#F4FBFF" stop-opacity="0.9"></stop><stop offset="0.3" stop-color="#7FD4FF" stop-opacity="0.45"></stop><stop offset="1" stop-color="#7FD4FF" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="ssHaloE"><stop offset="0" stop-color="#FFF4E0" stop-opacity="0.9"></stop><stop offset="0.3" stop-color="#FF9A4D" stop-opacity="0.45"></stop><stop offset="1" stop-color="#FF9A4D" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="ssHaloA"><stop offset="0" stop-color="#F5F0FF" stop-opacity="0.9"></stop><stop offset="0.3" stop-color="#A98BFF" stop-opacity="0.45"></stop><stop offset="1" stop-color="#A98BFF" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="ssHaloS"><stop offset="0" stop-color="#F4FBF9" stop-opacity="0.9"></stop><stop offset="0.3" stop-color="#9FE6D6" stop-opacity="0.45"></stop><stop offset="1" stop-color="#9FE6D6" stop-opacity="0"></stop></radialGradient>
+    </defs>
+  </svg>
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #9BA0C8">Constellation · component</div>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1; color: #F1EFFA">Star states</h1>
+    </div>
+    <p style="margin: 0; max-width: 520px; font-size: 14px; line-height: 1.55; color: #9BA0C8">Stars light themselves from logged practice. State is carried by size, fill and label, never colour alone: lit stars are solid with a halo, next stars are hollow and named, distant stars are bare points. Every star is a 44px tap target.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 14px">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle class="sk-tw" cx="70" cy="50" r="28" fill="url(#ssHalo)" opacity="0.6"></circle><circle cx="70" cy="50" r="5.5" fill="#F4FBFF"></circle><text x="70" y="96" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#9BA0C8">50h</text></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Lit</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">Solid core, mana halo, slow twinkle (6s). Name in secondary.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle class="sk-new" cx="70" cy="50" r="44" fill="url(#ssHalo)"></circle><circle cx="70" cy="50" r="28" fill="url(#ssHalo)" opacity="0.6"></circle><circle cx="70" cy="50" r="4.5" fill="#F4FBFF"></circle><text x="70" y="102" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#9BA0C8">Dawn sit</text></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Lit since last visit</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">A wider, breathing halo on the next visit only. No badge, no banner.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle cx="70" cy="50" r="5" fill="#070914" stroke="#7FD4FF" stroke-width="1.6" opacity="0.75"></circle><text x="70" y="96" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#7D83AF">100h</text></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Next</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">Hollow ring, name in tertiary. Joined to its lit neighbour by a dotted thread.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle cx="70" cy="50" r="2.2" fill="#5A619A" opacity="0.8"></circle></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Distant</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">A bare point, no name. Fainter still in a new sky.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle class="sk-tw" cx="70" cy="50" r="38" fill="url(#ssHalo)" opacity="0.9"></circle><path d="M70 32 L73 47 L88 50 L73 53 L70 68 L67 53 L52 50 L67 47 Z" fill="#F4FBFF"></path><circle cx="70" cy="50" r="6" fill="#F4FBFF"></circle><text x="70" y="102" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="17" font-weight="500" fill="#F1EFFA">Adept</text></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Rank, lit</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">The brightest stars: four-point spark, serif name, rising above the heart.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle cx="70" cy="50" r="5" fill="#070914" stroke="#7FD4FF" stroke-width="1.6" opacity="0.75"></circle><text x="70" y="96" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="17" font-style="italic" fill="#7D83AF">Magus</text></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Rank, next</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">Hollow, serif italic name. Later ranks stay distant.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="140" height="110" viewBox="0 0 140 110" aria-hidden="true"><circle cx="70" cy="50" r="28" fill="url(#ssHalo)" opacity="0.6"></circle><circle cx="70" cy="50" r="5.5" fill="#F4FBFF"></circle><circle cx="70" cy="50" r="17" fill="none" stroke="#CFEAFF" stroke-width="1.4" stroke-dasharray="3 4"></circle><text x="70" y="96" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#F1EFFA">50h</text></svg>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F1EFFA">Selected</div>
+      <div style="font-size: 12px; line-height: 1.45; color: #9BA0C8; text-align: center">Dashed primary ring while its sheet is open; keyboard focus looks the same.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr); gap: 14px">
+    <div style="display: flex; align-items: center; gap: 18px; padding: 18px 20px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="190" height="70" viewBox="0 0 190 70" aria-hidden="true"><line x1="20" y1="50" x2="95" y2="22" stroke="#7FD4FF" stroke-width="1.2" opacity="0.55"></line><line x1="95" y1="22" x2="170" y2="44" stroke="#9FDCFF" stroke-width="1.2" stroke-dasharray="2 7" stroke-linecap="round" opacity="0.4"></line><circle cx="20" cy="50" r="4" fill="#F4FBFF"></circle><circle cx="95" cy="22" r="4" fill="#F4FBFF"></circle><circle cx="170" cy="44" r="4" fill="#070914" stroke="#7FD4FF" stroke-width="1.4"></circle></svg>
+      <div style="font-size: 12px; line-height: 1.5; color: #9BA0C8"><span style="color: #E8E6F4">Threads.</span> Fine mana line between lit neighbours; dotted thread from a lit star to the next one. Nothing joins distant stars.</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 18px; padding: 18px 20px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <svg width="150" height="70" viewBox="0 0 150 70" aria-hidden="true"><circle cx="25" cy="35" r="22" fill="url(#ssHaloE)" opacity="0.7"></circle><circle cx="25" cy="35" r="4.5" fill="#FFF4E0"></circle><circle cx="75" cy="35" r="22" fill="url(#ssHaloA)" opacity="0.7"></circle><circle cx="75" cy="35" r="4.5" fill="#F5F0FF"></circle><circle cx="125" cy="35" r="22" fill="url(#ssHaloS)" opacity="0.7"></circle><circle cx="125" cy="35" r="4.5" fill="#F4FBF9"></circle></svg>
+      <div style="font-size: 12px; line-height: 1.5; color: #9BA0C8"><span style="color: #E8E6F4">Mage colour.</span> After the first circle, halos and threads take the chosen path: Elemental, Arcane or Spirit.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border: 1px solid #141838; border-radius: 18px; background: #070914">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #9BA0C8">Star sheet copy</div>
+      <div style="font-size: 13px; line-height: 1.5; color: #9BA0C8"><span style="color: #E8E6F4">Eyebrow</span> branch · state ("Mind · lit"). <span style="color: #E8E6F4">Title</span> the star's name. <span style="color: #E8E6F4">Line</span> one italic sentence.</div>
+      <div style="font-size: 13px; line-height: 1.5; color: #9BA0C8"><span style="color: #E8E6F4">Lit:</span> "Lit 2 Oct · 50h of meditation". <span style="color: #E8E6F4">Next:</span> "Lights at 100h of meditation · 38h to go". <span style="color: #E8E6F4">Distant:</span> "Lights at 250h of meditation" with no remaining time.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

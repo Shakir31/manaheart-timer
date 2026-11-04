@@ -8,12 +8,15 @@ const day = (d: number) => `2026-01-${String(d).padStart(2, '0')}T09:00:00Z`
 const log = (id: string, minutes: number, d: number): SessionLog => ({ id, category: 'study', durationMinutes: minutes, endedAt: day(d) })
 const model = (sessions: SessionLog[]) => heartModel(computeHeartState({ sessions, timeZone: 'UTC', now: NOW }))
 
-export type DemoHeart = 'gathering' | 'forming' | 'steadying'
+export type DemoHeart = 'gathering' | 'oneCircle' | 'forming' | 'steadying'
 
 export function demoHeart(kind: DemoHeart): HeartModel {
   switch (kind) {
     case 'gathering':
       return model([log('a', 120, 1)])
+    case 'oneCircle':
+      // Heart and one steady circle (the mage previews).
+      return model(Array.from({ length: 14 }, (_, i) => log(`o${i}`, 30, i + 1)))
     case 'forming':
       // Heart, two steady circles and a third forming.
       // 20 days × 30 min + 10 min = 5h heart + two 2h circles + 70 min of the third.

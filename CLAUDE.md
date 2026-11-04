@@ -95,9 +95,9 @@ src/
   ui/         design-system primitives: Button, Icon, SegmentedControl, DurationStepper,
               ProgressLine, RhythmWeek, Sheet, TextInput/TextArea, Switch, ConfirmDialog,
               SessionRow, EmptyState, toast/ (useToast), useMediaQuery (CSS modules, tokens only)
-  app/        AppShell (navigation, per-page mobile top bar), useRecordSessions
+  app/        AppShell (navigation, per-page mobile top bar), useRecordSessions, useMoments
   screens/    Home, LogSheet, Focus, Complete, Sessions, EditSessionSheet, Settings, Welcome,
-              auth/ (SignIn, NewPassword)
+              auth/ (SignIn, NewPassword), moments/ (Milestone, MageChoice, Condense, LevelUp)
   lib/        Supabase client, safe localStorage
   test/       test helpers: fake Supabase, providers, renderApp
   styles/     tokens.css (from the design system), global.css
@@ -113,8 +113,13 @@ Layout differences between mobile and desktop that change markup (not just CSS) 
 `useMediaQuery(DESKTOP)`; tests default to mobile and switch with `setViewport('desktop')`.
 Toasts keep empty `status`/`alert` live regions on the page, so tests find alerts by text.
 
+Moments: milestones and the mage choice only appear on Home (`Main` in `App.tsx`), after
+Session complete. `profiles.milestones_seen_at` is a watermark written when the whole queue
+is dismissed; null means "start now", so old accounts don't replay history.
+
 Known gaps (planned):
 - Daily reminder: the setting is stored but nothing sends it yet. Needs Capacitor local
   notifications (mobile) or web push (Phase 6).
-- Mage aesthetic: Settings shows locked/unlocked; the choice screen comes in Phase 5.
+- Constellation and Grimoire: designs are in `design/pages/manaheart-constellation-grimoire/`.
+  The Grimoire opens from the Constellation page. Locked stars show faintly.
 - Durations are zero-padded ("1h 05m"), matching the designs.

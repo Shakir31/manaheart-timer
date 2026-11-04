@@ -56,6 +56,10 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+.plainLink {
+  text-decoration: none;
+}
+
 .stack {
   display: flex;
   flex-direction: column;

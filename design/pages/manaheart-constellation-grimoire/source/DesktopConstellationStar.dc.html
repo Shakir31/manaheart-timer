@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Star detail (desktop)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#05060F}a{color:#9BA0C8}a:hover{color:#E8E6F4}</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #05060F; color: #E8E6F4; font-family: Manrope, system-ui, sans-serif; padding: 0 clamp(16px, 4vw, 48px); overflow: hidden">
+  <header style="max-width: 1200px; margin: 0 auto; height: 80px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #141838">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; letter-spacing: 0.1em">Manaheart</div>
+    <nav aria-label="Main" style="display: flex; align-items: center; gap: 4px">
+      <a href="DesktopHome.dc.html" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 500; text-decoration: none">Heart</a>
+      <a href="DesktopSessions.dc.html" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 500; text-decoration: none">Sessions</a>
+      <a href="DesktopConstellation.dc.html" aria-current="page" style="height: 44px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; font-weight: 600; color: #F1EFFA; text-decoration: none; box-shadow: inset 0 -1px 0 #7FD4FF">Constellation</a>
+      <a href="DesktopSettings.dc.html" aria-label="Settings" style="width: 44px; height: 44px; margin-left: 8px; color: #9BA0C8; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg></a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px 64px; padding: 32px 0 48px">
+    <div style="flex: 999 1 540px; min-width: 0; display: flex; justify-content: center; padding: 0 40px; box-sizing: border-box">
+      <dc-import name="Sky" stage="mid" selected="m50" size="680px" hint-size="680px,680px"></dc-import>
+    </div>
+
+    <section role="dialog" aria-labelledby="dcsT" style="flex: 1 1 300px; max-width: 380px; box-sizing: border-box; background: #0E1230; border: 1px solid #262C5E; border-radius: 24px; padding: 26px 28px 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6)">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: #9BA0C8">Mind · lit</div>
+          <h2 id="dcsT" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 38px; line-height: 1.05; color: #F1EFFA">Fifty hours</h2>
+        </div>
+        <a href="DesktopConstellation.dc.html" aria-label="Close" style="width: 44px; height: 44px; margin: -6px -12px 0 0; color: #9BA0C8; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+      </div>
+      <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; line-height: 1.4; color: #9BA0C8">Fifty hours of stillness. The branch has begun to reach.</p>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #1C2150; border-radius: 16px; background: #0A0C1C">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#7FD4FF" opacity="0.25"></circle><circle cx="11" cy="11" r="3.8" fill="#F4FBFF"></circle></svg>
+        <span style="font-size: 14px; line-height: 1.45">Lit 2 Oct <span style="color: #9BA0C8">· 50h of meditation</span></span>
+      </div>
+      <div style="height: 1px; background: #141838"></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: #9BA0C8">
+        <div style="display: flex; align-items: center; gap: 12px"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="4.5" fill="#070914" stroke="#7FD4FF" stroke-width="1.3" opacity="0.8"></circle></svg>Next on this branch: A hundred hours</div>
+        <div style="display: flex; align-items: center; gap: 12px"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8" fill="#7FD4FF" opacity="0.25"></circle><circle cx="11" cy="11" r="3" fill="#F4FBFF"></circle></svg>Before it: Twenty-five hours, lit 9 Aug</div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

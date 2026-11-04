@@ -5,7 +5,7 @@ import type { CompleteState } from '../app/useRecordSessions'
 import { useManaData } from '../data/context'
 import { useHeartState } from '../data/useHeartState'
 import { Heart } from '../heart/Heart'
-import { heartModel } from '../heart/heartModel'
+import { heartModel, variantFor } from '../heart/heartModel'
 import { Button } from '../ui/Button'
 import { ProgressLine } from '../ui/ProgressLine'
 import styles from './Complete.module.css'
@@ -29,7 +29,7 @@ export function Complete() {
 
   const progress = progressInfo(heart)
   const categoryText = [...new Set(categories)].map((c) => NAMES[c]).join(' & ')
-  const variant = heart.level >= 1 && profile?.mage ? profile.mage : 'mana'
+  const variant = variantFor(heart.level, profile?.mage)
 
   return (
     <div className={styles.page}>
