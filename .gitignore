@@ -27,3 +27,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Supabase SQL and email templates are kept out of the public repo
+supabase/
