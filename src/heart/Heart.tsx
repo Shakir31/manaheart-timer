@@ -174,7 +174,12 @@ export function Heart({
 function Ring({ ring, variant, softId, maskId }: { ring: RingSpec; variant: HeartVariant; softId: string; maskId: string }) {
   const c = PALETTES[variant]
   const { rx, ry, tilt, index } = ring
-  const color = variant === 'arcane' && index % 2 ? c.alt : variant === 'elemental' && index === 0 ? c.alt : c.line
+  // Formed rings may alternate with the path's second colour (Arcane's cyan, Elemental's gold);
+  // a forming arc always uses the main colour so it matches the heart.
+  const color = ring.status === 'forming' ? c.line
+    : variant === 'arcane' && index % 2 ? c.alt
+    : variant === 'elemental' && index === 0 ? c.alt
+    : c.line
 
   return (
     <g transform={`rotate(${tilt} 200 200)`} data-ring={index} data-status={ring.status}>

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { computeHeartState, type SessionLog } from '../engine'
 import { Heart } from './Heart'
-import { ellipsePerimeter, heartModel } from './heartModel'
+import { ellipsePerimeter, heartModel, PALETTES } from './heartModel'
 
 const at = (day: number) => `2026-01-${String(day).padStart(2, '0')}T09:00:00Z`
 const log = (minutes: number, day = 1): SessionLog => ({ id: `s${day}-${minutes}`, category: 'study', durationMinutes: minutes, endedAt: at(day) })
@@ -74,5 +74,14 @@ describe('Heart', () => {
     const { container } = render(<><Heart model={model} /><Heart model={model} decorative /></>)
     const ids = [...container.querySelectorAll('radialGradient')].map((g) => g.id)
     expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it('draws an Arcane forming arc in the main colour, even on a cyan slot', () => {
+    // Second ring (odd slot) forming: formed Arcane rings there would be cyan.
+    const { container } = render(<Heart model={modelFor([log(300 + 120 + 60)])} variant="arcane" />)
+    const forming = container.querySelector('[data-status="forming"]')!
+    const strokes = [...forming.querySelectorAll('ellipse')].map((e) => e.getAttribute('stroke')).filter(Boolean)
+    expect(strokes).not.toContain(PALETTES.arcane.alt)
+    expect(strokes).toContain(PALETTES.arcane.line)
   })
 })
