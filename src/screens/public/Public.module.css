@@ -17,6 +17,7 @@
 
 .brand,
 .footerBrand {
+  display: inline-flex;
   font-family: var(--font-display);
   font-size: 21px;
   font-weight: 500;
@@ -633,4 +634,15 @@
   .withArt .sectionBody > :not(h2) {
     grid-column: 2;
   }
+}
+
+/* The logo symbol beside the wordmark (design/manaheart-logo). */
+.brand {
+  align-items: center;
+  gap: 0.45em;
+}
+.mark {
+  width: 1.35em;
+  height: 1.35em;
+  flex: none;
 }

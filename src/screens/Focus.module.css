@@ -152,7 +152,7 @@
     align-items: center;
   }
   .brand {
-    display: block;
+    display: inline-flex;
   }
   .chip {
     height: 52px;
@@ -173,4 +173,15 @@
     width: 76px;
     height: 76px;
   }
+}
+
+/* The logo symbol beside the wordmark (design/manaheart-logo). */
+.brand {
+  align-items: center;
+  gap: 0.45em;
+}
+.mark {
+  width: 1.35em;
+  height: 1.35em;
+  flex: none;
 }

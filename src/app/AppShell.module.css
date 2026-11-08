@@ -15,6 +15,7 @@
 }
 
 .brand {
+  display: inline-flex;
   font-family: var(--font-display);
   font-size: 21px;
   font-weight: 500;
@@ -180,7 +181,7 @@
 
   .brand,
   .brandDesktopOnly {
-    display: block;
+    display: inline-flex;
     font-size: 24px;
   }
   .mobileTitle,
@@ -226,4 +227,15 @@
   .bottomNav {
     display: none;
   }
+}
+
+/* The logo symbol beside the wordmark (design/manaheart-logo). */
+.brand {
+  align-items: center;
+  gap: 0.45em;
+}
+.mark {
+  width: 1.35em;
+  height: 1.35em;
+  flex: none;
 }

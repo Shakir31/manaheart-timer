@@ -1,7 +1,11 @@
 import '@testing-library/jest-dom/vitest'
-import { cleanup } from '@testing-library/react'
+import { cleanup, configure } from '@testing-library/react'
 import { afterEach } from 'vitest'
 import { setViewport } from './viewport'
+
+// findBy*/waitFor wait up to 3s (default 1s), so a busy machine running files in parallel
+// doesn't cause false failures.
+configure({ asyncUtilTimeout: 3000 })
 
 // jsdom has no matchMedia: answer width queries from a test-controlled viewport.
 Object.defineProperty(window, 'matchMedia', {

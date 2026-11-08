@@ -78,7 +78,7 @@ export function Focus() {
       </div>
 
       <header className={styles.header}>
-        <span className={styles.brand}>Manaheart</span>
+        <span className={styles.brand}><img src="/logo/symbol.svg" alt="" className={styles.mark} />Manaheart</span>
         <span className={styles.chip}>
           <Icon name={timer.category} size={16} />
           {category}

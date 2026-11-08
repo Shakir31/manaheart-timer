@@ -37,7 +37,7 @@ export function AppShell() {
             <Icon name="back" />
           </Link>
         )}
-        <Link to="/" className={page ? `${styles.brand} ${styles.brandDesktopOnly}` : styles.brand}>Manaheart</Link>
+        <Link to="/" className={page ? `${styles.brand} ${styles.brandDesktopOnly}` : styles.brand}><img src="/logo/symbol.svg" alt="" className={styles.mark} />Manaheart</Link>
         {page && (
           <span className={sub ? `${styles.mobileTitle} ${styles.centred}` : styles.mobileTitle} aria-hidden="true">
             {page.title}

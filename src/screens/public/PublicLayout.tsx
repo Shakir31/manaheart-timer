@@ -7,7 +7,7 @@ export function PublicLayout({ children, guideLink = false }: { children: ReactN
   return (
     <div className={styles.shell}>
       <header className={styles.top}>
-        <Link to="/" className={styles.brand}>Manaheart</Link>
+        <Link to="/" className={styles.brand}><img src="/logo/symbol.svg" alt="" className={styles.mark} />Manaheart</Link>
         <nav aria-label="Site" className={styles.topNav}>
           {guideLink && <Link to="/guide" className={styles.topLink}>Guide</Link>}
           <Link to="/signin" className={styles.signIn}>Sign in</Link>
