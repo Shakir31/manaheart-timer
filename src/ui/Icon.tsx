@@ -15,6 +15,7 @@ const PATHS = {
   back: <path d="M14 6l-6 6 6 6" />,
   alert: <><circle cx="12" cy="12" r="9" /><path d="M12 7.5v5.5M12 16.5v.1" /></>,
   forward: <path d="M10 6l6 6-6 6" />,
+  constellation: <><circle cx="5" cy="17" r="1.5" /><circle cx="11" cy="7" r="1.5" /><circle cx="19" cy="11" r="1.5" /><circle cx="15" cy="19" r="1.5" /><path d="M5.8 15.6l4.4-7.2M12.4 7.7l5.2 2.6M18.4 12.4l-2.8 5.2" /></>,
   check: <path d="M5 12.5l4.5 4.5L19 7.5" />,
   delete: <path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12" />,
   export: <><path d="M12 4v11M8 8l4-4 4 4" /><path d="M5 13v6h14v-6" /></>,

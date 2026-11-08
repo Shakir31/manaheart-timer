@@ -48,3 +48,15 @@ export function addDays(key: string, n: number): string {
 export function weekdayOf(key: string): number {
   return (new Date(dayToUtcMs(key)).getUTCDay() + 6) % 7
 }
+
+const hourFormatters = new Map<string, Intl.DateTimeFormat>()
+
+/** Local hour of day (0–23) of an instant in the given time zone. */
+export function localHour(instant: string | Date, timeZone: string): number {
+  let f = hourFormatters.get(timeZone)
+  if (!f) {
+    f = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', hourCycle: 'h23', timeZone })
+    hourFormatters.set(timeZone, f)
+  }
+  return Number(f.format(typeof instant === 'string' ? new Date(instant) : instant))
+}

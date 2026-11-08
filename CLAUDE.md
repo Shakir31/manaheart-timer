@@ -86,8 +86,9 @@ The design is final; build to it, don't redesign.
 
 ```
 src/
-  engine/     pure progression logic + tests (types, config, time, progression, format)
-  data/       Supabase API, ManaDataProvider, useHeartState, useNow
+  engine/     pure logic + tests: progression (heart), stars (Constellation), grimoire,
+              config (all thresholds, incl. star thresholds), time, format
+  data/       Supabase API, ManaDataProvider, useHeartState, useConstellation/useGrimoire, useNow
   auth/       AuthProvider + useAuth
   focus/      timer (pure) + FocusTimerProvider (persists the running session per user)
   heart/      heartModel (pure: state → rings + aria label) and the Heart SVG
@@ -97,7 +98,8 @@ src/
               SessionRow, EmptyState, toast/ (useToast), useMediaQuery (CSS modules, tokens only)
   app/        AppShell (navigation, per-page mobile top bar), useRecordSessions, useMoments
   screens/    Home, LogSheet, Focus, Complete, Sessions, EditSessionSheet, Settings, Welcome,
-              auth/ (SignIn, NewPassword), moments/ (Milestone, MageChoice, Condense, LevelUp)
+              auth/ (SignIn, NewPassword), moments/ (Milestone, MageChoice, Condense, LevelUp),
+              constellation/ (Constellation, Sky, skyLayout), grimoire/ (Grimoire)
   lib/        Supabase client, safe localStorage
   test/       test helpers: fake Supabase, providers, renderApp
   styles/     tokens.css (from the design system), global.css
@@ -117,9 +119,20 @@ Moments: milestones and the mage choice only appear on Home (`Main` in `App.tsx`
 Session complete. `profiles.milestones_seen_at` is a watermark written when the whole queue
 is dismissed; null means "start now", so old accounts don't replay history.
 
+Constellation and Grimoire (designs in `design/pages/manaheart-constellation-grimoire/`):
+- Stars are derived from logs by `computeConstellation()`; positions come from the design's
+  Sky in `screens/constellation/skyLayout.ts`. Star ids follow the default config, so
+  changing the number of hour/day/run thresholds needs matching positions.
+- "Next" stars: a main-branch star is next once its parent is lit; a side star is also next
+  when its parent is a next main-branch star (side stars never chain).
+- The sky's heart beats slower and softer than Home's (owner request); each beat sends a
+  glow outward along lit lines and stars (animation-delay by distance from the heart).
+- The Grimoire opens from the Constellation page; one page per level reached. Lore is in
+  `copy/lore.ts` (Apprentice and Adept from the design, the rest written to match).
+
 Known gaps (planned):
 - Daily reminder: the setting is stored but nothing sends it yet. Needs Capacitor local
   notifications (mobile) or web push (Phase 6).
-- Constellation and Grimoire: designs are in `design/pages/manaheart-constellation-grimoire/`.
-  The Grimoire opens from the Constellation page. Locked stars show faintly.
+- Star unlock notifications (backlog): the sky marks stars lit since the last visit
+  (per device, localStorage), but nothing tells the user elsewhere yet.
 - Durations are zero-padded ("1h 05m"), matching the designs.

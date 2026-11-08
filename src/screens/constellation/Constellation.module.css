@@ -1,0 +1,257 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Mobile: the title is in the top bar (AppShell); visually hidden here, kept for screen readers. */
+.title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skyWrap {
+  width: min(400px, 100%);
+  margin: var(--space-4) auto 0;
+}
+
+.panel {
+  margin-top: auto;
+  padding-top: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.leanTitle {
+  margin: 0;
+  color: var(--text-body);
+}
+
+.leanBody {
+  margin: 0;
+  max-width: 36ch;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--text-secondary);
+}
+
+.hint {
+  margin: var(--space-3) 0 0;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.grimoireLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  margin-top: var(--space-2);
+  padding: 0 var(--space-4);
+  border: 1px solid var(--edge-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--text-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.grimoireLink:hover {
+  border-color: var(--mana);
+}
+.grimoireLink svg {
+  color: var(--mana-soft);
+}
+
+/* Star detail (sheet body and desktop panel) */
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.detailLine {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.status {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  background: var(--card);
+  font-size: 15px;
+}
+
+.before {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.statusDot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--mana);
+}
+.statusLit {
+  background: var(--core);
+  border-color: var(--mana);
+  box-shadow: var(--glow-dot);
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.panelDetail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.panelHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.fills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.fills dt {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--text-primary);
+}
+.fills dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.legend {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-5);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  display: inline-block;
+  border-radius: 50%;
+}
+.dotLit {
+  width: 10px;
+  height: 10px;
+  background: var(--core);
+  box-shadow: var(--glow-dot);
+}
+.dotNext {
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid var(--mana);
+}
+.dotDistant {
+  width: 4px;
+  height: 4px;
+  background: var(--rhythm-missed);
+}
+
+@media (min-width: 640px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: var(--space-8);
+    align-items: center;
+    padding-top: var(--space-6);
+  }
+  .skyWrap {
+    width: min(620px, 100%);
+    margin: 0 auto;
+  }
+  .panel {
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-3);
+  }
+  .desktopOnly {
+    display: block;
+  }
+  .panelTitle {
+    font-size: 52px;
+  }
+  .panelDetail .panelTitle {
+    font-size: 40px;
+  }
+  .leanTitle {
+    color: var(--text-secondary);
+  }
+  .leanBody {
+    display: none;
+  }
+}

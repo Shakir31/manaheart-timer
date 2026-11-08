@@ -37,3 +37,15 @@ export function formatTimeOfDay(value: string): string {
   const suffix = h < 12 ? 'am' : 'pm'
   return `${h % 12 === 0 ? 12 : h % 12}:${String(m).padStart(2, '0')} ${suffix}`
 }
+
+/** "2 Oct" in the given time zone. */
+export function formatShortDate(iso: string, timeZone: string): string {
+  const d = new Date(`${dayKey(iso, timeZone)}T00:00:00Z`)
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`
+}
+
+/** "2 Nov 2026" in the given time zone. */
+export function formatLongDate(iso: string, timeZone: string): string {
+  const key = dayKey(iso, timeZone)
+  return `${formatShortDate(iso, timeZone)} ${key.slice(0, 4)}`
+}

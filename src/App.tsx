@@ -10,6 +10,8 @@ import { SignIn } from './screens/auth/SignIn'
 import { Complete } from './screens/Complete'
 import { Focus } from './screens/Focus'
 import { Home } from './screens/Home'
+import { Constellation } from './screens/constellation/Constellation'
+import { Grimoire } from './screens/grimoire/Grimoire'
 import { Condense } from './screens/moments/Condense'
 import { LevelUp } from './screens/moments/LevelUp'
 import { MageChoice } from './screens/moments/MageChoice'
@@ -56,6 +58,8 @@ function Main() {
         <Route index element={<Home />} />
         <Route path="sessions" element={<Sessions />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="constellation" element={<Constellation />} />
+        <Route path="grimoire" element={<Grimoire />} />
       </Route>
       <Route path="focus" element={<Focus />} />
       <Route path="complete" element={<Complete />} />

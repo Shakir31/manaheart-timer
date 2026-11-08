@@ -5,25 +5,29 @@ import styles from './AppShell.module.css'
 const TABS: { to: string; label: string; icon: IconName }[] = [
   { to: '/', label: 'Heart', icon: 'heart' },
   { to: '/sessions', label: 'Sessions', icon: 'sessions' },
+  { to: '/constellation', label: 'Constellation', icon: 'constellation' },
 ]
 
 /** Mobile top-bar content per page (Navigation spec). Pages keep their own h1 for desktop. */
-const PAGES: Record<string, { title: string; sub?: boolean }> = {
+const PAGES: Record<string, { title: string; back?: { to: string; label: string } }> = {
   '/sessions': { title: 'Sessions' },
-  '/settings': { title: 'Settings', sub: true },
+  '/constellation': { title: 'Constellation' },
+  '/settings': { title: 'Settings', back: { to: '/', label: 'Back to Heart' } },
+  '/grimoire': { title: 'Grimoire', back: { to: '/constellation', label: 'Back to Constellation' } },
 }
 
 /** Top bar + mobile bottom nav / desktop top nav (Navigation spec). */
 export function AppShell() {
   const { pathname } = useLocation()
   const page = PAGES[pathname]
-  const sub = page?.sub ?? false
+  const back = page?.back
+  const sub = !!back
 
   return (
     <div className={sub ? `${styles.shell} ${styles.subPage}` : styles.shell}>
       <header className={styles.topbar}>
-        {sub && (
-          <Link to="/" className={styles.back} aria-label="Back to Heart">
+        {back && (
+          <Link to={back.to} className={styles.back} aria-label={back.label}>
             <Icon name="back" />
           </Link>
         )}

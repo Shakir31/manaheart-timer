@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatSessionWhen, formatTime, formatTimeOfDay } from './dates'
+import { formatLongDate, formatSessionWhen, formatShortDate, formatTime, formatTimeOfDay } from './dates'
 
 const now = new Date('2026-11-03T12:00:00Z') // Tuesday
 
@@ -27,5 +27,12 @@ describe('formatTimeOfDay', () => {
     expect(formatTimeOfDay('00:05')).toBe('12:05 am')
     expect(formatTimeOfDay('12:30:00')).toBe('12:30 pm')
     expect(formatTimeOfDay('07:15')).toBe('7:15 am')
+  })
+})
+
+describe('short and long dates', () => {
+  it('formats in the local time zone', () => {
+    expect(formatShortDate('2026-10-02T12:00:00Z', 'UTC')).toBe('2 Oct')
+    expect(formatLongDate('2026-11-02T03:00:00Z', 'America/New_York')).toBe('1 Nov 2026')
   })
 })

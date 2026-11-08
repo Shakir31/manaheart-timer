@@ -21,6 +21,29 @@ export interface ProgressionConfig {
   graceDays: number
   /** Rank per level; the last one holds for every level after. */
   ranks: readonly string[]
+  /** Constellation star thresholds. */
+  stars: StarConfig
+}
+
+export interface StarConfig {
+  /** Hour milestones on the Mind (meditation) and Lore (study) branches. */
+  hours: readonly number[]
+  /** A single meditation session at least this long lights "Long sit". */
+  longSitMinutes: number
+  /** A single study session at least this long lights "Deep study". */
+  deepStudyMinutes: number
+  /** "Dawn sit": meditation begun from this hour… */
+  dawnFromHour: number
+  /** …and before this hour (local time). */
+  dawnBeforeHour: number
+  /** "Night scholar": study begun at or after this hour (until dawnFromHour). */
+  nightFromHour: number
+  /** Practice-day milestones on the Rhythm branch. */
+  practiceDays: readonly number[]
+  /** Rhythm runs (practice days in a row, grace days allowed) on the Rhythm branch. */
+  runs: readonly number[]
+  /** "Returned": practising again after more than this many days away. */
+  returnedAfterDays: number
 }
 
 export const DEFAULT_CONFIG: ProgressionConfig = {
@@ -32,6 +55,17 @@ export const DEFAULT_CONFIG: ProgressionConfig = {
   practiceDayMinMinutes: 10,
   graceDays: 1,
   ranks: ['Apprentice', 'Adept', 'Magus', 'Archmagus', 'Sage'],
+  stars: {
+    hours: [1, 5, 10, 25, 50, 100, 250],
+    longSitMinutes: 60,
+    deepStudyMinutes: 120,
+    dawnFromHour: 4,
+    dawnBeforeHour: 7,
+    nightFromHour: 22,
+    practiceDays: [7, 30, 100],
+    runs: [7, 21, 60],
+    returnedAfterDays: 7,
+  },
 }
 
 export function circleMinutesFor(level: number, cfg: ProgressionConfig): number {

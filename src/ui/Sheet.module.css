@@ -52,6 +52,11 @@
   line-height: 34px;
 }
 
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--text-secondary);
+}
+
 .subtitle {
   margin: 2px 0 0;
   font-size: 13px;

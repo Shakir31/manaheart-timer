@@ -5,6 +5,8 @@ import styles from './Sheet.module.css'
 
 interface Props {
   title: string
+  /** Small uppercase line above the title. */
+  eyebrow?: string
   subtitle?: string
   onClose(): void
   children: ReactNode
@@ -16,7 +18,7 @@ const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), textar
  * Bottom sheet below 640px, centred modal above (Sheet spec). Traps focus, closes
  * on Esc or scrim tap, and returns focus to whatever opened it.
  */
-export function Sheet({ title, subtitle, onClose, children }: Props) {
+export function Sheet({ title, eyebrow, subtitle, onClose, children }: Props) {
   const titleId = useId()
   const panel = useRef<HTMLDivElement>(null)
   const onCloseRef = useRef(onClose)
@@ -65,6 +67,7 @@ export function Sheet({ title, subtitle, onClose, children }: Props) {
         <div className={styles.grabber} aria-hidden="true" />
         <div className={styles.header}>
           <div>
+            {eyebrow && <p className={`label ${styles.eyebrow}`}>{eyebrow}</p>}
             <h2 id={titleId} className={styles.title}>{title}</h2>
             {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
           </div>
