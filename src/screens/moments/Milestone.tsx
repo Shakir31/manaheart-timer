@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { momentCopy, type Moment } from '../../copy/moments'
 import { useManaData } from '../../data/context'
 import { useHeartState } from '../../data/useHeartState'
@@ -13,7 +13,9 @@ export function Milestone({ moment, onDismiss }: { moment: Moment; onDismiss(): 
   const tapTarget = useRef<HTMLButtonElement>(null)
   const { eyebrow, title, body } = momentCopy(moment)
 
-  useEffect(() => {
+  // Focus in the same commit that draws the moment, so keyboard and screen-reader users
+  // land on Continue straight away (no gap between the screen appearing and focus).
+  useLayoutEffect(() => {
     tapTarget.current?.focus({ preventScroll: true })
   }, [moment])
 
