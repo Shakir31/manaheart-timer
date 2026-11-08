@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { Session } from '@supabase/supabase-js'
+import { forgetUser } from '../lib/storage'
 import { supabase } from '../lib/supabase'
 import { AuthContext, type AuthValue } from './context'
 import { readSignUp } from './signUpResult'
@@ -43,6 +44,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       async signOut() {
         const { error } = await supabase.auth.signOut()
         if (error) throw error
+      },
+      async deleteAccount() {
+        const id = session?.user.id
+        const { error } = await supabase.rpc('delete_account')
+        if (error) throw error
+        if (id) forgetUser(id)
+        // The account no longer exists, so only the local session needs clearing.
+        await supabase.auth.signOut({ scope: 'local' })
       },
       async resetPassword(email) {
         const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {

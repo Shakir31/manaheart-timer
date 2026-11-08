@@ -10,6 +10,8 @@ export interface AuthValue {
   /** Resolves to true if the user must confirm their email before signing in. */
   signUp(email: string, password: string): Promise<{ needsConfirmation: boolean }>
   signOut(): Promise<void>
+  /** Delete the account and everything in it, then sign out. Can't be undone. */
+  deleteAccount(): Promise<void>
   /** Email a link to set a new password. */
   resetPassword(email: string): Promise<void>
   /** Set a new password for the signed-in user. */

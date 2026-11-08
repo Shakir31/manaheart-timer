@@ -28,7 +28,7 @@ Your data is stored with [Supabase](https://supabase.com), our database and sign
 
 - **Export.** Settings › Export data downloads every session as a CSV file.
 - **Edit or delete sessions.** Any session can be changed or removed from the Sessions page.
-- **Delete your account.** Email [manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com) and we'll delete your account and all its data within 30 days.
+- **Delete your account.** Settings › Delete account removes the account and all its data straight away. If you can't sign in, email [manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com) and we'll delete it within 30 days.
 - **Questions or corrections.** Email [manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com).
 
 ## Children

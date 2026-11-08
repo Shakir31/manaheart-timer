@@ -10,6 +10,7 @@ import type { ProfilePatch } from '../data/types'
 import { useHeartState } from '../data/useHeartState'
 import { downloadText, sessionsToCsv } from '../lib/csv'
 import { Button } from '../ui/Button'
+import { ConfirmDialog } from '../ui/ConfirmDialog'
 import { DurationStepper } from '../ui/DurationStepper'
 import { Icon } from '../ui/Icon'
 import { Sheet } from '../ui/Sheet'
@@ -26,12 +27,14 @@ const LENGTH_PICKS = [15, 25, 45, 60]
 type SheetKind = 'password' | 'reminder' | 'length' | null
 
 export function Settings() {
-  const { user, signOut } = useAuth()
+  const { user, signOut, deleteAccount } = useAuth()
   const { profile, sessions, timeZone, updateProfile } = useManaData()
   const heart = useHeartState()
   const toast = useToast()
   const desktop = useMediaQuery(DESKTOP)
   const [sheet, setSheet] = useState<SheetKind>(null)
+  const [deleting, setDeleting] = useState(false)
+  const [busy, setBusy] = useState(false)
 
   if (!profile) return null
   const reminderTime = profile.reminderTime ?? DEFAULT_REMINDER
@@ -63,6 +66,10 @@ export function Settings() {
           <button type="button" className={`${styles.row} ${styles.link}`} onClick={() => setSheet('password')}>
             <span>Change password</span>
             <Icon name="forward" size={20} className={styles.chevron} />
+          </button>
+          <button type="button" className={`${styles.row} ${styles.link} ${styles.danger}`} onClick={() => setDeleting(true)}>
+            <span>Delete account</span>
+            <Icon name="delete" size={20} />
           </button>
         </div>
       </section>
@@ -211,6 +218,27 @@ export function Settings() {
         Sign out
       </Button>
 
+      {deleting && (
+        <ConfirmDialog
+          title="Delete your account?"
+          body="Every session, the heart and the sky will be deleted for good, and this can't be undone. Exporting the sessions first is a good idea."
+          cancelLabel="Keep it"
+          confirmLabel={busy ? 'Deleting' : 'Delete account'}
+          busy={busy}
+          onCancel={() => setDeleting(false)}
+          onConfirm={async () => {
+            setBusy(true)
+            try {
+              await deleteAccount()
+              toast.show({ message: 'The account has been deleted.' })
+            } catch {
+              setBusy(false)
+              setDeleting(false)
+              toast.show({ message: "The account couldn't be deleted, so try again.", tone: 'error' })
+            }
+          }}
+        />
+      )}
       {sheet === 'password' && <PasswordSheet onClose={() => setSheet(null)} />}
       {sheet === 'reminder' && (
         <ReminderSheet value={reminderTime} onClose={() => setSheet(null)} onSave={(t) => save({ reminderTime: t })} />

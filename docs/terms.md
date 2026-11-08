@@ -28,7 +28,7 @@ We may change or stop parts of the service. If we ever shut Manaheart down, we'l
 
 ## Ending things
 
-You can stop using Manaheart and ask us to delete your account at any time. We may suspend accounts that break these terms.
+You can stop using Manaheart and delete your account at any time from Settings. We may suspend accounts that break these terms.
 
 ## Changes to these terms
 

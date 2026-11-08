@@ -17,3 +17,14 @@ export function writeJson(key: string, value: unknown): void {
     // Storage unavailable: the app still works, the timer just won't survive a reload.
   }
 }
+
+/** Everything this device keeps for a user (running timer, sky mark, last category). */
+export function forgetUser(userId: string): void {
+  for (const key of [`manaheart.timer.${userId}`, `manaheart.skySeenAt.${userId}`, 'manaheart.lastCategory']) {
+    try {
+      localStorage.removeItem(key)
+    } catch {
+      // Storage unavailable: nothing to clear.
+    }
+  }
+}

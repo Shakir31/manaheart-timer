@@ -77,6 +77,8 @@ The design is final; build to it, don't redesign.
 - Schema: `supabase/migrations/`. Tables `profiles` (auto-created on sign-up), `sessions`,
   `condensations` (insert-only). Row-level security on all: users see only their own rows.
   Schema changes go in a new numbered migration file; run it in the Supabase SQL Editor.
+  `delete_account()` (0002) is the only server function: it deletes the caller's own
+  auth user, and their rows go with it by cascade.
 - `src/data/api.ts` is the only file that talks to Supabase tables (and does the
   snake_case ↔ camelCase mapping).
 - Components use `useManaData()` for records and mutations (optimistic, rolled back on
@@ -145,5 +147,4 @@ docs open as sub-pages from Settings › About. Contact email: manaheart.timer@g
 Known gaps (planned):
 - Daily reminder: the setting is stored but nothing sends it yet. Needs Capacitor local
   notifications (mobile) or web push (Phase 6).
-- No in-app "Delete account" yet; Privacy says to email for deletion within 30 days.
 - Durations are zero-padded ("1h 05m"), matching the designs.

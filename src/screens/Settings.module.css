@@ -56,6 +56,12 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+/* Destructive row: a secondary text action that opens a confirmation (Button spec). */
+.danger,
+.danger :global(svg) {
+  color: var(--error);
+}
+
 .plainLink {
   text-decoration: none;
 }
