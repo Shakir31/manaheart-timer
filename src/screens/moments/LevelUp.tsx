@@ -28,7 +28,7 @@ export function LevelUp() {
             <li key={rank} aria-current={rank === heart.rank ? 'step' : undefined}>{rank}</li>
           ))}
         </ol>
-        <p className={`moment ${styles.body} ${styles.levelBody}`}>Your heart is denser now. New circles will form around it.</p>
+        <p className={`moment ${styles.body} ${styles.levelBody}`}>The heart is denser now, and new circles will form around it.</p>
         <Button block className={styles.action} onClick={() => navigate('/', { replace: true })}>
           Return to the heart
         </Button>

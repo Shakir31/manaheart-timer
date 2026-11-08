@@ -20,7 +20,7 @@ describe('validation', () => {
 describe('authErrorMessage', () => {
   it('maps known Supabase codes', () => {
     expect(authErrorMessage({ code: 'invalid_credentials' })).toMatch(/don't match/)
-    expect(authErrorMessage({ code: 'user_already_exists' })).toMatch(/Sign in instead/)
+    expect(authErrorMessage({ code: 'user_already_exists' })).toMatch(/sign in instead/)
     expect(authErrorMessage({ code: 'over_email_send_rate_limit' })).toMatch(/Too many attempts/)
   })
 
@@ -29,7 +29,7 @@ describe('authErrorMessage', () => {
   })
 
   it('falls back to a calm default', () => {
-    expect(authErrorMessage({ code: 'something_new' })).toBe('Something went wrong. Try again.')
-    expect(authErrorMessage(null)).toBe('Something went wrong. Try again.')
+    expect(authErrorMessage({ code: 'something_new' })).toBe('Something went wrong, please try again.')
+    expect(authErrorMessage(null)).toBe('Something went wrong, please try again.')
   })
 })

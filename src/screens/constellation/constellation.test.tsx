@@ -58,7 +58,7 @@ describe('Constellation', () => {
   it('shows a dark sky for a new mage, with the nearest stars to light', async () => {
     const user = userEvent.setup()
     renderApp('/constellation')
-    expect(await screen.findByText('Your sky is still dark.')).toBeInTheDocument()
+    expect(await screen.findByText('The sky is still dark.')).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /A dark sky/ })).toBeInTheDocument()
     expect(screen.queryByRole('link', { name: 'Open the Grimoire' })).toBeNull()
 
@@ -74,14 +74,14 @@ describe('Constellation', () => {
     const distant = await screen.findAllByRole('button', { name: /^A distant star \(\w+\), distant$/ })
     await user.click(distant[0])
     expect(screen.getByRole('dialog', { name: 'A distant star' })).toBeInTheDocument()
-    expect(screen.getByText('Light the stars nearer the heart first.')).toBeInTheDocument()
+    expect(screen.getByText('Light the stars closer to the heart first.')).toBeInTheDocument()
   })
 
   it('lights stars from practice and leans toward the stronger branch', async () => {
     const user = userEvent.setup()
     setup(journey)
     renderApp('/constellation')
-    expect(await screen.findByText('Your sky leans toward Mind.')).toBeInTheDocument()
+    expect(await screen.findByText('The sky leans toward Mind.')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Apprentice, lit' })).toBeInTheDocument()
     // 30 × 40 min = 20h of meditation: Ten hours is lit, Twenty-five is next.
     expect(screen.getByRole('button', { name: 'Ten hours (Mind), lit' })).toBeInTheDocument()
@@ -97,7 +97,7 @@ describe('Constellation', () => {
   it('beats: a ripple from the heart, and a glow that reaches lines further out later', async () => {
     setup(journey)
     const { container } = renderApp('/constellation')
-    await screen.findByText('Your sky leans toward Mind.')
+    await screen.findByText('The sky leans toward Mind.')
     expect(container.querySelector('[data-part="ripple"]')).not.toBeNull()
     const delays = [...container.querySelectorAll<SVGLineElement>('line[style]')].map((l) => parseFloat(l.style.animationDelay))
     expect(delays.length).toBeGreaterThan(5)
@@ -108,7 +108,7 @@ describe('Constellation', () => {
     setup(journey)
     localStorage.setItem('manaheart.skySeenAt.user-1', JSON.stringify(new Date(NOW.getTime() - 5 * 86_400_000).toISOString()))
     const { container } = renderApp('/constellation')
-    await screen.findByText('Your sky leans toward Mind.')
+    await screen.findByText('The sky leans toward Mind.')
     expect(container.querySelectorAll('[data-part="fresh"]').length).toBeGreaterThan(0)
   })
 
@@ -122,7 +122,7 @@ describe('Constellation', () => {
     await user.click(screen.getByRole('button', { name: 'Apprentice, lit' }))
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(screen.getByRole('heading', { name: 'Apprentice' })).toBeInTheDocument()
-    expect(screen.getByText('The heart forms. The first light in the sky.')).toBeInTheDocument()
+    expect(screen.getByText('The heart has formed and become the first light in the sky.')).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Close' }))
     expect(screen.getByRole('heading', { name: 'Your sky' })).toBeInTheDocument()
   })
@@ -138,7 +138,7 @@ describe('Grimoire', () => {
     expect(within(page).getByText(/^The first light gathers where attention rests/)).toBeInTheDocument()
     expect(within(page).getByText('Heart formed')).toBeInTheDocument()
     expect(within(page).getByText('so far', { exact: false })).toBeInTheDocument()
-    expect(within(page).getByText('Later pages write themselves as you reach each rank.')).toBeInTheDocument()
+    expect(within(page).getByText('Later pages are written as each rank is reached.')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Back to Constellation' })).toHaveAttribute('href', '/constellation')
   })
 
@@ -163,6 +163,6 @@ describe('Grimoire', () => {
   it('waits for the heart before writing anything', async () => {
     setup([s('a', 60, 1)])
     renderApp('/grimoire')
-    expect(await screen.findByText('The first page writes itself when your heart forms.')).toBeInTheDocument()
+    expect(await screen.findByText('The first page will be written once the heart forms.')).toBeInTheDocument()
   })
 })

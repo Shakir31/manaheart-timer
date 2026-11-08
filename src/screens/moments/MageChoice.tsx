@@ -42,7 +42,7 @@ export function MageChoice() {
       await updateProfile({ mage: selected })
       navigate(changing ? '/settings' : '/', { replace: true })
     } catch {
-      toast.show({ message: 'Your path could not be saved. Try again.', tone: 'error' })
+      toast.show({ message: "The path couldn't be saved, so try again.", tone: 'error' })
       setSaving(false)
     }
   }
@@ -69,7 +69,7 @@ export function MageChoice() {
             <Heart model={PREVIEW} variant={selected} decorative />
           </div>
           <h1 className={styles.confirmTitle}>Walk the {path.name} path?</h1>
-          <p className={styles.lede}>{path.change} Your progress stays exactly as it is.</p>
+          <p className={styles.lede}>{path.change}, and progress stays exactly as it is.</p>
           <p className={styles.note}>
             <Icon name="settings" size={16} />
             You can change this later in Settings
@@ -96,7 +96,7 @@ export function MageChoice() {
         <header className={styles.header}>
           <p className={`label ${styles.eyebrow}`}>{changing ? 'Your path' : 'Your first circle has formed'}</p>
           <h1 className={styles.title}>Choose your path</h1>
-          <p className={styles.lede}>It shapes how your heart and circles look. You can change it later in Settings.</p>
+          <p className={styles.lede}>It shapes how the heart and circles look, and it can be changed later in Settings.</p>
         </header>
 
         <div role="radiogroup" aria-label="Mage aesthetic" className={styles.options}>

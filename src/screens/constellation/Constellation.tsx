@@ -16,9 +16,9 @@ import { StarDetail } from './StarDetail'
 import styles from './Constellation.module.css'
 
 const HOW_IT_FILLS = [
-  { name: 'Mind', text: 'Hours of meditation, long sits and dawn sits.' },
-  { name: 'Lore', text: 'Hours of study, deep study and late study.' },
-  { name: 'Rhythm', text: 'Days practised, unbroken runs, and coming back.' },
+  { name: 'Mind', text: 'Hours of meditation, plus long sits and dawn sits.' },
+  { name: 'Lore', text: 'Hours of study, plus deep study and late study.' },
+  { name: 'Rhythm', text: 'Days practised, runs of days in a row, and coming back after a break.' },
   { name: 'Ranks', text: 'The brightest stars, rising above the heart.' },
 ]
 

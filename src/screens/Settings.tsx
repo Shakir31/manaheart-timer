@@ -37,7 +37,7 @@ export function Settings() {
   const reminderTime = profile.reminderTime ?? DEFAULT_REMINDER
 
   const save = (patch: ProfilePatch) =>
-    updateProfile(patch).catch(() => toast.show({ message: 'That setting could not be saved. Try again.', tone: 'error' }))
+    updateProfile(patch).catch(() => toast.show({ message: "That setting couldn't be saved, so try again.", tone: 'error' }))
 
   const toggleReminder = (on: boolean) =>
     save(on && !profile.reminderTime ? { reminderEnabled: on, reminderTime: DEFAULT_REMINDER } : { reminderEnabled: on })
@@ -73,7 +73,7 @@ export function Settings() {
           <div className={styles.row}>
             <span className={styles.stack}>
               <span id="reminder-label">Daily reminder</span>
-              <span className={styles.hint}>A quiet nudge if you haven't practised that day</span>
+              <span className={styles.hint}>A quiet nudge on days without practice</span>
             </span>
             <span className={styles.controls}>
               {desktop && profile.reminderEnabled && (
@@ -104,7 +104,7 @@ export function Settings() {
             <div className={styles.row}>
               <span className={styles.stack}>
                 <span id="length-label">Default session length</span>
-                <span className={styles.hint}>Used when you log a session manually</span>
+                <span className={styles.hint}>Used when logging a session manually</span>
               </span>
               <span className={styles.chips} role="group" aria-labelledby="length-label">
                 {LENGTH_PICKS.map((m) => (
@@ -141,7 +141,7 @@ export function Settings() {
               <span className={styles.stack}>
                 <span>{profile.mage ? mageName(profile.mage) : 'Not chosen yet'}</span>
                 <span className={styles.hint}>
-                  {profile.mage ? 'Colours your heart and its circles.' : 'Your first circle has formed. Choose your path.'}
+                  {profile.mage ? 'Colours the heart and its circles.' : 'The first circle has formed, so a path can be chosen.'}
                 </span>
               </span>
               <span className={styles.value}>
@@ -155,8 +155,8 @@ export function Settings() {
             <div className={styles.row}>
               <span className={styles.lockDisc} aria-hidden="true"><Icon name="locked" size={18} /></span>
               <span className={styles.stack}>
-                <span>Locked until your first circle forms</span>
-                <span className={styles.hint}>Then choose Elemental, Arcane or Spirit. You can change it here any time after.</span>
+                <span>Locked until the first circle forms</span>
+                <span className={styles.hint}>Then choose Elemental, Arcane or Spirit, and change it here any time after.</span>
               </span>
               <span className={styles.swatches} aria-hidden="true">
                 <span style={{ background: 'var(--elemental-ring)' }} />
@@ -184,7 +184,7 @@ export function Settings() {
       <Button
         variant="outline"
         className={styles.signOut}
-        onClick={() => signOut().catch(() => toast.show({ message: 'Could not sign out. Try again.', tone: 'error' }))}
+        onClick={() => signOut().catch(() => toast.show({ message: "Couldn't sign out, so try again.", tone: 'error' }))}
       >
         <Icon name="signOut" size={20} />
         Sign out
@@ -238,7 +238,7 @@ function PasswordSheet({ onClose }: { onClose(): void }) {
 function ReminderSheet({ value, onClose, onSave }: { value: string; onClose(): void; onSave(time: string): void }) {
   const [time, setTime] = useState(value.slice(0, 5))
   return (
-    <Sheet title="Reminder time" subtitle="Once a day, only if you haven't practised" onClose={onClose}>
+    <Sheet title="Reminder time" subtitle="Once a day, only on days without practice" onClose={onClose}>
       <form
         className={formStyles.form}
         aria-label="Reminder time"
@@ -258,7 +258,7 @@ function ReminderSheet({ value, onClose, onSave }: { value: string; onClose(): v
 function LengthSheet({ value, onClose, onSave }: { value: number; onClose(): void; onSave(minutes: number): void }) {
   const [minutes, setMinutes] = useState(value)
   return (
-    <Sheet title="Default session length" subtitle="Used when you log a session manually" onClose={onClose}>
+    <Sheet title="Default session length" subtitle="Used when logging a session manually" onClose={onClose}>
       <form
         className={formStyles.form}
         aria-label="Default session length"

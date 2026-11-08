@@ -38,7 +38,7 @@ export function EditSessionSheet({ session, onClose }: { session: SessionRecord;
       onClose()
       toast.show({ message: 'Session updated', tone: 'success' })
     } catch {
-      setError('Your changes could not be saved. Check your connection and try again.')
+      setError("The changes couldn't be saved, so check the connection and try again.")
       setSaving(false)
     }
   }
@@ -53,12 +53,12 @@ export function EditSessionSheet({ session, onClose }: { session: SessionRecord;
         action: {
           label: 'Undo',
           onAction: () => {
-            restoreSession(session).catch(() => toast.show({ message: 'The session could not be restored.', tone: 'error' }))
+            restoreSession(session).catch(() => toast.show({ message: "The session couldn't be restored.", tone: 'error' }))
           },
         },
       })
     } catch {
-      toast.show({ message: 'The session could not be deleted. Try again.', tone: 'error' })
+      toast.show({ message: "The session couldn't be deleted, so try again.", tone: 'error' })
     }
   }
 

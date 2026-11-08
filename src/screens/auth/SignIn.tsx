@@ -40,10 +40,10 @@ export function SignIn() {
       if (mode === 'signin') await signIn(email, password)
       else if (mode === 'create') {
         const { needsConfirmation } = await signUp(email, password)
-        if (needsConfirmation) setNotice('Check your email to confirm your account, then sign in.')
+        if (needsConfirmation) setNotice('Check the inbox to confirm the account, then sign in.')
       } else {
         await resetPassword(email)
-        setNotice('If an account exists for that email, a link to set a new password is on its way.')
+        setNotice('If an account exists for that email, a reset link is on its way.')
       }
     } catch (err) {
       setProblem(authErrorMessage(err))
@@ -63,7 +63,7 @@ export function SignIn() {
       <AuthLayout>
         <form className={styles.form} onSubmit={submit} noValidate aria-label="Reset your password">
           <h2 className={styles.heading}>Reset your password</h2>
-          <p className={styles.lede}>We'll email you a link to set a new one.</p>
+          <p className={styles.lede}>A link to set a new one will arrive by email.</p>
           <TextInput label="Email" type="email" autoComplete="email" placeholder="you@example.com"
             value={email} onChange={(e) => setEmail(e.target.value)} error={errors.email} />
           {problem && <p role="alert" className={styles.problem}>{problem}</p>}

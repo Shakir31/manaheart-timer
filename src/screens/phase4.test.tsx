@@ -94,7 +94,7 @@ describe('Sign in', () => {
     await user.type(screen.getByLabelText('Password'), '456')
     await user.click(screen.getByRole('button', { name: 'Create account' }))
     expect(auth.signUp).toHaveBeenCalledWith('new@example.com', '123456')
-    expect(await screen.findByText(/confirm your account/)).toBeInTheDocument()
+    expect(await screen.findByText(/confirm the account/)).toBeInTheDocument()
   })
 
   it('sends a reset link', async () => {
@@ -106,7 +106,7 @@ describe('Sign in', () => {
     await user.type(screen.getByLabelText('Email'), 'you@example.com')
     await user.click(screen.getByRole('button', { name: 'Send reset link' }))
     expect(auth.resetPassword).toHaveBeenCalledWith('you@example.com')
-    expect(await screen.findByText(/a link to set a new password is on its way/)).toBeInTheDocument()
+    expect(await screen.findByText(/a reset link is on its way/)).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Back to sign in' }))
     expect(screen.getByRole('tab', { name: 'Sign in' })).toBeInTheDocument()
   })
@@ -238,7 +238,7 @@ describe('Settings', () => {
     const auth = fakeAuth()
     renderApp('/settings', undefined, auth)
     expect(await screen.findByText('mage@example.com')).toBeInTheDocument()
-    expect(screen.getByText('Locked until your first circle forms')).toBeInTheDocument()
+    expect(screen.getByText('Locked until the first circle forms')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Back to Heart' })).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Sign out' }))
     expect(auth.signOut).toHaveBeenCalled()

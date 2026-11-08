@@ -49,13 +49,13 @@ describe('momentCopy', () => {
 
   it('uses the designed words', () => {
     expect(momentCopy({ ...base, kind: 'heart-formed' })).toEqual({
-      eyebrow: 'Milestone', title: 'Your heart has formed', body: 'Five hours of practice, gathered into one light.',
+      eyebrow: 'Milestone', title: 'The heart has formed', body: 'Five hours of practice have come together into a heart.',
     })
     expect(momentCopy({ ...base, kind: 'circle-formed' })).toEqual({
-      eyebrow: 'Milestone · First circle', title: 'A circle has formed', body: 'It still flickers. Keep your rhythm and it will steady.',
+      eyebrow: 'Milestone · First circle', title: 'A circle has formed', body: 'The circle still flickers, but it will settle with a steady rhythm.',
     })
     expect(momentCopy({ ...base, kind: 'circle-stable', circle: 2, stable: true })).toEqual({
-      eyebrow: 'Milestone · Third circle', title: 'The circle is stable', body: 'Your rhythm held. It turns clean and even now.',
+      eyebrow: 'Milestone · Third circle', title: 'The circle is stable', body: 'The rhythm held, and the circle turns smoothly now.',
     })
   })
 

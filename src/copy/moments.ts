@@ -56,20 +56,20 @@ export interface MomentCopy {
 
 export function momentCopy(m: Moment): MomentCopy {
   if (m.kind === 'heart-formed') {
-    return { eyebrow: 'Milestone', title: 'Your heart has formed', body: 'Five hours of practice, gathered into one light.' }
+    return { eyebrow: 'Milestone', title: 'The heart has formed', body: 'Five hours of practice have come together into a heart.' }
   }
   const eyebrow = m.count > 1
     ? `Milestone · ${COUNT[m.count] ?? m.count} circles`
     : `Milestone · ${circleOrdinal(m.circle)} circle`
   if (m.kind === 'circle-stable') {
     return m.count > 1
-      ? { eyebrow, title: 'The circles are stable', body: 'Your rhythm held. They turn clean and even now.' }
-      : { eyebrow, title: 'The circle is stable', body: 'Your rhythm held. It turns clean and even now.' }
+      ? { eyebrow, title: 'The circles are stable', body: 'The rhythm held, and the circles turn smoothly now.' }
+      : { eyebrow, title: 'The circle is stable', body: 'The rhythm held, and the circle turns smoothly now.' }
   }
   if (m.stable) {
-    return { eyebrow, title: 'A circle has formed', body: 'Your rhythm carried it. It turns clean and even from the start.' }
+    return { eyebrow, title: 'A circle has formed', body: 'Steady practice carried it, so it turns smoothly from the start.' }
   }
   return m.count > 1
-    ? { eyebrow, title: 'Circles have formed', body: 'They still flicker. Keep your rhythm and they will steady.' }
-    : { eyebrow, title: 'A circle has formed', body: 'It still flickers. Keep your rhythm and it will steady.' }
+    ? { eyebrow, title: 'Circles have formed', body: 'The circles still flicker, but they will settle with a steady rhythm.' }
+    : { eyebrow, title: 'A circle has formed', body: 'The circle still flickers, but it will settle with a steady rhythm.' }
 }

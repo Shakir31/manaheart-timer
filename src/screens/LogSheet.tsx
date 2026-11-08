@@ -31,7 +31,7 @@ export function LogSheet({ onClose }: { onClose(): void }) {
     try {
       await record([{ category, durationMinutes: minutes }], 'manual', note)
     } catch {
-      setError('That session could not be saved. Check your connection and try again.')
+      setError("That session couldn't be saved, so check the connection and try again.")
       setSaving(false)
     }
   }

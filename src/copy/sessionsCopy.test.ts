@@ -56,10 +56,10 @@ describe('sentences', () => {
 
   it('names exactly what deleting loses', () => {
     expect(deleteSentence(s('a', 45, '2026-11-03T18:30:00Z'), now, 'UTC')).toBe(
-      "45 min of Study from today will be removed, and the heart will lose that mana. This can't be undone.",
+      "45 min of Study from today will be removed and the heart will lose that mana, which can't be undone.",
     )
     expect(deleteSentence(s('a', 90, '2026-11-01T18:30:00Z', 'meditation'), now, 'UTC')).toBe(
-      "1h 30m of Meditation from Sun 1 Nov will be removed, and the heart will lose that mana. This can't be undone.",
+      "1h 30m of Meditation from Sun 1 Nov will be removed and the heart will lose that mana, which can't be undone.",
     )
   })
 })

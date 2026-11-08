@@ -17,7 +17,7 @@ describe('star words', () => {
     expect(starTitle({ type: 'hours', category: 'meditation', hours: 100 })).toBe('A hundred hours')
     expect(starTitle({ type: 'hours', category: 'meditation', hours: 1 })).toBe('One hour')
     expect(starTitle({ type: 'run', days: 21 })).toBe('A twenty-one-day run')
-    expect(starLine({ type: 'hours', category: 'meditation', hours: 100 })).toBe('One hundred hours of stillness, gathered sit by sit.')
+    expect(starLine({ type: 'hours', category: 'meditation', hours: 100 })).toBe('A hundred hours spent in meditation.')
   })
 
   it('builds the sheet for a next star, with distance to go and the star before it', () => {
@@ -25,7 +25,7 @@ describe('star words', () => {
     expect(starSheet(star({}), parent, 'UTC')).toEqual({
       eyebrow: 'Mind · Next to light',
       title: 'A hundred hours',
-      line: 'One hundred hours of stillness, gathered sit by sit.',
+      line: 'A hundred hours spent in meditation.',
       status: 'Lights at 100h of meditation · 38h to go',
       before: 'Before it on this branch: Fifty hours, lit 2 Oct',
     })
@@ -44,10 +44,10 @@ describe('star words', () => {
 
 describe('skyLean', () => {
   it('describes the balance between Mind and Lore', () => {
-    expect(skyLean(0, 0).title).toBe('Your sky is still dark.')
-    expect(skyLean(62 * 60, 24 * 60).title).toBe('Your sky leans toward Mind.')
-    expect(skyLean(10, 90).title).toBe('Your sky leans toward Lore.')
-    expect(skyLean(50, 50)).toMatchObject({ title: 'Your sky is in balance.', ratio: 0.5 })
+    expect(skyLean(0, 0).title).toBe('The sky is still dark.')
+    expect(skyLean(62 * 60, 24 * 60).title).toBe('The sky leans toward Mind.')
+    expect(skyLean(10, 90).title).toBe('The sky leans toward Lore.')
+    expect(skyLean(50, 50)).toMatchObject({ title: 'The sky is in balance.', ratio: 0.5 })
   })
 })
 
@@ -57,6 +57,6 @@ describe('lore', () => {
       expect(loreFor(level, DEFAULT_CONFIG.ranks).length).toBeGreaterThan(40)
     }
     expect(loreFor(1, DEFAULT_CONFIG.ranks)).toMatch(/^The first light gathers/)
-    expect(loreFor(6, DEFAULT_CONFIG.ranks)).toMatch(/^Beyond the last name/)
+    expect(loreFor(6, DEFAULT_CONFIG.ranks)).toMatch(/^The names end here/)
   })
 })

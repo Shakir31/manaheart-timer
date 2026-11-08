@@ -64,7 +64,7 @@ describe('milestones', () => {
     const user = userEvent.setup()
     setup([session('a', 420, YESTERDAY)]) // heart + first circle
     renderApp('/')
-    expect(await screen.findByRole('heading', { name: 'Your heart has formed' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'The heart has formed' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Continue' })).toHaveFocus()
     await user.click(screen.getByRole('button', { name: 'Continue' }))
     expect(screen.getByRole('heading', { name: 'A circle has formed' })).toBeInTheDocument()
@@ -79,7 +79,7 @@ describe('milestones', () => {
     setup([session('a', 420, YESTERDAY)])
     renderApp('/sessions')
     expect(await screen.findByRole('region', { name: 'This week' })).toBeInTheDocument()
-    expect(screen.queryByText('Your heart has formed')).toBeNull()
+    expect(screen.queryByText('The heart has formed')).toBeNull()
   })
 
   it('does not replay history for an account without a watermark', async () => {
@@ -130,7 +130,7 @@ describe('mage choice', () => {
     await user.click(await screen.findByRole('radio', { name: /Spirit/ }))
     await user.click(screen.getByRole('button', { name: 'Continue with Spirit' }))
     await user.click(screen.getByRole('button', { name: 'Confirm' }))
-    expect(await screen.findByText(/could not be saved/)).toBeInTheDocument()
+    expect(await screen.findByText(/couldn't be saved/)).toBeInTheDocument()
     expect(await screen.findByRole('heading', { name: 'Choose your path' })).toBeInTheDocument()
   })
 
@@ -159,7 +159,7 @@ describe('condensing', () => {
     setup(ready, seenAll)
     renderApp('/')
     expect(await screen.findByRole('button', { name: 'Condense' })).toBeInTheDocument()
-    expect(screen.getByText('Five circles hold still. They are ready to condense.')).toBeInTheDocument()
+    expect(screen.getByText('All five circles are steady and ready to condense.')).toBeInTheDocument()
   })
 
   it('hides Condense while a circle is unstable', async () => {
@@ -197,7 +197,7 @@ describe('condensing', () => {
     setup(ready, seenAll)
     renderApp('/')
     await user.click(await screen.findByRole('button', { name: 'Condense' }))
-    expect(await screen.findByText(/could not be condensed/)).toBeInTheDocument()
+    expect(await screen.findByText(/couldn't be condensed/)).toBeInTheDocument()
     expect(await screen.findByRole('button', { name: 'Condense' })).toBeInTheDocument()
   })
 

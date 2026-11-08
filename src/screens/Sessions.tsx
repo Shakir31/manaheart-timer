@@ -54,7 +54,7 @@ export function Sessions() {
       </header>
 
       {sessions.length === 0 ? (
-        <EmptyState title="Nothing gathered yet" body="Begin a session or log one you've done. Each one will gather here.">
+        <EmptyState title="Nothing gathered yet" body="Sessions will gather here once one is started or logged.">
           <Button block onClick={begin}>Begin session</Button>
           <Button variant="ghost" onClick={() => setLogging(true)}>Log manually</Button>
         </EmptyState>

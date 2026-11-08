@@ -59,6 +59,10 @@ The design is final; build to it, don't redesign.
 - Tokens: `src/styles/tokens.css` is a copy of the design system's file. Use the CSS
   variables and type classes (`.display`, `.title`, `.label`, `.numeric-xl`…). Never
   hardcode hex values or font sizes in components.
+- **Copy style (owner):** plain and a little casual with a little flavour. No poetic filler,
+  no fragmented sentences (join short ones with a comma, "and", "so" or "but"), and use
+  "you/your" only where needed ("the heart", "the rhythm"). Example: "The circle still
+  flickers, but it will settle with a steady rhythm."
 - Copy follows the README voice rules. Use the helpers in `src/engine/format.ts` for
   durations ("45 min", "6h 40m / 10h"), gains and ranks. Never show percentages.
 - Every animation needs a `prefers-reduced-motion` alternative.

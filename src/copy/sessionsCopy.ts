@@ -88,5 +88,5 @@ export function endedLine(s: SessionRecord, now: Date, timeZone: string): string
 /** ConfirmDialog body: names exactly what is lost (ConfirmDialog spec). */
 export function deleteSentence(s: SessionRecord, now: Date, timeZone: string): string {
   const when = dayInSentence(dayKey(s.endedAt, timeZone), dayKey(now, timeZone))
-  return `${formatDuration(s.durationMinutes)} of ${CATEGORY_NAME[s.category]} from ${when} will be removed, and the heart will lose that mana. This can't be undone.`
+  return `${formatDuration(s.durationMinutes)} of ${CATEGORY_NAME[s.category]} from ${when} will be removed and the heart will lose that mana, which can't be undone.`
 }

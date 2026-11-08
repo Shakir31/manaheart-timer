@@ -66,7 +66,7 @@ export function Focus() {
       await record(entries, 'timer')
       focus.clear()
     } catch {
-      setError('The session could not be saved. Your time is kept; try ending again.')
+      setError("The session couldn't be saved, but the time is kept, so try ending it again.")
       setSaving(false)
     }
   }
@@ -89,7 +89,7 @@ export function Focus() {
         <div className={styles.clock} role="timer" aria-label={`${category} session, ${clock} elapsed${paused ? ', paused' : ''}`}>
           {clock}
         </div>
-        <p className={`moment ${styles.moment}`}>{paused ? 'Paused' : 'Mana gathering'}</p>
+        <p className={`moment ${styles.moment}`}>{paused ? 'Paused' : 'Mana is gathering'}</p>
       </div>
 
       <div className={styles.footer}>

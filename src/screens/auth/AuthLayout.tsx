@@ -14,7 +14,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
       </div>
       <header className={styles.brand}>
         <h1 className={styles.name}>Manaheart</h1>
-        <p className={`moment ${styles.tagline}`}>A quiet place to gather your hours.</p>
+        <p className={`moment ${styles.tagline}`}>A quiet place to gather the hours.</p>
       </header>
       <div className={styles.card}>{children}</div>
     </div>

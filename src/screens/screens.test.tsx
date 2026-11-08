@@ -98,7 +98,7 @@ describe('Home', () => {
     renderApp('/')
     await u.click(await screen.findByRole('button', { name: 'Log manually' }))
     await u.click(screen.getByRole('button', { name: 'Add to the heart' }))
-    expect(await screen.findByText(/could not be saved/)).toHaveAttribute('role', 'alert')
+    expect(await screen.findByText(/couldn't be saved/)).toHaveAttribute('role', 'alert')
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 })
@@ -154,7 +154,7 @@ describe('Focus session', () => {
     await u.click(await screen.findByRole('button', { name: 'Begin session' }))
     act(() => vi.setSystemTime(new Date(NOW.getTime() + 10 * 60_000)))
     await u.click(screen.getByRole('button', { name: 'End session' }))
-    expect(await screen.findByText(/Your time is kept/)).toHaveAttribute('role', 'alert')
+    expect(await screen.findByText(/the time is kept/)).toHaveAttribute('role', 'alert')
     expect(screen.getByRole('timer')).toBeInTheDocument()
   })
 

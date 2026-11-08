@@ -21,22 +21,22 @@ export function authErrorMessage(error: unknown): string {
   const e = error as { code?: string; message?: string; name?: string } | null
   switch (e?.code) {
     case 'invalid_credentials':
-      return "That email and password don't match. Try again."
+      return "That email and password don't match."
     case 'user_already_exists':
     case 'email_exists':
-      return 'An account with this email already exists. Sign in instead.'
+      return 'An account with this email already exists, so sign in instead.'
     case 'weak_password':
-      return `Choose a stronger password, at least ${MIN_PASSWORD} characters.`
+      return `Choose a stronger password with at least ${MIN_PASSWORD} characters.`
     case 'same_password':
-      return 'Choose a password different from your current one.'
+      return 'Choose a password different from the current one.'
     case 'email_not_confirmed':
-      return 'Confirm your email first, then sign in.'
+      return 'Confirm the email first, then sign in.'
     case 'over_email_send_rate_limit':
     case 'over_request_rate_limit':
-      return 'Too many attempts. Wait a minute and try again.'
+      return 'Too many attempts, so wait a minute and try again.'
   }
   if (e?.name === 'TypeError' || e?.name === 'AuthRetryableFetchError' || /fetch|network/i.test(e?.message ?? '')) {
-    return "Can't reach Manaheart. Check your connection and try again."
+    return "Can't reach Manaheart, so check the connection and try again."
   }
-  return 'Something went wrong. Try again.'
+  return 'Something went wrong, please try again.'
 }

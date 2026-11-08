@@ -46,7 +46,7 @@ export function Grimoire() {
     return (
       <div className={styles.page}>
         <h1 className={styles.title}>Grimoire</h1>
-        <p className={styles.empty}>The first page writes itself when your heart forms.</p>
+        <p className={styles.empty}>The first page will be written once the heart forms.</p>
       </div>
     )
   }
@@ -128,7 +128,7 @@ function Page({ page, timeZone, last }: { page: GrimoirePage; timeZone: string; 
           )}
         </ul>
       </div>
-      {last && <p className={styles.later}>Later pages write themselves as you reach each rank.</p>}
+      {last && <p className={styles.later}>Later pages are written as each rank is reached.</p>}
     </article>
   )
 }

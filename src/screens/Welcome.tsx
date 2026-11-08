@@ -10,17 +10,17 @@ const STEPS: { heart: DemoHeart; title: string; body: string }[] = [
   {
     heart: 'gathering',
     title: 'Time becomes mana',
-    body: 'Every minute you meditate or study gathers as mana. After five hours of practice, it forms your heart.',
+    body: 'Every minute of meditation or study gathers as mana, and after five hours of practice it forms a heart.',
   },
   {
     heart: 'forming',
     title: 'Circles form around it',
-    body: 'As your hours grow, up to five circles take shape and orbit the heart, each one a deeper reach of practice.',
+    body: 'As the hours grow, up to five circles take shape and orbit the heart.',
   },
   {
     heart: 'steadying',
     title: 'Rhythm steadies them',
-    body: 'Practise most days and the circles steady; long gaps leave them flickering. When all five hold still, condense them into a stronger heart.',
+    body: 'Practising most days steadies the circles, while long gaps leave them flickering. Once all five hold still, they can be condensed into a stronger heart.',
   },
 ]
 const MODELS = STEPS.map((s) => demoHeart(s.heart))

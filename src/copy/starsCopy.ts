@@ -41,21 +41,20 @@ export function starTitle(rule: StarRule): string {
 export function starLine(rule: StarRule): string {
   switch (rule.type) {
     case 'rank':
-      return rule.level === 1 ? 'The heart forms. The first light in the sky.' : `Five circles condensed into ${rankName(rule.level)}.`
+      return rule.level === 1 ? 'The heart has formed and become the first light in the sky.' : `Five circles condensed into ${rankName(rule.level)}.`
     case 'hours': {
-      // "One hundred" reads better than "A hundred" mid-sentence (the design's own line).
-      const amount = rule.hours === 1 ? 'One hour' : rule.hours === 100 ? 'One hundred hours' : `${words(rule.hours)} hours`
-      return rule.category === 'meditation' ? `${amount} of stillness, gathered sit by sit.` : `${amount} of study, gathered page by page.`
+      const amount = rule.hours === 1 ? 'One hour' : `${words(rule.hours)} hours`
+      return rule.category === 'meditation' ? `${amount} spent in meditation.` : `${amount} spent studying.`
     }
-    case 'first': return 'The first quiet minutes, kept.'
+    case 'first': return 'The very first meditation session.'
     case 'long': return rule.category === 'meditation'
-      ? `${formatDuration(rule.minutes)} or more in a single sit.`
+      ? `A single sit of ${formatDuration(rule.minutes)} or more.`
       : `${formatDuration(rule.minutes)} or more of study in one sitting.`
-    case 'dawn': return 'A sit begun in the early hours, before seven.'
-    case 'night': return 'Study begun late, after ten at night.'
-    case 'days': return `${words(rule.days)} days with practice in them.`
-    case 'run': return `${words(rule.days)} practice days in a row. A missed day between them is forgiven.`
-    case 'returned': return 'Coming back after more than a week away. The sky remembers.'
+    case 'dawn': return 'A sit started early, before seven in the morning.'
+    case 'night': return 'Study started late, after ten at night.'
+    case 'days': return `${words(rule.days)} days with some practice in them.`
+    case 'run': return `${words(rule.days)} practice days in a row, with the odd missed day forgiven.`
+    case 'returned': return 'Practice picked up again after more than a week away.'
   }
 }
 
@@ -64,18 +63,18 @@ export function starRequirement(star: Star): string {
   const { rule, progress } = star
   const left = progress ? Math.max(0, progress.target - progress.current) : 0
   switch (rule.type) {
-    case 'rank': return `Lights when you reach ${rankName(rule.level)}`
+    case 'rank': return `Lights on reaching ${rankName(rule.level)}`
     case 'hours':
       return `Lights at ${rule.hours}h of ${rule.category === 'meditation' ? 'meditation' : 'study'} · ${formatDuration(left)} to go`
     case 'days': return `Lights at ${rule.days} practice days · ${left} to go`
     case 'run': return `Lights at a ${rule.days}-day run · ${left} to go`
-    case 'first': return 'Lights with your first meditation'
+    case 'first': return 'Lights with the first meditation'
     case 'long': return rule.category === 'meditation'
       ? `Lights with a single sit of ${formatDuration(rule.minutes)}`
       : `Lights with ${formatDuration(rule.minutes)} of study in one sitting`
     case 'dawn': return 'Lights with a sit begun between 4 and 7 am'
     case 'night': return 'Lights with study begun after 10 pm'
-    case 'returned': return `Lights when you return after more than ${rule.afterDays} days away`
+    case 'returned': return `Lights on coming back after more than ${rule.afterDays} days away`
   }
 }
 
@@ -95,7 +94,7 @@ export function starSheet(star: Star, parent: Star | null, timeZone: string): St
       eyebrow: `${branch} · Distant`,
       title: 'A distant star',
       line: null,
-      status: 'Light the stars nearer the heart first.',
+      status: 'Light the stars closer to the heart first.',
       before: null,
     }
   }
@@ -120,14 +119,14 @@ export interface LeanCopy {
 export function skyLean(meditationMinutes: number, studyMinutes: number): LeanCopy {
   const total = meditationMinutes + studyMinutes
   if (total === 0) {
-    return { title: 'Your sky is still dark.', body: 'Each session lights it a little. The faint stars are the nearest ones.', ratio: 0.5 }
+    return { title: 'The sky is still dark.', body: 'Each session lights it a little, and the faint stars are the closest ones.', ratio: 0.5 }
   }
   const ratio = meditationMinutes / total
   if (ratio >= 0.65) {
-    return { title: 'Your sky leans toward Mind.', body: 'Most of your hours have gone to stillness; Lore is still a short line of light.', ratio }
+    return { title: 'The sky leans toward Mind.', body: 'Most hours have gone to meditation, and Lore is still a short line.', ratio }
   }
   if (ratio <= 0.35) {
-    return { title: 'Your sky leans toward Lore.', body: 'Most of your hours have gone to study; Mind is still a short line of light.', ratio }
+    return { title: 'The sky leans toward Lore.', body: 'Most hours have gone to study, and Mind is still a short line.', ratio }
   }
-  return { title: 'Your sky is in balance.', body: 'Stillness and study are growing side by side.', ratio }
+  return { title: 'The sky is in balance.', body: 'Meditation and study are growing side by side.', ratio }
 }

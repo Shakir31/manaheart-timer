@@ -33,19 +33,21 @@ export function progressInfo(state: HeartState): ProgressInfo {
 
 const COUNT = ['No', 'One', 'Two', 'Three', 'Four', 'Five']
 
-/** The one quiet italic line under the rank: "Three circles turn. The third still wavers." */
+/** The one quiet italic line under the rank: "Three circles turn around the heart, though the third still wavers." */
 export function heartMoment(state: HeartState): string {
-  if (!state.heart.formed) return 'Mana gathering.'
-  if (state.canCondense) return 'Five circles hold still. They are ready to condense.'
+  if (!state.heart.formed) return 'Mana is gathering.'
+  if (state.canCondense) return 'All five circles are steady and ready to condense.'
   const { formedCount, unstableCount } = state
-  if (formedCount === 0) return 'The heart is formed. The first circle is gathering.'
-  const turn = formedCount === 1 ? 'One circle turns.' : `${COUNT[formedCount]} circles turn.`
-  if (unstableCount === 0) return turn
+  if (formedCount === 0) return 'The heart has formed, and the first circle is gathering.'
+  const turn = formedCount === 1 ? 'One circle turns around the heart' : `${COUNT[formedCount]} circles turn around the heart`
+  if (unstableCount === 0) return `${turn}.`
+  if (formedCount === 1) return `${turn}, though it still wavers.`
+  if (unstableCount === formedCount) return `${turn}, though they all still waver.`
   if (unstableCount === 1) {
     const unstable = state.circles.find((c) => c.status === 'unstable')!
-    return `${turn} The ${circleOrdinal(unstable.index).toLowerCase()} still wavers.`
+    return `${turn}, though the ${circleOrdinal(unstable.index).toLowerCase()} still wavers.`
   }
-  return `${turn} ${COUNT[unstableCount]} still waver.`
+  return `${turn}, though ${COUNT[unstableCount].toLowerCase()} still waver.`
 }
 
 /** Where new mana goes: "the fourth circle", "the heart", "the heart's reserve". */
@@ -85,7 +87,7 @@ function joinList(items: string[]): string {
 export function rhythmNote(days: RhythmDay[], graceDays = DEFAULT_CONFIG.graceDays): string {
   const count = `${days.filter((d) => d.practiced).length} of the last ${days.length} days`
   const today = days.at(-1)
-  if (!today?.practiced) return `A little more today keeps your rhythm · ${count}`
+  if (!today?.practiced) return `A few more minutes today will keep the rhythm going · ${count}`
   const recent = days.slice(-(graceDays + 2), -1)
-  return recent.some((d) => d.practiced) ? `Rhythm kept · ${count}` : `Rhythm begins again · ${count}`
+  return recent.some((d) => d.practiced) ? `Rhythm kept · ${count}` : `The rhythm starts again · ${count}`
 }

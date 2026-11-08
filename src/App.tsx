@@ -30,7 +30,7 @@ export default function App() {
   if (data.status === 'error') {
     return (
       <div style={{ padding: 'var(--space-8) var(--space-5)', textAlign: 'center', display: 'grid', gap: 'var(--space-4)', justifyItems: 'center' }}>
-        <p role="alert" style={{ color: 'var(--error)', margin: 0 }}>Your heart could not be loaded. Check your connection.</p>
+        <p role="alert" style={{ color: 'var(--error)', margin: 0 }}>The heart couldn't be loaded, so check the connection and try again.</p>
         <Button variant="outline" onClick={() => data.reload()}>Try again</Button>
       </div>
     )

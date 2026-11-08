@@ -26,22 +26,22 @@ describe('progressInfo', () => {
 
 describe('heartMoment', () => {
   it('covers each stage', () => {
-    expect(heartMoment(state([log(10)]))).toBe('Mana gathering.')
-    expect(heartMoment(state([log(300)]))).toBe('The heart is formed. The first circle is gathering.')
-    expect(heartMoment(state([log(900)]))).toBe('Five circles turn. Five still waver.')
+    expect(heartMoment(state([log(10)]))).toBe('Mana is gathering.')
+    expect(heartMoment(state([log(300)]))).toBe('The heart has formed, and the first circle is gathering.')
+    expect(heartMoment(state([log(900)]))).toBe('Five circles turn around the heart, though they all still waver.')
     // 3 circles; days 2-5 stabilise the first and second gets 0 → two waver.
     const mixed = [log(300 + 360, 1), ...[2, 3, 4, 5].map((d) => log(10, d))]
-    expect(heartMoment(state(mixed))).toBe('Three circles turn. Two still waver.')
+    expect(heartMoment(state(mixed))).toBe('Three circles turn around the heart, though two still waver.')
   })
 
   it('names the single wavering circle', () => {
     const sessions = [log(300 + 360, 1), ...Array.from({ length: 8 }, (_, i) => log(10, i + 2))]
-    expect(heartMoment(state(sessions))).toBe('Three circles turn. The third still wavers.')
+    expect(heartMoment(state(sessions))).toBe('Three circles turn around the heart, though the third still wavers.')
   })
 
   it('invites condensing when all five are stable', () => {
     const daily = Array.from({ length: 30 }, (_, i) => log(30, i + 1))
-    expect(heartMoment(state(daily))).toBe('Five circles hold still. They are ready to condense.')
+    expect(heartMoment(state(daily))).toBe('All five circles are steady and ready to condense.')
   })
 })
 
@@ -71,9 +71,9 @@ describe('rhythm copy', () => {
 
   it('notes whether the rhythm was kept', () => {
     expect(rhythmNote(week([true, true, true, true, true, false, true]))).toBe('Rhythm kept · 6 of the last 7 days')
-    expect(rhythmNote(week([true, false, false, false, false, false, true]))).toBe('Rhythm begins again · 2 of the last 7 days')
+    expect(rhythmNote(week([true, false, false, false, false, false, true]))).toBe('The rhythm starts again · 2 of the last 7 days')
     expect(rhythmNote(week([true, true, false, false, false, false, false]))).toBe(
-      'A little more today keeps your rhythm · 2 of the last 7 days',
+      'A few more minutes today will keep the rhythm going · 2 of the last 7 days',
     )
   })
 })

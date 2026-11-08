@@ -31,7 +31,7 @@ export function Condense() {
         await condense()
         navigate('/level-up', { replace: true, state: { condensed: true } })
       } catch {
-        toast.show({ message: 'The circles could not be condensed. Try again.', tone: 'error' })
+        toast.show({ message: "The circles couldn't be condensed, so try again.", tone: 'error' })
         navigate('/', { replace: true })
       }
     }, reduced ? REDUCED_MS : CEREMONY_MS)
