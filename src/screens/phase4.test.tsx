@@ -97,6 +97,18 @@ describe('Sign in', () => {
     expect(await screen.findByText(/confirm the account/)).toBeInTheDocument()
   })
 
+  it('says when the email already has an account', async () => {
+    const user = userEvent.setup()
+    const auth = signedOut()
+    vi.mocked(auth.signUp).mockRejectedValueOnce({ code: 'user_already_exists' })
+    renderApp('/', undefined, auth)
+    await user.click(screen.getByRole('tab', { name: 'Create account' }))
+    await user.type(screen.getByLabelText('Email'), 'taken@example.com')
+    await user.type(screen.getByLabelText('Password'), 'secret1')
+    await user.click(screen.getByRole('button', { name: 'Create account' }))
+    expect(await screen.findByText('An account with this email already exists, so sign in instead.')).toHaveAttribute('role', 'alert')
+  })
+
   it('sends a reset link', async () => {
     const user = userEvent.setup()
     const auth = signedOut()

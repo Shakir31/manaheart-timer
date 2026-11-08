@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../lib/supabase'
 import { AuthContext, type AuthValue } from './context'
+import { readSignUp } from './signUpResult'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
@@ -37,7 +38,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           options: { emailRedirectTo: window.location.origin },
         })
         if (error) throw error
-        return { needsConfirmation: !data.session }
+        return readSignUp(data)
       },
       async signOut() {
         const { error } = await supabase.auth.signOut()
