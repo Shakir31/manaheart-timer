@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Heart component</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: {{size}}; max-width: 100%; aspect-ratio: 1 / 1; opacity: {{dim}}; margin: 0 auto">
+  <svg viewBox="0 0 400 400" role="img" aria-label="{{ariaLabel}}" style="width: 100%; height: 100%; display: block; overflow: visible">
+    <defs>
+      <radialGradient id="hh-{{variant}}"><stop offset="0" stop-color="{{c.h0}}" stop-opacity="0.85"></stop><stop offset="0.22" stop-color="{{c.h1}}" stop-opacity="0.4"></stop><stop offset="0.6" stop-color="{{c.h2}}" stop-opacity="0.1"></stop><stop offset="1" stop-color="{{c.h2}}" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="hn-{{variant}}"><stop offset="0" stop-color="{{c.line}}" stop-opacity="0.2"></stop><stop offset="0.5" stop-color="{{c.h2}}" stop-opacity="0.08"></stop><stop offset="1" stop-color="{{c.h2}}" stop-opacity="0"></stop></radialGradient>
+      <filter id="hg-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+      <filter id="hg-flame" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"></feDisplacementMap><feGaussianBlur in="d" stdDeviation="2.2" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="d"></feMergeNode></feMerge></filter>
+      <filter id="hg-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter>
+    </defs>
+
+    <sc-if value="{{isGathering}}" hint-placeholder-val="{{ false }}">
+      <ellipse cx="200" cy="205" rx="150" ry="110" fill="url(#hn-{{variant}})"></ellipse>
+      <g class="mh-gather" fill="{{c.facet}}">
+        <circle class="mh-tw" cx="120" cy="150" r="1.6"></circle>
+        <circle class="mh-tw" cx="270" cy="130" r="1.2" style="animation-delay: -1s"></circle>
+        <circle class="mh-tw" cx="230" cy="270" r="1.8" style="animation-delay: -2s"></circle>
+        <circle class="mh-tw" cx="150" cy="250" r="1.1" style="animation-delay: -0.5s"></circle>
+        <circle class="mh-tw" cx="200" cy="195" r="2.4" style="animation-delay: -1.7s"></circle>
+        <circle class="mh-tw" cx="310" cy="210" r="1" style="animation-delay: -2.4s"></circle>
+        <circle class="mh-tw" cx="90" cy="215" r="1.3" style="animation-delay: -0.9s"></circle>
+        <circle class="mh-tw" cx="180" cy="110" r="1" style="animation-delay: -2.9s"></circle>
+        <circle class="mh-tw" cx="250" cy="200" r="1.4" style="animation-delay: -1.3s"></circle>
+        <circle class="mh-tw" cx="175" cy="220" r="1.2" style="animation-delay: -0.2s"></circle>
+        <circle class="mh-tw" cx="220" cy="160" r="0.9" style="animation-delay: -2.1s"></circle>
+        <circle class="mh-tw" cx="290" cy="290" r="0.9" style="animation-delay: -1.1s"></circle>
+        <circle class="mh-tw" cx="120" cy="300" r="0.8" style="animation-delay: -2.6s"></circle>
+        <circle class="mh-tw" cx="205" cy="230" r="1.6" style="animation-delay: -3.3s"></circle>
+      </g>
+    </sc-if>
+
+    <sc-if value="{{isHeart}}" hint-placeholder-val="{{ true }}">
+      <circle class="{{haloClass}}" cx="200" cy="200" r="{{haloR}}" fill="url(#hh-{{variant}})"></circle>
+      <g class="{{ringsClass}}">
+        <g filter="url(#{{ringFilter}})" fill="none">
+          <sc-for list="{{rings}}" as="r" hint-placeholder-count="3">
+            <g transform="rotate({{r.tilt}} 200 200)">
+              <sc-if value="{{r.band}}" hint-placeholder-val="{{ false }}">
+                <g class="mh-sway"><ellipse cx="200" cy="200" rx="{{r.rx}}" ry="{{r.ry}}" stroke="{{r.rune}}" stroke-width="10" opacity="0.16" filter="url(#hg-soft)"></ellipse></g>
+              </sc-if>
+              <sc-if value="{{r.stable}}" hint-placeholder-val="{{ true }}">
+                <ellipse cx="200" cy="200" rx="{{r.rx}}" ry="{{r.ry}}" stroke="{{r.color}}" stroke-width="1.1"></ellipse>
+                <ellipse class="{{r.flowClass}}" cx="200" cy="200" rx="{{r.rx2}}" ry="{{r.ry2}}" stroke="{{r.rune}}" stroke-width="{{r.runeW}}" stroke-dasharray="{{r.dash}}" opacity="0.55"></ellipse>
+                <sc-if value="{{r.node}}" hint-placeholder-val="{{ false }}">
+                  <rect x="{{r.nodeX}}" y="197" width="6" height="6" transform="rotate(45 {{r.sparkX}} 200)" fill="#070914" stroke="{{r.color}}" stroke-width="1"></rect>
+                </sc-if>
+              </sc-if>
+              <sc-if value="{{r.unstable}}" hint-placeholder-val="{{ false }}">
+                <g class="mh-wob"><g class="mh-flick">
+                  <ellipse cx="200" cy="200" rx="{{r.rx}}" ry="{{r.ry}}" stroke="{{r.weak}}" stroke-width="1" stroke-dasharray="34 10 8 16 52 7 14 22 40 12" opacity="0.6"></ellipse>
+                  <ellipse cx="200" cy="200" rx="{{r.rx2}}" ry="{{r.ry2}}" stroke="{{r.weak}}" stroke-width="1.6" stroke-dasharray="1 13 3 23" opacity="0.35"></ellipse>
+                </g></g>
+              </sc-if>
+              <sc-if value="{{r.forming}}" hint-placeholder-val="{{ false }}">
+                <ellipse cx="200" cy="200" rx="{{r.rx}}" ry="{{r.ry}}" stroke="{{r.color}}" stroke-width="0.8" stroke-dasharray="1 6" opacity="0.2"></ellipse>
+                <ellipse class="mh-form" cx="200" cy="200" rx="{{r.rx}}" ry="{{r.ry}}" stroke="{{r.color}}" stroke-width="1.1" stroke-dasharray="{{r.formDash}}" stroke-linecap="round"></ellipse>
+                <circle class="mh-tw" cx="{{r.sparkX}}" cy="200" r="2.2" fill="{{c.core}}"></circle>
+              </sc-if>
+            </g>
+          </sc-for>
+        </g>
+      </g>
+      <sc-if value="{{isLevel2}}" hint-placeholder-val="{{ false }}">
+        <g class="mh-spin" fill="none"><circle cx="200" cy="200" r="54" stroke="{{c.facet}}" stroke-width="1" stroke-dasharray="1 5 3 5" opacity="0.7"></circle></g>
+      </sc-if>
+      <g class="{{coreClass}}" filter="url(#hg-glow)" fill="none">
+        <circle cx="200" cy="200" r="{{coreRing}}" stroke="{{c.h1}}" stroke-width="0.8" opacity="0.75"></circle>
+        <path d="{{facetPath}}" stroke="{{c.facet}}" stroke-width="1.2"></path>
+        <sc-if value="{{isLevel2}}" hint-placeholder-val="{{ false }}">
+          <path d="M156 200 L200 178 L244 200 L200 222 Z" stroke="{{c.facet}}" stroke-width="1" opacity="0.85"></path>
+        </sc-if>
+        <path d="{{crossPath}}" stroke="{{c.facet}}" stroke-width="0.6" opacity="0.6"></path>
+        <circle cx="200" cy="200" r="{{coreR}}" fill="{{c.core}}"></circle>
+      </g>
+    </sc-if>
+  </svg>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"circles":{"editor":"int","default":3,"min":0,"max":5},"unstableRing":{"editor":"int","default":3,"min":0,"max":5},"forming":{"editor":"range","default":0.4,"min":0,"max":1,"step":0.05},"variant":{"editor":"enum","default":"mana","options":["mana","elemental","arcane","spirit"]},"phase":{"editor":"enum","default":"heart","options":["gathering","heart","collapsing","level2"]},"dim":{"editor":"range","default":1,"min":0.1,"max":1,"step":0.05},"size":{"editor":"text","default":"400px"},"label":{"editor":"text","default":""},"$preview":{"width":400,"height":400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const PAL = {
+  mana: { h0: '#EAF8FF', h1: '#9FDCFF', h2: '#4C6BFF', line: '#7FD4FF', alt: '#7FD4FF', rune: '#7FD4FF', core: '#F4FBFF', facet: '#DFF4FF', weak: '#7FD4FF' },
+  elemental: { h0: '#FFF1D6', h1: '#FFB060', h2: '#C2410C', line: '#FF9A4D', alt: '#FFD27A', rune: '#FFC56B', core: '#FFF4E0', facet: '#FFE3B0', weak: '#FF7A3D' },
+  arcane: { h0: '#F0E9FF', h1: '#A98BFF', h2: '#4C3BCF', line: '#A98BFF', alt: '#6FE7F5', rune: '#C9B8FF', core: '#F5F0FF', facet: '#E6DDFF', weak: '#A98BFF' },
+  spirit: { h0: '#F2FBF8', h1: '#9FE6D6', h2: '#3C7F8F', line: '#D5DEE8', alt: '#E6EEF5', rune: '#9FE6D6', core: '#F4FBF9', facet: '#E6EEF5', weak: '#D5DEE8' }
+};
+    const SLOTS = [[90, 30, -18, '1 7 5 7'], [118, 42, 24, '2 6 2 10'], [142, 54, -38, '1 9 6 4'], [164, 64, 58, '4 4 1 11'], [182, 74, -66, '1 5 1 13']];
+    const p = this.props;
+    const variant = PAL[p.variant] ? p.variant : 'mana';
+    const c = PAL[variant];
+    const phase = p.phase || 'heart';
+    const n = Math.max(0, Math.min(5, Number(p.circles ?? 3)));
+    const un = Number(p.unstableRing ?? 0);
+    const f = Number(p.forming ?? 0);
+    const rings = [];
+    if (phase === 'heart' || phase === 'collapsing') {
+      for (let i = 0; i < 5; i++) {
+        const [rx, ry, tilt, dash] = SLOTS[i];
+        const isRing = i < n;
+        const isForm = !isRing && i === n && f > 0 && phase === 'heart';
+        if (!isRing && !isForm) continue;
+        const per = Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry)));
+        const color = variant === 'arcane' && i % 2 ? c.alt : (variant === 'elemental' && i === 0 ? c.alt : c.line);
+        rings.push({
+          rx, ry, tilt, dash, rx2: rx + 5, ry2: ry + 3,
+          stable: isRing && un !== i + 1, unstable: isRing && un === i + 1, forming: isForm,
+          formDash: Math.round(per * f) + ' 2000', sparkX: 200 + rx, nodeX: 197 + rx,
+          color, rune: c.rune, weak: c.weak,
+          runeW: variant === 'arcane' ? 1.2 : 2,
+          flowClass: i % 2 ? 'mh-flow-r' : 'mh-flow',
+          band: variant === 'spirit', node: variant === 'arcane'
+        });
+      }
+      rings.reverse();
+    }
+    const lvl2 = phase === 'level2';
+    const desc = phase === 'gathering' ? 'Mana gathering; the heart has not formed yet'
+      : lvl2 ? 'Level 2 heart: dense and bright, no circles yet'
+      : phase === 'collapsing' ? 'Five circles collapsing into the heart'
+      : 'Mana heart with ' + n + ' circle' + (n === 1 ? '' : 's') + (un > 0 && un <= n ? ', one unstable' : '') + (f > 0 && n < 5 ? ', the next forming' : '');
+    return {
+      c, variant, rings,
+      size: p.size || '400px',
+      dim: p.dim ?? 1,
+      ariaLabel: p.label || desc,
+      isGathering: phase === 'gathering',
+      isHeart: phase !== 'gathering',
+      isLevel2: lvl2,
+      haloR: lvl2 ? 150 : 110 + n * 5,
+      haloClass: phase === 'collapsing' ? 'mh-flare' : '',
+      ringsClass: phase === 'collapsing' ? 'mh-collapse' : '',
+      ringFilter: variant === 'elemental' ? 'hg-flame' : 'hg-glow',
+      coreClass: phase === 'collapsing' ? 'mh-flare' : 'mh-breathe',
+      coreRing: lvl2 ? 36 : 27,
+      coreR: lvl2 ? 13 : 9,
+      facetPath: lvl2 ? 'M200 156 L224 200 L200 244 L176 200 Z' : 'M200 168 L219 200 L200 232 L181 200 Z',
+      crossPath: lvl2 ? 'M176 200 L224 200 M200 156 L200 244' : 'M181 200 L219 200 M200 168 L200 232'
+    };
+  }
+}
+</script>
+</body>
+</html>

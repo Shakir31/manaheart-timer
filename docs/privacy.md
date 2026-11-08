@@ -1,8 +1,8 @@
 # Privacy
 
-_Last updated: [date]_
+_Last updated: 8 November 2026_
 
-Manaheart is a meditation and study tracker run by [your name or company] ("we"). This page explains what the app keeps, why, and what control you have over it. It's written to be read, so it's short.
+Manaheart is a meditation and study tracker. This page explains what the app keeps, why, and what control you have over it. It's written to be read, so it's short.
 
 ## What we keep
 
@@ -22,18 +22,18 @@ We don't show ads, sell your data, or share it with advertisers. We don't use th
 
 ## Where it's stored
 
-Your data is stored with [Supabase](https://supabase.com), our database and sign-in provider, in [region, e.g. Singapore]. Access is locked down so each account can only read and change its own records.
+Your data is stored with [Supabase](https://supabase.com), our database and sign-in provider, in Singapore. Access is locked down so each account can only read and change its own records.
 
 ## Your choices
 
 - **Export.** Settings › Export data downloads every session as a CSV file.
 - **Edit or delete sessions.** Any session can be changed or removed from the Sessions page.
-- **Delete your account.** Email [contact email] and we'll delete your account and all its data within [30] days.
-- **Questions or corrections.** Email [contact email].
+- **Delete your account.** Email [manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com) and we'll delete your account and all its data within 30 days.
+- **Questions or corrections.** Email [manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com).
 
 ## Children
 
-Manaheart isn't intended for children under [13]. If you think a child has made an account, contact us and we'll remove it.
+Manaheart isn't intended for children under 13. If you think a child has made an account, contact us and we'll remove it.
 
 ## Changes
 
@@ -41,5 +41,4 @@ If this policy changes in a meaningful way, we'll update the date above and ment
 
 ## Contact
 
-[Your name or company]
-[contact email]
+[manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com)

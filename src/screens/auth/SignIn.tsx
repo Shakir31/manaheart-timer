@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { useSearchParams } from 'react-router'
 import { useAuth } from '../../auth/context'
 import { authErrorMessage, emailError, passwordError } from '../../auth/messages'
 import { Button } from '../../ui/Button'
@@ -12,7 +13,8 @@ type Mode = 'signin' | 'create' | 'forgot'
 export function SignIn() {
   const { signIn, signUp, resetPassword } = useAuth()
   const desktop = useMediaQuery(DESKTOP)
-  const [mode, setMode] = useState<Mode>('signin')
+  const [params] = useSearchParams()
+  const [mode, setMode] = useState<Mode>(params.get('mode') === 'create' ? 'create' : 'signin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState<{ email?: string | null; password?: string | null }>({})

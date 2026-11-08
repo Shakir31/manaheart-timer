@@ -29,11 +29,13 @@ interface Props {
   /** Ids of stars lit since the last visit; they glow brighter once. */
   fresh: ReadonlySet<string>
   label: string
+  /** False for a look-only sky (the landing page): no tap targets. */
+  interactive?: boolean
 }
 
 const stateWord = (s: Star) => (s.state === 'lit' ? 'lit' : s.state === 'next' ? 'next to light' : 'distant')
 
-export function Sky({ stars, ratio, heartFormed, variant, selected, onSelect, fresh, label }: Props) {
+export function Sky({ stars, ratio, heartFormed, variant, selected, onSelect, fresh, label, interactive = true }: Props) {
   const id = useId().replace(/:/g, '')
   const placed = stars.filter((s) => POSITIONS[s.id])
   const byId = new Map(placed.map((s) => [s.id, s]))
@@ -170,14 +172,14 @@ export function Sky({ stars, ratio, heartFormed, variant, selected, onSelect, fr
                   {starLabel(s.rule)}
                 </span>
               )}
-              <button
+              {interactive && <button
                 type="button"
                 className={styles.hit}
                 style={{ left: `${x / 10}%`, top: `${y / 10}%` }}
                 aria-label={`${name}, ${stateWord(s)}`}
                 aria-pressed={selected === s.id}
                 onClick={() => onSelect(s.id)}
-              />
+              />}
             </div>
           )
         })}

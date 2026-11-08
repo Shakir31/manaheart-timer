@@ -1,12 +1,12 @@
 # Terms of use
 
-_Last updated: [date]_
+_Last updated: 8 November 2026_
 
-These terms cover your use of Manaheart, run by [your name or company] ("we"). By making an account you agree to them.
+These terms cover your use of Manaheart. By making an account you agree to them.
 
 ## Your account
 
-You need an account to use Manaheart. Keep your password to yourself, and let us know at [contact email] if you think someone else has access to your account. You're responsible for what happens under your account.
+You need an account to use Manaheart. Keep your password to yourself, and let us know at [manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com) if you think someone else has access to your account. You're responsible for what happens under your account.
 
 ## Using Manaheart
 
@@ -36,9 +36,8 @@ If these terms change in a meaningful way, we'll update the date above and menti
 
 ## Law
 
-These terms are governed by the laws of [country].
+These terms are governed by the laws of Singapore.
 
 ## Contact
 
-[Your name or company]
-[contact email]
+[manaheart.timer@gmail.com](mailto:manaheart.timer@gmail.com)

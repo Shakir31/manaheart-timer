@@ -60,7 +60,7 @@ describe('Sign in', () => {
   it('checks the fields before calling Supabase', async () => {
     const user = userEvent.setup()
     const auth = signedOut()
-    renderApp('/', undefined, auth)
+    renderApp('/signin', undefined, auth)
     await user.type(screen.getByLabelText('Email'), 'you@')
     await user.click(screen.getByRole('button', { name: 'Sign in' }))
     expect(screen.getByLabelText('Email')).toHaveAccessibleDescription('Enter a full email address')
@@ -72,7 +72,7 @@ describe('Sign in', () => {
     const user = userEvent.setup()
     const auth = signedOut()
     vi.mocked(auth.signIn).mockRejectedValueOnce({ code: 'invalid_credentials' })
-    renderApp('/', undefined, auth)
+    renderApp('/signin', undefined, auth)
     await user.type(screen.getByLabelText('Email'), 'you@example.com')
     await user.type(screen.getByLabelText('Password'), 'secret1')
     await user.click(screen.getByRole('button', { name: 'Sign in' }))
@@ -84,7 +84,7 @@ describe('Sign in', () => {
     const user = userEvent.setup()
     const auth = signedOut()
     vi.mocked(auth.signUp).mockResolvedValueOnce({ needsConfirmation: true })
-    renderApp('/', undefined, auth)
+    renderApp('/signin', undefined, auth)
     await user.click(screen.getByRole('tab', { name: 'Create account' }))
     expect(screen.getByRole('tab', { name: 'Create account' })).toHaveAttribute('aria-selected', 'true')
     await user.type(screen.getByLabelText('Email'), 'new@example.com')
@@ -101,7 +101,7 @@ describe('Sign in', () => {
     const user = userEvent.setup()
     const auth = signedOut()
     vi.mocked(auth.signUp).mockRejectedValueOnce({ code: 'user_already_exists' })
-    renderApp('/', undefined, auth)
+    renderApp('/signin', undefined, auth)
     await user.click(screen.getByRole('tab', { name: 'Create account' }))
     await user.type(screen.getByLabelText('Email'), 'taken@example.com')
     await user.type(screen.getByLabelText('Password'), 'secret1')
@@ -112,7 +112,7 @@ describe('Sign in', () => {
   it('sends a reset link', async () => {
     const user = userEvent.setup()
     const auth = signedOut()
-    renderApp('/', undefined, auth)
+    renderApp('/signin', undefined, auth)
     await user.click(screen.getByRole('button', { name: 'Forgot password?' }))
     expect(screen.getByRole('heading', { name: 'Reset your password' })).toBeInTheDocument()
     await user.type(screen.getByLabelText('Email'), 'you@example.com')
@@ -125,7 +125,7 @@ describe('Sign in', () => {
 
   it('puts "Forgot password?" beside the password label on desktop', () => {
     setViewport('desktop')
-    renderApp('/', undefined, signedOut())
+    renderApp('/signin', undefined, signedOut())
     const forgot = screen.getByRole('button', { name: 'Forgot password?' })
     expect(forgot.closest('form')).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: 'Forgot password?' })).toHaveLength(1)
@@ -134,7 +134,7 @@ describe('Sign in', () => {
   it('asks for a new password after a reset link', async () => {
     const user = userEvent.setup()
     const auth = { ...fakeAuth(), recovering: true }
-    renderApp('/', undefined, auth)
+    renderApp('/signin', undefined, auth)
     await user.type(screen.getByLabelText('New password'), 'better-pass')
     await user.click(screen.getByRole('button', { name: 'Save password' }))
     expect(auth.updatePassword).toHaveBeenCalledWith('better-pass')

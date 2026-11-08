@@ -7,6 +7,9 @@ import { useHeartState } from './data/useHeartState'
 import { Button } from './ui/Button'
 import { NewPassword } from './screens/auth/NewPassword'
 import { SignIn } from './screens/auth/SignIn'
+import { GuideContent, PrivacyContent, TermsContent } from './screens/public/docs'
+import { Landing } from './screens/public/Landing'
+import { PublicLayout } from './screens/public/PublicLayout'
 import { Complete } from './screens/Complete'
 import { Focus } from './screens/Focus'
 import { Home } from './screens/Home'
@@ -26,7 +29,18 @@ export default function App() {
 
   if (loading) return null
   if (recovering && user) return <NewPassword />
-  if (!user) return <SignIn />
+  if (!user) {
+    return (
+      <Routes>
+        <Route index element={<Landing />} />
+        <Route path="signin" element={<SignIn />} />
+        <Route path="guide" element={<PublicLayout><GuideContent /></PublicLayout>} />
+        <Route path="privacy" element={<PublicLayout><PrivacyContent /></PublicLayout>} />
+        <Route path="terms" element={<PublicLayout><TermsContent /></PublicLayout>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    )
+  }
   if (data.status === 'error') {
     return (
       <div style={{ padding: 'var(--space-8) var(--space-5)', textAlign: 'center', display: 'grid', gap: 'var(--space-4)', justifyItems: 'center' }}>
@@ -60,6 +74,9 @@ function Main() {
         <Route path="settings" element={<Settings />} />
         <Route path="constellation" element={<Constellation />} />
         <Route path="grimoire" element={<Grimoire />} />
+        <Route path="guide" element={<GuideContent />} />
+        <Route path="privacy" element={<PrivacyContent />} />
+        <Route path="terms" element={<TermsContent />} />
       </Route>
       <Route path="focus" element={<Focus />} />
       <Route path="complete" element={<Complete />} />

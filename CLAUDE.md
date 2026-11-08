@@ -103,11 +103,14 @@ src/
   app/        AppShell (navigation, per-page mobile top bar), useRecordSessions, useMoments
   screens/    Home, LogSheet, Focus, Complete, Sessions, EditSessionSheet, Settings, Welcome,
               auth/ (SignIn, NewPassword), moments/ (Milestone, MageChoice, Condense, LevelUp),
-              constellation/ (Constellation, Sky, skyLayout), grimoire/ (Grimoire)
+              constellation/ (Constellation, Sky, skyLayout), grimoire/ (Grimoire),
+              public/ (Landing, PublicLayout, DocPage for Guide/Privacy/Terms)
+  content/    markdown reader for the docs
   lib/        Supabase client, safe localStorage
   test/       test helpers: fake Supabase, providers, renderApp
   styles/     tokens.css (from the design system), global.css
 supabase/     SQL migrations
+docs/         guide.md, privacy.md, terms.md: the text of those pages (edit here, pages follow)
 design/       design system and exported screens (reference only, not shipped)
 ```
 
@@ -134,9 +137,13 @@ Constellation and Grimoire (designs in `design/pages/manaheart-constellation-gri
 - The Grimoire opens from the Constellation page; one page per level reached. Lore is in
   `copy/lore.ts` (Apprentice and Adept from the design, the rest written to match).
 
+Public pages (designs in `design/pages/manaheart-public-pages/`): signed out, `/` is the
+landing page, `/signin` signs in (`?mode=create` opens Create account), and `/guide`,
+`/privacy`, `/terms` read `docs/*.md` through `content/markdown.ts`. Signed in, the same
+docs open as sub-pages from Settings › About. Contact email: manaheart.timer@gmail.com.
+
 Known gaps (planned):
 - Daily reminder: the setting is stored but nothing sends it yet. Needs Capacitor local
   notifications (mobile) or web push (Phase 6).
-- Star unlock notifications (backlog): the sky marks stars lit since the last visit
-  (per device, localStorage), but nothing tells the user elsewhere yet.
+- No in-app "Delete account" yet; Privacy says to email for deletion within 30 days.
 - Durations are zero-padded ("1h 05m"), matching the designs.

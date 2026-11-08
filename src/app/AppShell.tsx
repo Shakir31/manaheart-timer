@@ -15,6 +15,9 @@ const PAGES: Record<string, { title: string; back?: { to: string; label: string 
   '/constellation': { title: 'Constellation' },
   '/settings': { title: 'Settings', back: { to: '/', label: 'Back to Heart' } },
   '/grimoire': { title: 'Grimoire', back: { to: '/constellation', label: 'Back to Constellation' } },
+  '/guide': { title: 'Guide', back: { to: '/settings', label: 'Back to Settings' } },
+  '/privacy': { title: 'Privacy', back: { to: '/settings', label: 'Back to Settings' } },
+  '/terms': { title: 'Terms', back: { to: '/settings', label: 'Back to Settings' } },
 }
 
 /** Top bar + mobile bottom nav / desktop top nav (Navigation spec). */

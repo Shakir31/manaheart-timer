@@ -181,6 +181,27 @@ export function Settings() {
         </div>
       </section>
 
+      <section aria-labelledby="set-about">
+        <h2 id="set-about" className={`label ${styles.eyebrow}`}>About</h2>
+        <div className={styles.card}>
+          <Link to="/guide" className={`${styles.row} ${styles.link} ${styles.plainLink}`}>
+            <span className={styles.stack}>
+              <span>Guide</span>
+              <span className={styles.hint}>How the heart, circles and sky work</span>
+            </span>
+            <Icon name="forward" size={20} className={styles.chevron} />
+          </Link>
+          <Link to="/privacy" className={`${styles.row} ${styles.link} ${styles.plainLink}`}>
+            <span>Privacy</span>
+            <Icon name="forward" size={20} className={styles.chevron} />
+          </Link>
+          <Link to="/terms" className={`${styles.row} ${styles.link} ${styles.plainLink}`}>
+            <span>Terms</span>
+            <Icon name="forward" size={20} className={styles.chevron} />
+          </Link>
+        </div>
+      </section>
+
       <Button
         variant="outline"
         className={styles.signOut}

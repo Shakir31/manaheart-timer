@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manaheart · Sky component</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./mh.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: {{size}}; max-width: 100%; aspect-ratio: 1 / 1; margin: 0 auto; position: relative">
+  <svg viewBox="0 0 1000 1000" role="img" aria-label="{{ariaLabel}}" style="width: 100%; height: 100%; display: block; overflow: visible">
+    <defs>
+      <radialGradient id="sk-neb"><stop offset="0" stop-color="{{color}}" stop-opacity="0.16"></stop><stop offset="0.55" stop-color="#4C6BFF" stop-opacity="0.06"></stop><stop offset="1" stop-color="#4C6BFF" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="sk-halo"><stop offset="0" stop-color="#F4FBFF" stop-opacity="0.9"></stop><stop offset="0.3" stop-color="{{color}}" stop-opacity="0.45"></stop><stop offset="1" stop-color="{{color}}" stop-opacity="0"></stop></radialGradient>
+      <radialGradient id="sk-heart"><stop offset="0" stop-color="#EAF8FF" stop-opacity="0.9"></stop><stop offset="0.25" stop-color="#9FDCFF" stop-opacity="0.4"></stop><stop offset="0.65" stop-color="#4C6BFF" stop-opacity="0.1"></stop><stop offset="1" stop-color="#4C6BFF" stop-opacity="0"></stop></radialGradient>
+    </defs>
+
+    <ellipse cx="{{nebX}}" cy="420" rx="{{nebRx}}" ry="360" fill="url(#sk-neb)"></ellipse>
+    <ellipse cx="{{neb2X}}" cy="380" rx="{{neb2Rx}}" ry="260" fill="url(#sk-neb)" opacity="0.6"></ellipse>
+
+    <g class="sk-drift" fill="#9BA0C8">
+      <circle cx="140" cy="560" r="1.4" opacity="0.35"></circle><circle cx="860" cy="610" r="1.2" opacity="0.3"></circle><circle cx="300" cy="900" r="1.5" opacity="0.3"></circle><circle cx="760" cy="80" r="1.1" opacity="0.35"></circle><circle cx="60" cy="760" r="1.3" opacity="0.25"></circle><circle cx="940" cy="880" r="1.2" opacity="0.3"></circle><circle cx="250" cy="40" r="1" opacity="0.3"></circle><circle cx="620" cy="960" r="1.1" opacity="0.25"></circle>
+    </g>
+
+    <sc-for list="{{edges}}" as="e" hint-placeholder-count="6">
+      <line x1="{{e.x1}}" y1="{{e.y1}}" x2="{{e.x2}}" y2="{{e.y2}}" stroke="{{e.stroke}}" stroke-width="{{e.w}}" stroke-dasharray="{{e.dash}}" opacity="{{e.op}}" stroke-linecap="round"></line>
+    </sc-for>
+
+    <circle cx="500" cy="500" r="{{heartHalo}}" fill="url(#sk-heart)"></circle>
+    <g class="mh-breathe" style="transform-origin: 500px 500px">
+      <sc-if value="{{heartRing}}" hint-placeholder-val="{{ true }}">
+        <ellipse transform="rotate(-18 500 500)" cx="500" cy="500" rx="54" ry="18" fill="none" stroke="{{color}}" stroke-width="1.6" opacity="0.8"></ellipse>
+      </sc-if>
+      <path d="M500 478 L512 500 L500 522 L488 500 Z" fill="none" stroke="#DFF4FF" stroke-width="1.6" opacity="{{heartOp}}"></path>
+      <circle cx="500" cy="500" r="8" fill="#F4FBFF" opacity="{{heartOp}}"></circle>
+    </g>
+
+    <sc-for list="{{stars}}" as="s" hint-placeholder-count="12">
+      <g>
+        <title>{{s.title}}</title>
+        <sc-if value="{{s.isNew}}" hint-placeholder-val="{{ false }}">
+          <circle class="sk-new" cx="{{s.x}}" cy="{{s.y}}" r="{{s.newR}}" fill="url(#sk-halo)"></circle>
+        </sc-if>
+        <sc-if value="{{s.lit}}" hint-placeholder-val="{{ true }}">
+          <circle class="sk-tw" cx="{{s.x}}" cy="{{s.y}}" r="{{s.haloR}}" fill="url(#sk-halo)" opacity="{{s.haloOp}}"></circle>
+          <sc-if value="{{s.rank}}" hint-placeholder-val="{{ false }}">
+            <path d="{{s.spark}}" fill="#F4FBFF" opacity="0.95"></path>
+          </sc-if>
+          <circle cx="{{s.x}}" cy="{{s.y}}" r="{{s.r}}" fill="#F4FBFF"></circle>
+        </sc-if>
+        <sc-if value="{{s.next}}" hint-placeholder-val="{{ false }}">
+          <circle cx="{{s.x}}" cy="{{s.y}}" r="{{s.r}}" fill="#070914" stroke="{{color}}" stroke-width="2" opacity="0.7"></circle>
+        </sc-if>
+        <sc-if value="{{s.distant}}" hint-placeholder-val="{{ false }}">
+          <circle cx="{{s.x}}" cy="{{s.y}}" r="2.4" fill="#5A619A" opacity="{{distOp}}"></circle>
+        </sc-if>
+        <sc-if value="{{s.selected}}" hint-placeholder-val="{{ false }}">
+          <circle cx="{{s.x}}" cy="{{s.y}}" r="24" fill="none" stroke="#CFEAFF" stroke-width="2" stroke-dasharray="4 6"></circle>
+        </sc-if>
+      </g>
+    </sc-for>
+
+    <text x="140" y="500" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="{{branchFs}}" fill="#7D83AF">Mind</text>
+    <text x="860" y="500" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="{{branchFs}}" fill="#7D83AF">Lore</text>
+    <text x="560" y="975" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="{{branchFs}}" fill="#7D83AF">Rhythm</text>
+  </svg>
+  <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
+    <sc-for list="{{stars}}" as="s" hint-placeholder-count="12">
+      <sc-if value="{{s.showLabel}}" hint-placeholder-val="{{ true }}">
+        <span style="{{s.labelStyle}}">{{s.label}}</span>
+      </sc-if>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"stage":{"editor":"enum","default":"mid","options":["new","mid"]},"selected":{"editor":"text","default":""},"color":{"editor":"color","default":"#7FD4FF","options":["#7FD4FF","#FF9A4D","#A98BFF","#9FE6D6"]},"labelScale":{"editor":"range","default":1,"min":0.8,"max":1.6,"step":0.05},"size":{"editor":"text","default":"600px"},"$preview":{"width":600,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const stage = p.stage === 'new' ? 'new' : 'mid';
+    const color = p.color || '#7FD4FF';
+    const k = Number(p.labelScale ?? 1);
+    const S = [
+      ['apprentice', 'Apprentice', 'rank', 500, 400, 'r'], ['adept', 'Adept', 'rank', 500, 330, 'r'], ['magus', 'Magus', 'rank', 500, 260, 'r'], ['archmagus', 'Archmagus', 'rank', 500, 190, 'r'], ['sage', 'Sage', 'rank', 500, 120, 'r'],
+      ['m1', '1h', 'mile', 360, 370, 'l'], ['m5', '5h', 'mile', 310, 318, 'l'], ['m10', '10h', 'mile', 262, 270, 'l'], ['m25', '25h', 'mile', 215, 222, 'l'], ['m50', '50h', 'mile', 172, 175, 'l'], ['m100', '100h', 'mile', 132, 130, 'l'], ['m250', '250h', 'mile', 95, 88, 'l'],
+      ['firstsit', 'First sit', 'side', 300, 425, 'l'], ['longsit', 'Long sit', 'side', 178, 322, 'l'], ['dawnsit', 'Dawn sit', 'side', 128, 262, 'l'],
+      ['l1', '1h', 'mile', 640, 370, 'r'], ['l5', '5h', 'mile', 690, 318, 'r'], ['l10', '10h', 'mile', 738, 270, 'r'], ['l25', '25h', 'mile', 785, 222, 'r'], ['l50', '50h', 'mile', 828, 175, 'r'], ['l100', '100h', 'mile', 868, 130, 'r'], ['l250', '250h', 'mile', 905, 88, 'r'],
+      ['deepstudy', 'Deep study', 'side', 830, 345, 'r'], ['nightscholar', 'Night scholar', 'side', 905, 262, 'b'],
+      ['d7', '7 days', 'mile', 500, 660, 'r'], ['d30', '30 days', 'mile', 455, 745, 'l'], ['d100', '100 days', 'mile', 470, 840, 'l'],
+      ['run7', '7-day run', 'side', 585, 710, 'r'], ['run21', '21-day run', 'side', 640, 790, 'r'], ['run60', '60-day run', 'side', 700, 870, 'r'], ['returned', 'Returned', 'side', 365, 790, 'l']
+    ];
+    const LIT = {
+      new: [],
+      mid: ['apprentice', 'adept', 'm1', 'm5', 'm10', 'm25', 'm50', 'firstsit', 'longsit', 'dawnsit', 'l1', 'l5', 'l10', 'deepstudy', 'd7', 'd30', 'run7', 'run21', 'returned']
+    };
+    const NEXT = {
+      new: ['apprentice', 'firstsit', 'm1', 'l1', 'd7'],
+      mid: ['magus', 'm100', 'l25', 'nightscholar', 'd100', 'run60']
+    };
+    const NEW = { new: [], mid: ['dawnsit'] };
+    const st = (id) => LIT[stage].includes(id) ? 'lit' : NEXT[stage].includes(id) ? 'next' : 'distant';
+    const pos = {}; S.forEach((s) => { pos[s[0]] = [s[3], s[4]]; });
+    pos.heart = [500, 500];
+    const E = [['heart', 'apprentice'], ['apprentice', 'adept'], ['adept', 'magus'], ['magus', 'archmagus'], ['archmagus', 'sage'],
+      ['heart', 'm1'], ['m1', 'm5'], ['m5', 'm10'], ['m10', 'm25'], ['m25', 'm50'], ['m50', 'm100'], ['m100', 'm250'], ['m1', 'firstsit'], ['m10', 'longsit'], ['m25', 'dawnsit'],
+      ['heart', 'l1'], ['l1', 'l5'], ['l5', 'l10'], ['l10', 'l25'], ['l25', 'l50'], ['l50', 'l100'], ['l100', 'l250'], ['l10', 'deepstudy'], ['l25', 'nightscholar'],
+      ['heart', 'd7'], ['d7', 'd30'], ['d30', 'd100'], ['d7', 'run7'], ['run7', 'run21'], ['run21', 'run60'], ['d30', 'returned']];
+    const edges = [];
+    E.forEach(([a, b]) => {
+      const sa = a === 'heart' ? 'lit' : st(a), sb = st(b);
+      let style = null;
+      if (sa === 'lit' && sb === 'lit') style = { stroke: color, w: 1.6, dash: 'none', op: 0.55 };
+      else if ((sa === 'lit' && sb === 'next') || (sb === 'lit' && sa === 'next')) style = { stroke: '#9FDCFF', w: 1.4, dash: '2 9', op: 0.35 };
+      if (!style) return;
+      const [x1, y1] = pos[a], [x2, y2] = pos[b];
+      edges.push({ x1, y1, x2, y2, ...style });
+    });
+    const sel = p.selected || '';
+    const px = (parseFloat(p.size || '600') || 600) / 1000;
+    const stars = S.map(([id, label, kind, x, y, side]) => {
+      const s = st(id);
+      const rank = kind === 'rank';
+      const r = s === 'lit' ? (rank ? 7 : kind === 'mile' ? 5.5 : 4.5) : 5;
+      const showLabel = s !== 'distant';
+      const fs = Math.round((rank ? 38 : 28) * k);
+      const dx = side === 'l' ? -(18 + r) : (18 + r);
+      const fill = id === sel ? '#F1EFFA' : s === 'lit' ? (rank ? '#F1EFFA' : '#9BA0C8') : '#7D83AF';
+      const lx = side === 'b' ? x : x + dx, ly = side === 'b' ? y + r + 12 : y;
+      const tf = side === 'b' ? 'translate(-50%, 0)' : side === 'l' ? 'translate(-100%, -50%)' : 'translate(0, -50%)';
+      const labelStyle = `position: absolute; left: ${lx / 10}%; top: ${ly / 10}%; transform: ${tf}; white-space: nowrap; line-height: 1; ` +
+        `font-family: ${rank ? "'Cormorant Garamond', Georgia, serif" : 'Manrope, system-ui, sans-serif'}; font-size: ${Math.max(10, Math.round(fs * px))}px; ` +
+        `font-style: ${s === 'next' && rank ? 'italic' : 'normal'}; font-weight: ${rank && s === 'lit' ? 500 : 400}; color: ${fill}`;
+      return {
+        labelStyle,
+        id, x, y, r, rank, label, title: label + (s === 'lit' ? ', lit' : s === 'next' ? ', next to light' : ''),
+        lit: s === 'lit', next: s === 'next', distant: s === 'distant', isNew: NEW[stage].includes(id), selected: id === sel,
+        haloR: rank ? 40 : kind === 'mile' ? 28 : 22, haloOp: rank ? 0.9 : 0.6, newR: 48,
+        spark: `M${x} ${y - 20} L${x + 3} ${y - 3} L${x + 20} ${y} L${x + 3} ${y + 3} L${x} ${y + 20} L${x - 3} ${y + 3} L${x - 20} ${y} L${x - 3} ${y - 3} Z`,
+        showLabel, lx: x + dx, ly: y + fs * 0.34, anchor: side === 'l' ? 'end' : 'start',
+        font: rank ? "'Cormorant Garamond', Georgia, serif" : 'Manrope, system-ui, sans-serif',
+        fs, fstyle: s === 'next' && rank ? 'italic' : 'normal', fw: rank && s === 'lit' ? 500 : 400,
+        fill: id === sel ? '#F1EFFA' : s === 'lit' ? (rank ? '#F1EFFA' : '#9BA0C8') : '#7D83AF'
+      };
+    });
+    const med = stage === 'mid' ? 62 : 0, study = stage === 'mid' ? 24 : 0;
+    const ratio = med + study > 0 ? med / (med + study) : 0.5;
+    const litCount = LIT[stage].length;
+    return {
+      color, stars, edges,
+      size: p.size || '600px',
+      distOp: stage === 'new' ? 0.18 : 0.55,
+      nebX: Math.round(500 - (ratio - 0.5) * 2 * 240), nebRx: Math.round(300 + Math.abs(ratio - 0.5) * 300),
+      neb2X: Math.round(500 + (ratio - 0.5) * 2 * 260), neb2Rx: Math.round(220 - Math.abs(ratio - 0.5) * 200),
+      heartHalo: stage === 'mid' ? 120 : 70, heartRing: stage === 'mid', heartOp: stage === 'mid' ? 1 : 0.6,
+      branchFs: Math.round(42 * k),
+      ariaLabel: stage === 'new' ? 'A dark sky: only the heart and five faint stars waiting to be lit' : 'Constellation sky with ' + litCount + ' lit stars; the Mind branch reaches furthest, Lore is shorter, Rhythm is steady'
+    };
+  }
+}
+</script>
+</body>
+</html>
