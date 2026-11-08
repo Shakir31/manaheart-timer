@@ -85,6 +85,8 @@ The design is final; build to it, don't redesign.
   error) and `useHeartState()` for derived progress. Never call `computeHeartState`
   directly in components.
 - `useAuth()` for the session and sign in/up/out.
+- Repo: https://github.com/Shakir31/manaheart-timer (branch `main`). `supabase/` and `.env`
+  are git-ignored and must never be committed.
 - Keys live in `.env` (git-ignored); see `.env.example`. Only the anon key belongs in the
   app. Never the service_role key.
 
@@ -111,7 +113,7 @@ src/
   lib/        Supabase client, safe localStorage
   test/       test helpers: fake Supabase, providers, renderApp
   styles/     tokens.css (from the design system), global.css
-supabase/     SQL migrations
+supabase/     SQL migrations and email templates (git-ignored: local only, not on GitHub)
 docs/         guide.md, privacy.md, terms.md: the text of those pages (edit here, pages follow)
 design/       design system and exported screens (reference only, not shipped)
 ```
