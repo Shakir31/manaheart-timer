@@ -118,6 +118,39 @@
   text-decoration: none;
 }
 
+.tabIcon {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Unseen stars: a small dot on the Constellation tab until the sky is opened. */
+.newDot {
+  position: absolute;
+  top: -1px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--core);
+  box-shadow: var(--glow-dot);
+}
+.link .newDot {
+  position: relative;
+  display: inline-block;
+  top: -8px;
+  right: auto;
+  margin-left: 4px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .tabDot {
   width: 4px;
   height: 4px;

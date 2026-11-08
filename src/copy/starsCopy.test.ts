@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Star } from '../engine'
 import { DEFAULT_CONFIG } from '../engine'
 import { loreFor } from './lore'
-import { skyLean, starLabel, starLine, starSheet, starTitle } from './starsCopy'
+import { newStarsLine, skyLean, starLabel, starLine, starSheet, starTitle } from './starsCopy'
 
 const star = (over: Partial<Star>): Star => ({
   id: 'm100', branch: 'mind', kind: 'mile', index: 5, parent: 'm50',
@@ -58,5 +58,23 @@ describe('lore', () => {
     }
     expect(loreFor(1, DEFAULT_CONFIG.ranks)).toMatch(/^The first light gathers/)
     expect(loreFor(6, DEFAULT_CONFIG.ranks)).toMatch(/^The names end here/)
+  })
+})
+
+describe('newStarsLine', () => {
+  const lit = (over: Partial<Star>) => star({ state: 'lit', litAt: '2026-11-02T09:00:00Z', ...over })
+
+  it('names a single new star with its branch', () => {
+    expect(newStarsLine([lit({})])).toBe('A new star has lit: A hundred hours on the Mind branch.')
+  })
+
+  it('counts several and features the most notable one', () => {
+    const side = lit({ id: 'longsit', kind: 'side', rule: { type: 'long', category: 'meditation', minutes: 60 } })
+    const rank = lit({ id: 'rank1', branch: 'ranks', kind: 'rank', rule: { type: 'rank', level: 1 } })
+    expect(newStarsLine([side, lit({}), rank])).toBe('Three new stars have lit, including Apprentice.')
+  })
+
+  it('says nothing when no star lit', () => {
+    expect(newStarsLine([])).toBeNull()
   })
 })

@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet, useLocation } from 'react-router'
+import { useNewStars } from '../data/useNewStars'
 import { Icon, type IconName } from '../ui/Icon'
 import styles from './AppShell.module.css'
 
@@ -22,6 +23,8 @@ export function AppShell() {
   const page = PAGES[pathname]
   const back = page?.back
   const sub = !!back
+  const newStars = useNewStars().length > 0 && pathname !== '/constellation'
+  const unseen = (to: string) => newStars && to === '/constellation'
 
   return (
     <div className={sub ? `${styles.shell} ${styles.subPage}` : styles.shell}>
@@ -41,6 +44,7 @@ export function AppShell() {
           {TABS.map((t) => (
             <NavLink key={t.to} to={t.to} end className={({ isActive }) => (isActive ? `${styles.link} ${styles.linkActive}` : styles.link)}>
               {t.label}
+              {unseen(t.to) && <><span className={styles.newDot} aria-hidden="true" /><span className={styles.srOnly}>, new stars</span></>}
             </NavLink>
           ))}
         </nav>
@@ -57,8 +61,12 @@ export function AppShell() {
         <nav aria-label="Main" className={styles.bottomNav}>
           {TABS.map((t) => (
             <NavLink key={t.to} to={t.to} end className={({ isActive }) => (isActive ? `${styles.tab} ${styles.tabActive}` : styles.tab)}>
-              <Icon name={t.icon} />
+              <span className={styles.tabIcon}>
+                <Icon name={t.icon} />
+                {unseen(t.to) && <span className={styles.newDot} aria-hidden="true" />}
+              </span>
               {t.label}
+              {unseen(t.to) && <span className={styles.srOnly}>, new stars</span>}
               <span className={styles.tabDot} aria-hidden="true" />
             </NavLink>
           ))}

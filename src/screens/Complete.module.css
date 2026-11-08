@@ -65,6 +65,30 @@
   margin-bottom: var(--space-7);
 }
 
+.star {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-body);
+}
+
+.starMark {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  background: var(--core);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+
+.starLink {
+  color: var(--primary);
+  font-weight: 500;
+}
+
 .back {
   margin-top: auto;
   border-color: var(--mana-soft);

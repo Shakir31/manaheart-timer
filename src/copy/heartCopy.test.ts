@@ -71,7 +71,7 @@ describe('rhythm copy', () => {
 
   it('notes whether the rhythm was kept', () => {
     expect(rhythmNote(week([true, true, true, true, true, false, true]))).toBe('Rhythm kept · 6 of the last 7 days')
-    expect(rhythmNote(week([true, false, false, false, false, false, true]))).toBe('The rhythm starts again · 2 of the last 7 days')
+    expect(rhythmNote(week([true, false, false, false, false, false, true]))).toBe('A new rhythm starts today · 2 of the last 7 days')
     expect(rhythmNote(week([true, true, false, false, false, false, false]))).toBe(
       'A few more minutes today will keep the rhythm going · 2 of the last 7 days',
     )

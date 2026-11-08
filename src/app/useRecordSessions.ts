@@ -9,6 +9,8 @@ import type { SessionSource } from '../data/types'
 /** What the Session complete screen needs (passed as router state). */
 export interface CompleteState {
   gainMinutes: number
+  /** When the saved sessions ended; stars lit at these instants are new from this session. */
+  endedAts: string[]
   categories: Category[]
   /** Where the mana went, worked out before saving: "the fourth circle". */
   target: string
@@ -31,11 +33,14 @@ export function useRecordSessions() {
   return useCallback(
     async (entries: RecordEntry[], source: SessionSource, note?: string) => {
       const target = flowTarget(heart)
+      const endedAts: string[] = []
       for (const e of entries) {
-        await addSession({ ...e, source, note: note ?? null })
+        const saved = await addSession({ ...e, source, note: note ?? null })
+        endedAts.push(saved.endedAt)
       }
       const state: CompleteState = {
         gainMinutes: entries.reduce((sum, e) => sum + e.durationMinutes, 0),
+        endedAts,
         categories: entries.map((e) => e.category),
         target,
       }

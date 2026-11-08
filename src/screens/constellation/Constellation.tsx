@@ -7,7 +7,7 @@ import { useConstellation } from '../../data/useConstellation'
 import { useManaData } from '../../data/context'
 import { useHeartState } from '../../data/useHeartState'
 import { variantFor } from '../../heart/heartModel'
-import { readJson, writeJson } from '../../lib/storage'
+import { markSkySeen, readSkySeen } from '../../data/skySeen'
 import { Icon } from '../../ui/Icon'
 import { Sheet } from '../../ui/Sheet'
 import { DESKTOP, useMediaQuery } from '../../ui/useMediaQuery'
@@ -27,14 +27,11 @@ const HOW_IT_FILLS = [
  * highlighting anything, so a long history doesn't all flash at once.
  */
 function useFreshStars(stars: Star[], userId: string | undefined): ReadonlySet<string> {
-  const key = `manaheart.skySeenAt.${userId ?? 'anon'}`
-  const [seenAt] = useState<string | null>(() => {
-    const v = readJson(key)
-    return typeof v === 'string' ? v : null
-  })
+  // The mark as it was on arrival; opening the sky then moves it to now.
+  const [seenAt] = useState<string | null>(() => (userId ? readSkySeen(userId) : null))
   useEffect(() => {
-    writeJson(key, new Date().toISOString())
-  }, [key])
+    if (userId) markSkySeen(userId)
+  }, [userId])
   if (!seenAt) return new Set()
   const mark = Date.parse(seenAt)
   return new Set(stars.filter((s) => s.litAt && Date.parse(s.litAt) > mark).map((s) => s.id))

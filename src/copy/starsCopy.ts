@@ -130,3 +130,24 @@ export function skyLean(meditationMinutes: number, studyMinutes: number): LeanCo
   }
   return { title: 'The sky is in balance.', body: 'Meditation and study are growing side by side.', ratio }
 }
+
+const COUNT_WORDS = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+const KIND_ORDER = { rank: 0, mile: 1, side: 2 } as const
+
+/** The star worth naming when several light at once: ranks first, then milestones. */
+export function featuredStar(stars: readonly Star[]): Star | null {
+  return [...stars].sort((a, b) => KIND_ORDER[a.kind] - KIND_ORDER[b.kind])[0] ?? null
+}
+
+function starWithBranch(star: Star): string {
+  return star.branch === 'ranks' ? starTitle(star.rule) : `${starTitle(star.rule)} on the ${BRANCH_NAME[star.branch]} branch`
+}
+
+/** Session complete: "A new star has lit: Ten hours on the Mind branch." */
+export function newStarsLine(stars: readonly Star[]): string | null {
+  const star = featuredStar(stars)
+  if (!star) return null
+  if (stars.length === 1) return `A new star has lit: ${starWithBranch(star)}.`
+  const count = COUNT_WORDS[stars.length] ?? String(stars.length)
+  return `${count} new stars have lit, including ${starWithBranch(star)}.`
+}

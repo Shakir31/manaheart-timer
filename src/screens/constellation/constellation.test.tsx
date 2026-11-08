@@ -166,3 +166,52 @@ describe('Grimoire', () => {
     expect(await screen.findByText('The first page will be written once the heart forms.')).toBeInTheDocument()
   })
 })
+
+describe('new star alerts', () => {
+  it('names the stars a session lit on Session complete, with a link to the sky', async () => {
+    const user = userEvent.setup()
+    mocked.insertSession.mockResolvedValue()
+    renderApp('/')
+    await user.click(await screen.findByRole('button', { name: 'Log manually' }))
+    await user.click(screen.getByRole('button', { name: '60 minutes' }))
+    await user.click(screen.getByRole('button', { name: 'Add to the heart' }))
+    // An hour-long first sit lights One hour, First sit and Long sit at once.
+    expect(await screen.findByText(/^Three new stars have lit, including One hour on the Mind branch\./)).toBeInTheDocument()
+    await user.click(screen.getByRole('link', { name: 'See the sky' }))
+    expect(await screen.findByRole('img', { name: /Constellation with 3 lit stars/ })).toBeInTheDocument()
+  })
+
+  it('says nothing about stars when none lit', async () => {
+    const user = userEvent.setup()
+    mocked.insertSession.mockResolvedValue()
+    setup(journey)
+    renderApp('/')
+    await user.click(await screen.findByRole('button', { name: 'Log manually' }))
+    await user.click(screen.getByRole('button', { name: '15 minutes' }))
+    await user.click(screen.getByRole('button', { name: 'Add to the heart' }))
+    await screen.findByText('Session complete')
+    expect(screen.queryByText(/new star/)).toBeNull()
+  })
+
+  it('puts a dot on the Constellation tab until the sky is opened', async () => {
+    const user = userEvent.setup()
+    setup(journey)
+    localStorage.setItem('manaheart.skySeenAt.user-1', JSON.stringify(new Date(NOW.getTime() - 5 * 86_400_000).toISOString()))
+    renderApp('/')
+    const nav = (await screen.findAllByRole('navigation', { name: 'Main' }))[1]
+    const tab = within(nav).getByRole('link', { name: /Constellation/ })
+    expect(tab).toHaveAccessibleName('Constellation, new stars')
+    await user.click(tab)
+    await screen.findByText('The sky leans toward Mind.')
+    const after = (await screen.findAllByRole('navigation', { name: 'Main' }))[1]
+    expect(within(after).getByRole('link', { name: /Constellation/ })).toHaveAccessibleName('Constellation')
+  })
+
+  it('starts the mark on first run, so old stars do not count as new', async () => {
+    setup(journey)
+    renderApp('/')
+    const nav = (await screen.findAllByRole('navigation', { name: 'Main' }))[1]
+    expect(within(nav).getByRole('link', { name: /Constellation/ })).toHaveAccessibleName('Constellation')
+    expect(localStorage.getItem('manaheart.skySeenAt.user-1')).not.toBeNull()
+  })
+})

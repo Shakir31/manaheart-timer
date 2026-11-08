@@ -89,5 +89,5 @@ export function rhythmNote(days: RhythmDay[], graceDays = DEFAULT_CONFIG.graceDa
   const today = days.at(-1)
   if (!today?.practiced) return `A few more minutes today will keep the rhythm going · ${count}`
   const recent = days.slice(-(graceDays + 2), -1)
-  return recent.some((d) => d.practiced) ? `Rhythm kept · ${count}` : `The rhythm starts again · ${count}`
+  return recent.some((d) => d.practiced) ? `Rhythm kept · ${count}` : `A new rhythm starts today · ${count}`
 }
